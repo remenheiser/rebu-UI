@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: rebu;
+    src: url(src/assets/rebu-font.ttf);
+  }
+
+#title {
+    font-family: rebu;
+    font-size: 150px;
+    margin-top: 0px;
+    text-align: center;
+}
