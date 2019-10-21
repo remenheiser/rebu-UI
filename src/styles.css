@@ -1,12 +1,172 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
 @font-face {
     font-family: rebu;
     src: url(src/assets/rebu-font.ttf);
   }
 
-#title {
-    font-family: rebu;
-    font-size: 150px;
-    margin-top: 0px;
-    text-align: center;
+
+
+body {
+  background: #212121;
+  margin-top: -100px;
+	/* font-size:22px;
+	line-height: 32px;
+	color: #ffffff;
+	word-wrap:break-word !important;
+	font-family: 'Open Sans', sans-serif; */
+	}
+
+#logo {
+	text-align: left;
 }
+
+
+h1 {
+	background-color: #FFF;
+}	
+
+h3 {
+	font-size: 30px;
+	text-align: center;
+	color: #FFF;
+} 
+
+#container {
+  text-align: center;
+}
+/* h3 a {
+	color: #FFF;
+} */
+
+a {
+	color: black;
+}
+
+h1 {
+	margin-top: 100px;
+	text-align:center;
+	font-size:60px;
+	font-family: 'Bree Serif', 'serif';
+	}
+
+#container {
+	margin: 0 auto;
+}
+
+/* p {
+	text-align: center;
+} */
+
+nav {
+	margin: 50px 0;
+  background-color: #E64A19;
+  position: relative;
+  z-index: 1;
+}
+
+nav ul {
+	padding: 0;
+  margin: 0;
+	list-style: none;
+	position: relative;
+	}
+	
+nav ul li {
+	display:inline-block;
+	background-color: #E64A19;
+	}
+
+nav a {
+	display:block;
+	padding:0 10px;	
+	color:#FFF;
+	font-size:20px;
+	line-height: 60px;
+	text-decoration:none;
+}
+
+nav a:hover { 
+	background-color: #000000; 
+}
+
+/* Hide Dropdowns by Default */
+nav ul ul {
+	display: none;
+	position: absolute; 
+	top: 60px; /* the height of the main nav */
+}
+	
+/* Display Dropdowns on Hover */
+nav ul li:hover > ul {
+	display:inherit;
+}
+	
+/* Fisrt Tier Dropdown */
+nav ul ul li {
+	width:170px;
+	float:none;
+	display:list-item;
+	position: relative;
+}
+
+/* Second, Third and more Tiers	*/
+nav ul ul ul li {
+	position: relative;
+	top:-60px; 
+	left:170px;
+}
+
+.info-fill {
+	width: 300px;
+	margin: 50px;
+	background-color: #FFF;
+}
+
+	
+/* Change this in order to change the Dropdown symbol */
+li > a:after { content:  ' +'; }
+li > a:only-child:after { content: ''; }
+
+
+
+/* body {
+	background-color: #111;
+} */
+
+.title {
+	font-family: rebu;
+	text-align: center;
+	color: #FFF;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	/* height: 100vh; */
+	letter-spacing: 1px;
+	margin-top: 25px;
+
+	/* font-family: rebu;
+    font-size: 150px;
+    text-align: center;
+    margin-bottom: -50px; */
+}
+
+h1 {
+	background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
+	/* fire:  https://media.giphy.com/media/F3LwChPI2Zj9OweyWz/giphy.gif */
+	background-size: cover;
+	color: transparent;
+	-moz-background-clip: text;
+	-webkit-background-clip: text;
+	
+	font-size: 120px;
+	font-family: rebu;
+	line-height: .75;
+	
+}
+
+
