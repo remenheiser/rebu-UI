@@ -4,6 +4,14 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
+
+@font-face {
+  font-family: rebu;
+  src: url(src/assets/Roboto-Regular.ttf);
+}
+
+
+
 h3 {
 	text-align: center;
 	background: #212121;
@@ -47,7 +55,62 @@ h3 {
 
 body {
 	margin: -25px;
-	background: #212121;
+	background-color: #212121;
+}
+
+/* .container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+} */
+
+a {
+  font-family: rebu;
+  font-size: 1.5rem;
+  padding: 1rem 3rem;
+  color: #212121;
+  /* text-transform: uppercase; */
+  text-align: center;
+  width: 125px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  text-decoration: none;
+  border: 1px solid rgb(245, 135, 66);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  
+  
+
+}
+
+.btn:hover {
+  box-shadow: 1px 1px 25px 0px rgba(245, 108, 66, 0.4);
+}
+
+.btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(245, 108, 66, 0.4),
+    transparent
+  );
+  transition: all 650ms;
+}
+
+.btn:hover:before {
+  left: 100%;
 }
 
 

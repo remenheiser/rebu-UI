@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SpotsComponent } from './spots/spots.component';
+import { ChosenSpotComponent } from './chosen-spot/chosen-spot.component';
 
 
 const routes: Routes = [
-  { path: 'spots', component: SpotsComponent}
+  { path: 'spots', component: SpotsComponent},
+  { path: 'chosen-spot', component: ChosenSpotComponent}
 ];
 
 @NgModule({
@@ -12,4 +14,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [SpotsComponent]
+export const routingComponents = [SpotsComponent, ChosenSpotComponent]

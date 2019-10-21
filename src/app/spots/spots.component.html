@@ -3,23 +3,19 @@
 <head>
 </head>
 <body>
-    
-
-
-
-
-
+  
 <h3>Find a place to park</h3>
 <div class="card-deck d-flex justify-content-center" style="margin-left: auto; margin-right: auto">
 
   <div *ngFor="let spots of spotsData">
     
-    <div class="card" style="width: 20rem; margin: 30px;">
-        <img class="card-img-top" src="https://newarkde.gov/ImageRepository/Document?documentID=7724" alt="Card image cap">
+    <div class="card" style="border: none; width: 20rem; margin: 30px;">
+        <img class="card-img-top" src="{{ spots.img }}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{spots.title}}</h5>
+          <h5 class="card-title">{{ spots.title }}</h5>
           <p class="card-text">{{ spots.price}}</p>
-          <a href="#" class="btn btn-primary">Reserve Spot</a>
+          <a href="#" class="btn">Reserve Spot</a>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
       </div>
 

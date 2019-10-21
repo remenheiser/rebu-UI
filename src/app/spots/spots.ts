@@ -1,4 +1,5 @@
 export interface ISpots {
     title: string,
-    price: string
+    price: string,
+    img: string
 }
