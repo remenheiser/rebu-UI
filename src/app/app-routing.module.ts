@@ -3,6 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { SpotsComponent } from './spots/spots.component';
 import { ChosenSpotComponent } from './chosen-spot/chosen-spot.component';
 import { HomeScreenComponent } from './home-screen/home-screen.component';
+import { AppComponent } from './app.component';
 
 
 const routes: Routes = [

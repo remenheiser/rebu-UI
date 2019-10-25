@@ -1,3 +1,51 @@
 
+<body>
+    <div class="title">
+      <h1>rebu</h1>
+    </div>
 
-<router-outlet></router-outlet>
+    <div id="container">
+      <nav>
+        <ul>
+          <li><a href="/home">Home</a></li>
+          <li>
+            <a href="/spots">Hot Spots</a>
+            <!-- First Tier Drop Down -->
+            <ul>
+              <li><a href="#">Themes</a></li>
+              <li><a href="#">Plugins</a></li>
+              <li><a href="#">Tutorials</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="/chosen-spot">Near By</a>
+            <!-- First Tier Drop Down -->
+            <ul>
+              <li><a href="#">Resources</a></li>
+              <li><a href="#">Links</a></li>
+              <li>
+                <a href="#">Tutorials</a>
+                <!-- Second Tier Drop Down -->
+                <ul>
+                  <li><a href="#">HTML/CSS</a></li>
+                  <li><a href="#">jQuery</a></li>
+                  <li>
+                    <a href="#">Other</a>
+                    <!-- Third Tier Drop Down -->
+                    <ul>
+                      <li><a href="#">Stuff</a></li>
+                      <li><a href="#">Things</a></li>
+                      <li><a href="#">Other Stuff</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </div>
+  </body>
+  <router-outlet></router-outlet>

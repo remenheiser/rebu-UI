@@ -5,10 +5,7 @@
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
 
-@font-face {
-  font-family: rebu;
-  src: url(src/assets/Roboto-Regular.ttf);
-}
+
 
 @font-face {
   font-family: title;
@@ -60,15 +57,15 @@ h3 {
 
 body {
 	margin: -25px;
-	background-color: #212121;
+  background-color: #212121;
+  min-height: 1000px;
 }
 
-/* .container {
+ .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 20px;
-} */
+} 
 
 a {
   font-family: rebu;
@@ -121,7 +118,7 @@ a {
 
 #mainImg {
   max-width: 900px;
-  filter: drop-shadow(0 0 0.75rem rgb(216, 120, 47));
+  filter: drop-shadow(0 0 0.75rem rgb(218, 218, 218));
 }
 
 #mainTitle {
