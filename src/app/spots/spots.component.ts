@@ -22,10 +22,10 @@ export class SpotsComponent implements OnInit {
           console.log(this.spotsData);
           this.spotsData = data;
         });
+  }
 
-       
+  goToSpot(){
     
-       
   }
 
 }

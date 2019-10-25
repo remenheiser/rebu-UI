@@ -1,1 +1,35 @@
-<p>chosen-spot works!</p>
+<head>
+</head>
+
+<body>
+
+
+    <h3>Peep the spot</h3>
+
+    <a routerLink ="/chosen-spot" routerLinkActive="active">Back to Send Page</a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+
+                <div id="mainImg">
+                    <img class="card-img-top" src="{{ spotsData.img }}" alt="Card image cap">
+                    <!-- <div class="card-body">
+          <h5 class="card-title">{{ spotsData.title }}</h5>
+          <p class="card-text">{{ spotsData.price}}</p>
+          <a href="#" class="btn">Reserve Spot</a>
+          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div> -->
+                </div>
+            </div>
+
+            <div class="col-sm">
+
+                <h2 id="mainTitle">{{ spotsData.title }} </h2>
+                <h2 id="price">{{ spotsData.price }} </h2>
+                <h2 id="id">{{ selectId }} </h2>
+            </div>
+
+        </div>
+    </div>
+</body>

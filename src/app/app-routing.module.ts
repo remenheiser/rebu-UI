@@ -6,7 +6,7 @@ import { ChosenSpotComponent } from './chosen-spot/chosen-spot.component';
 
 const routes: Routes = [
   { path: 'spots', component: SpotsComponent},
-  { path: 'chosen-spot', component: ChosenSpotComponent}
+  { path: 'chosen-spot/:id', component: ChosenSpotComponent}
 ];
 
 @NgModule({
