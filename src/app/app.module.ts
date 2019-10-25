@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SpotsComponent } from './spots/spots.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ChosenSpotComponent } from './chosen-spot/chosen-spot.component';
+import { HomeScreenComponent } from './home-screen/home-screen.component';
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     SpotsComponent,
-    ChosenSpotComponent
+    ChosenSpotComponent,
+    HomeScreenComponent
   ],
   imports: [
     BrowserModule,

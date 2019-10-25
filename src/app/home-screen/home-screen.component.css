@@ -1,0 +1,9 @@
+p {
+  color: cyan;
+}
+
+body {
+  margin: -25px;
+  min-height: 500px;
+  background-color: #212121;
+}
