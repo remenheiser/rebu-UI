@@ -72,6 +72,52 @@ h1 {
     }
   }
 
+
+  .wrapper-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212121;
+    margin-top: -300px;
+    padding-right: 400px;
+  
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+  }
+
+
+  .wrapper-4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212121;
+    margin-top: -300px;
+    padding-left: 400px;
+  
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+  }
+
+
+  .wrapper-5 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #212121;
+    margin-top: -300px;
+    padding-right: 400px;
+  
+    @media (min-width: 768px) {
+      height: 100%;
+    }
+  }
+
+
 .container {
   opacity: 0;
   transition: transform 1s ease, opacity 1s ease;

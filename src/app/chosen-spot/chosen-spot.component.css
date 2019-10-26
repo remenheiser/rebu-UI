@@ -12,7 +12,9 @@
   src: url(src/assets/spotTitle.ttf);
 }
 
-
+agm-map {
+  height: 300px;
+}
 
 h3 {
 	text-align: center;
@@ -59,7 +61,7 @@ h3 {
 body {
 	margin: -25px;
   background-color: #212121;
-  min-height: 1000px;
+  min-height: 1500px;
 }
 
  .container {
