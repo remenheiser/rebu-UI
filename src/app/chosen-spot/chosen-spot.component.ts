@@ -19,6 +19,8 @@ export class ChosenSpotComponent implements OnInit {
 
   selectId: number;
 
+  
+
   ngOnInit() {
 
  
