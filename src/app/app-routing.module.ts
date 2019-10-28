@@ -7,6 +7,7 @@ import { AboutComponent } from './about/about.component';
 import { ListComponent } from './list/list.component';
 import { NearByComponent } from './near-by/near-by.component';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   { path: 'home', component: HomeScreenComponent},
   { path: 'about', component: AboutComponent},
   { path: 'list', component: ListComponent },
-  { path: 'near-by', component: NearByComponent }
+  { path: 'near-by', component: NearByComponent },
+  { path: 'login', component: LoginComponent }
 ];
 
 @NgModule({
@@ -23,4 +25,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [SpotsComponent, ChosenSpotComponent, HomeScreenComponent, AboutComponent, ListComponent]
+export const routingComponents = [SpotsComponent, ChosenSpotComponent, HomeScreenComponent, AboutComponent, ListComponent, LoginComponent]

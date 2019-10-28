@@ -1,8 +1,53 @@
 <body>
+    <p id=title>Listing is simple</p>
 
-    <p id = title>list works!</p>
+    <p id="msg"></p>
+   
+
+
+    <div class="container">
+
+
+        <form class="form-group" action="/api/spot" method="put" id="my_form">
+            <div class="row row-style">
+                <div>
+                <!-- <label>Title</label> -->
+                <label for="title">Title</label>
+                <input class="inputString" type="string" name="title" placeholder="Enter a title" />
+                </div>
+            </div>
+            <div class="row row-style">
+                <!-- <label>Price</label> -->
+                <div>
+                    <label for="price">Price</label>
+                    <input class="inputString" type="string" name="price" placeholder="Enter a price"/>
+                </div>
+            </div>
+            <div class="row row-style">
+                <!-- <label>IMG</label> -->
+                <div>
+                    <label for="img">Image Link</label>
+                <input class="inputString" type="string" name="img" placeholder="Link to an image"/>
+                </div>
+            </div>
+            <div class="row row-style">
+                <!-- <label>Date</label> -->
+                <div>
+                <label for="date">Date</label>
+                <input class="inputString" type="string" name="date" placeholder="Enter a date"/>
+                </div>
+            </div>
+
+            <input id="submitButton" type="submit" name="submit" value="Submit Form" />
+            <div id="server-results">For server results
+
+            </div>
+        </form>
+
+    </div>
+
+
+
 
 
 </body>
-
-

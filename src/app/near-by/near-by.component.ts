@@ -18,8 +18,12 @@ export class NearByComponent implements OnInit {
     $("#close").click(function() {
        $('#Modal').hide();
     });
-    
-    
-  }
 
-}
+    $.getJSON('localhost:3000/spots', function(data) {
+      $.each(data, function(i, field){
+        console.log(field);
+      
+  });
+    }
+
+    )}}

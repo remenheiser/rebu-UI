@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 })
 export class SpotsService {
 
-    private _url: string = "http://localhost:3000/spots";
+    private _url: string = "/api/spots";
 
     constructor(private http: HttpClient) { }
 

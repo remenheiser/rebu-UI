@@ -10,7 +10,11 @@ import { HomeScreenComponent } from './home-screen/home-screen.component';
 import { AboutComponent } from './about/about.component';
 import { AgmCoreModule } from '@agm/core';
 import { ListComponent } from './list/list.component';
-import { NearByComponent } from './near-by/near-by.component'
+import { NearByComponent } from './near-by/near-by.component';
+import * as $ from 'jquery';
+import { LoginComponent } from './login/login.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,15 +24,17 @@ import { NearByComponent } from './near-by/near-by.component'
     HomeScreenComponent,
     AboutComponent,
     ListComponent,
-    NearByComponent
+    NearByComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
+      NgbModule,
     AppRoutingModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB5OJt9-wsH0qPuYPpTny8IlEruNUufNwI'
-    })
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent]
