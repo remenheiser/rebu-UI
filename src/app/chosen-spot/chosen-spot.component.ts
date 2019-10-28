@@ -32,6 +32,9 @@ export class ChosenSpotComponent implements OnInit {
   
 
   ngOnInit() {
+
+  
+
     
 
  

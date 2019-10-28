@@ -75,8 +75,7 @@ a {
   font-family: rebu;
   font-size: 1.5rem;
   padding: 1rem 3rem;
-  color: #212121;
-  /* text-transform: uppercase; */
+  color: aliceblue;
   text-align: center;
   width: 125px;
   display: flex;
@@ -161,5 +160,30 @@ a {
   
 }
 
+#mock {
+  max-width: 570px;
+  max-height: 900px;
+  margin-left: -150px;
+}
 
 
+
+#labels {
+  color: aliceblue;
+  font-size: 75px;
+  padding: 100px;
+}
+
+#labelDirection {
+  color: aliceblue;
+  font-size: 50px;
+  padding: 100px;
+  margin-left: 50px;
+}
+
+#hyplink {
+  margin-top: 8px;
+  font-size: 75px;
+  padding: 100px;
+  color: rgb(230, 74, 25);
+}
