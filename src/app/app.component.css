@@ -171,7 +171,7 @@ h1 {
 	color: transparent;
 	-moz-background-clip: text;
 	-webkit-background-clip: text;
-	
+	width: auto;
 	font-size: 175px;
 	font-family: rebu;
 	line-height: .75;

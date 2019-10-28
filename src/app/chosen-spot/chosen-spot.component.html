@@ -10,7 +10,7 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm">
+            <div class="col">
 
                 <div id="mainImg">
                     <img class="card-img-top" src="{{ spotsData.img }}" alt="Card image cap">
@@ -23,20 +23,23 @@
                 </div>
             </div>
 
-            <div class="col-sm">
+            <div class="col">
 
                 <h2 id="mainTitle">{{ spotsData.title }} </h2>
                 <h2 id="date">Date posted - {{ spotsData.date }} </h2>
                 <h2 id="price">{{ spotsData.price }} </h2>
             
             </div>
-
-            <div class="col-sm">
+            </div>
+            <div class="row">
+                <div class="col">
                     <agm-map [latitude]="lat" [longitude]="lng">
                             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
                           </agm-map>
             </div>
+        </div>
+            
 
         </div>
-    </div>
+   
 </body>

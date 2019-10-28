@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss']
 })
 
 
@@ -39,6 +39,38 @@ export class ListComponent implements OnInit {
 
     // });
 
+    var i = 0;
+    var t = 0;
+var txt = 'Smile bitch';
+var txt2 = 'Me Again. Wassup';
+var speed = 50;
+const typing = () => {
+	if (i < txt.length) {
+		document.getElementById("live").innerHTML += 		txt.charAt(i);
+		i++;
+		setTimeout(typing, speed);
+	}else {
+		document.getElementById('live').classList.add("live");
+		document.getElementById('belongTo').classList.add("fade-in");
+		document.getElementById('belongTo').classList.remove("hidden");
+  }
+  
+
+  if (t < txt2.length) {
+		document.getElementById("live2").innerHTML += 		txt2.charAt(t);
+		t++;
+		setTimeout(typing, speed);
+	}else {
+		document.getElementById('live2').classList.add("live2");
+		document.getElementById('belongTo1').classList.add("fade-in");
+		document.getElementById('belongTo1').classList.remove("hidden");
+	}
+		
+};
+
+
+typing();
+
 
     $("#my_form").submit(function(event){
       event.preventDefault(); //prevent default action 
@@ -52,6 +84,7 @@ export class ListComponent implements OnInit {
         data : form_data
       }).done(function(response){ //
         $("#server-results").html("Spot listed!");
+        document.location.href = '/spots';
       });
     });
 
