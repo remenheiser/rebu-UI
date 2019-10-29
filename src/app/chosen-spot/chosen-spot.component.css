@@ -178,7 +178,7 @@ a {
   color: aliceblue;
   font-size: 50px;
   padding: 100px;
-  margin-left: 50px;
+  margin-left: 100px;
 }
 
 #hyplink {
@@ -186,4 +186,11 @@ a {
   font-size: 75px;
   padding: 100px;
   color: rgb(230, 74, 25);
+  
 }
+
+#phoneButton{
+  margin-left: 150px;
+  margin-bottom: 50px;
+}
+

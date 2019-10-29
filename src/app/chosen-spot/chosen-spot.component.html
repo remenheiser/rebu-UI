@@ -1,14 +1,16 @@
 <head>
-        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyBirvZIvVJoKsQbnre_xUhYYeRzbnlEEGw"></script>
-    
+
+
 </head>
 
 <body>
 
 
-    <h3>Peep the spot</h3>
+    <h3 id="testDiv">Peep the spot</h3>
 
-   
+
+
+
 
     <div class="container">
         <div class="row">
@@ -30,30 +32,42 @@
                 <h2 id="mainTitle">{{ spotsData.title }} </h2>
                 <h2 id="date">Date posted - {{ spotsData.date }} </h2>
                 <h2 id="price">{{ spotsData.price }} </h2>
-            
-            </div>
-            </div>
 
-            
-            
-            
-            
-                <div class="col-sm-6" id="map">
-                    <agm-map [latitude]="lat" [longitude]="lng">
-                            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-                          </agm-map>
             </div>
-            <a id="labelDirection"> Directions to the parking spot</a>
-            <div class="col-sm-6"> 
+        </div>
 
-                    <img id="mock" src="../../assets/iphonemock1.png">
-                    </div>
 
-                    <a id="labels"> Checkout the app 
-                            <a id="hyplink" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_CGzkAhw2zienCd98xWkZKu4QOq7hU9ciSluuJDZ3GZpQySl&s">here.</a>
-                            </a>
+
+
+
+        <div class="col-sm-6" id="map">
+            <!-- <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-direction [origin]="origin" [destination]="destination">
+            </agm-direction>
+        </agm-map> -->
+
+
+        <div id="googleMap" style="width:100%;height:400px;"></div>
+
+
 
 
         </div>
-   
+        <div>
+        <a id="labelDirection"> Directions to the parking spot</a>
+        <button id="phoneButton" type="button" class="btn btn-primary">Open On Phone</button>
+    </div>
+        <div class="col-sm-6">
+
+            <img id="mock" src="../../assets/iphonemock1.png">
+        </div>
+
+        <a id="labels"> Checkout the app
+            <a id="hyplink"
+                href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_CGzkAhw2zienCd98xWkZKu4QOq7hU9ciSluuJDZ3GZpQySl&s">here.</a>
+        </a>
+
+
+    </div>
+
 </body>

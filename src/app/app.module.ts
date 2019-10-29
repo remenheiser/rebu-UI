@@ -14,6 +14,7 @@ import { NearByComponent } from './near-by/near-by.component';
 import * as $ from 'jquery';
 import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { AgmDirectionModule } from 'agm-direction';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
   imports: [
     BrowserModule,
       NgbModule,
+      AgmDirectionModule,
     AppRoutingModule,
     HttpClientModule,
     AgmCoreModule.forRoot({
