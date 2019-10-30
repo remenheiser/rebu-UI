@@ -15,6 +15,7 @@ import * as $ from 'jquery';
 import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AgmDirectionModule } from 'agm-direction';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AgmDirectionModule } from 'agm-direction';
     AboutComponent,
     ListComponent,
     NearByComponent,
-    LoginComponent
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
