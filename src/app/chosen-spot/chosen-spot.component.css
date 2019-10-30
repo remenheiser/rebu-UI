@@ -4,7 +4,10 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
 
-
+@font-face {
+  font-family: rebu;
+  src: url(src/assets/rebu-font.ttf);
+}
 
 
 @font-face {
@@ -148,9 +151,9 @@ a {
 #price {
   color: azure;
   text-align: center;
-  font-size: 50px;
+  font-size: 25px;
   margin-top: 100px;
-  font-family: rebu;
+  font-family: title;
 }
 
 #date {
@@ -198,5 +201,6 @@ a {
 
 #topDiv {
   margin-bottom: 50px;
+  font-family: rebu;
 }
 
