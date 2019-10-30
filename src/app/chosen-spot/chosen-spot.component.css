@@ -99,6 +99,7 @@ a {
 }
 
 .btn:hover {
+  color: white;
   box-shadow: 1px 1px 25px 0px rgba(245, 108, 66, 0.4);
 }
 
