@@ -67,7 +67,7 @@ export class ChosenSpotComponent implements OnInit {
 
 
             $("#phoneButton").click(function(){ 
-              window.location.href = "https://www.google.com/maps/dir/"+ pos.lat + ","+ pos.lng +"/" + end;
+              window.window.open("https://www.google.com/maps/dir/"+ pos.lat + ","+ pos.lng +"/" + end, '_blank');
             });
 
             var request = {
