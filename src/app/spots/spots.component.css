@@ -115,4 +115,8 @@ a {
   left: 100%;
 }
 
+.center-block {
+  margin: auto;
+  display: block;
+}
 
