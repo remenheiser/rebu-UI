@@ -32,11 +32,14 @@ export class SpotsComponent implements OnInit {
           this.spotsData = data;
           this.spotsOrgList = data;
         });
+        
   }
 
+  
+
   onKeyup(){
-   test();
    this.spotsData = filterCards(this.spotsOrgList);
+   
   }
 
 }

@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: "list", component: ListComponent },
   { path: "near-by", component: NearByComponent },
   { path: "login", component: LoginComponent },
-  { path: "signup", component: SignupComponent }
+  { path: "signup", component: SignupComponent },
+  { path: "", component: HomeScreenComponent }
 ];
 
 @NgModule({

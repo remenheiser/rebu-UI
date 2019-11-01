@@ -12,6 +12,7 @@ function filterCards(data) {
         filtered.push(data[i]);
       }
     }
+   
 
   return filtered;
 }

@@ -64,6 +64,7 @@ export class ChosenSpotComponent implements OnInit {
 
             var start = new google.maps.LatLng(pos.lat, pos.lng)
             var end = $('#mainTitle').text();
+            
 
 
             $("#phoneButton").click(function(){ 
