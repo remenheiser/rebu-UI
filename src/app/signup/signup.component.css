@@ -48,7 +48,7 @@ body {
 
 .form-modal .login,
 .form-modal .signup {
-  background: #57b846;
+  background: #e64a19;
   color: #fff;
 }
 
@@ -85,7 +85,7 @@ body {
 }
 
 #login-toggle {
-  background: #57b846;
+  background: #e64a19;
   color: #ffff;
 }
 
@@ -146,7 +146,7 @@ body {
 }
 
 .form-modal p a {
-  color: #57b846;
+  color: #e64a19;
   text-decoration: none;
   transition: 0.2s;
 }
