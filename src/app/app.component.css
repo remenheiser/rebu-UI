@@ -172,10 +172,12 @@ h1 {
 	-moz-background-clip: text;
 	-webkit-background-clip: text;
 	width: auto;
-	font-size: 175px;
+	font-size: 155px;
 	font-family: rebu;
 	line-height: .75;
 	letter-spacing: 10px;
+	padding-bottom: 30px;
+	padding-top: 20px;
 	
 }
 

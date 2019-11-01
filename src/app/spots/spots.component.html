@@ -16,17 +16,18 @@
 
   <div *ngFor="let spots of spotsData">
     
-    <div class="card" style="border: none; width: 20rem; margin: 30px;">
+    <a style="text-decoration: none;" href="http://localhost:4200/chosen-spot/{{ spots._id}}">
+    <div class="elevate card" >
         <img class="card-img-top" src="{{ spots.img }}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">{{ spots.title }}</h5>
+          <h5 style="text-decoration: none;" class="card-title">{{ spots.title }}</h5>
           <p class="card-text">{{ spots.price}}</p>
-          <a href="http://localhost:4200/chosen-spot/{{ spots._id}}" class="btn">Reserve Spot</a>
+          <!-- <a href="http://localhost:4200/chosen-spot/{{ spots._id}}" class="btn">Reserve Spot</a> -->
           <p class="card-text"><small class="text-muted"> Listed: {{ spots.date }} </small></p>
+          <p style="text-align: center; position: absolute; text-align: center; bottom: -5px;"><small class="text-muted"> Click for more information </small></p>
         </div>
       </div>
-
-
+    </a>
 
       
       </div>

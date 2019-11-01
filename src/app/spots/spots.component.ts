@@ -14,7 +14,7 @@ declare function filterCards(data): any;
 @Component({
   selector: 'app-spots',
   templateUrl: './spots.component.html',
-  styleUrls: ['./spots.component.css']
+  styleUrls: ['./spots.component.scss']
 })
 export class SpotsComponent implements OnInit {
 
