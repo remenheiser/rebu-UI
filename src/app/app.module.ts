@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import {HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SpotsComponent } from './spots/spots.component';
@@ -16,6 +16,8 @@ import { LoginComponent } from './login/login.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AgmDirectionModule } from 'agm-direction';
 import { SignupComponent } from './signup/signup.component';
+import { PostlistComponent } from './postlist/postlist.component';
+import { CustomHttpInterceptorService } from './httpinterceptor';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { SignupComponent } from './signup/signup.component';
     ListComponent,
     NearByComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    PostlistComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ import { SignupComponent } from './signup/signup.component';
       apiKey: 'AIzaSyB5OJt9-wsH0qPuYPpTny8IlEruNUufNwI'
     }),
   ],
-  providers: [],
+  providers: [ 
+    {provide: HTTP_INTERCEPTORS, useClass: CustomHttpInterceptorService, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

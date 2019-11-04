@@ -8,6 +8,7 @@
     src: url(src/assets/rebu-font.ttf);
   }
 
+  
 .maincontent {
 	background: #212121;
 	padding: 50px;
@@ -350,6 +351,90 @@ h1 {
   
   .tab {
 	  font-family: rebu;
+  }
+
+  .btn {
+	  background-color: #666666;
+  }
+
+//   .btn {
+// 	color: #fff;
+// 	cursor: pointer;
+// 	// display: block;
+// 	font-size:16px;
+// 	font-weight: 400;
+// 	line-height: 45px;
+// 	margin: 0 0 2em;
+// 	max-width: 160px; 
+// 	position: relative;
+// 	text-decoration: none;
+// 	text-transform: uppercase;
+// 	width: 100%; 
+	
+//   //   @media(min-width: 400px) {
+//   //     display: inline-block;
+//   //     margin-right: 2.5em;
+	
+//   //     &:nth-of-type(even) {
+//   //       margin-right: 0;
+//   //     }
+//   //   }
+	
+// 	@media(min-width: 600px) {
+		
+// 	  margin: 0 1em 2em;
+	
+//   //     &:nth-of-type(even) {
+//   //       margin-right: 2.5em;
+//   //     }
+	  
+//   //     &:nth-of-type(5) {
+//   //       margin-right: 0;
+//   //     }
+	  
+// 	}
+	
+// 	&:hover { text-decoration: none; }
+	
+//   }
+  
+  /////////////////////////////////
+  //button one
+  ///////////////////////////////
+  .btn-1 {
+	
+	font-weight: 100;
+	margin-bottom: -10px;
+	
+	svg {
+	  height: 45px;
+	  left: 0;
+	  position: absolute;
+	  top: 0; 
+	  width: 100%; 
+	}
+	
+	rect {
+	  fill: none;
+	  
+	  stroke-width: 2;
+	  stroke-dasharray: 422, 0;
+	  transition: all 0.35s linear;
+	}
+  }
+  
+  .btn-1:hover {
+	  stroke: #fff;
+	background: red;
+	font-weight: 900;
+	letter-spacing: 1px;
+	
+	rect {
+	  stroke-width: 5;
+	  stroke-dasharray: 15, 310;
+	  stroke-dashoffset: 48;
+	  transition: all 1.35s cubic-bezier(0.19, 1, 0.22, 1);
+	}
   }
 
   

@@ -9,6 +9,7 @@ import { NearByComponent } from "./near-by/near-by.component";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
+import { PostlistComponent } from './postlist/postlist.component';
 
 const routes: Routes = [
   { path: "spots", component: SpotsComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: "near-by", component: NearByComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "", component: HomeScreenComponent }
+  { path: "", component: HomeScreenComponent },
+  { path: "postlist", component: PostlistComponent }
 ];
 
 @NgModule({

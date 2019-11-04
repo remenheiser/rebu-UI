@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
 import { ISpots } from './spots'
 import { Observable } from 'rxjs/Observable'
 import { map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
 })
 export class SpotsService {
 
-    private _url: string = "/api/spots";
+    private _url: string = "/api/location/spots";
 
     constructor(private http: HttpClient) { }
 
@@ -19,6 +19,10 @@ export class SpotsService {
       }
 
     getSpots(): Observable<any>{
+
+
+
+    
         return this.http.get<any>(this._url).pipe(
             map(this.extractData)
         );

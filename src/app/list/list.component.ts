@@ -69,6 +69,11 @@ const typing = () => {
 };
 
 
+
+
+
+
+
 typing();
 
 
@@ -84,9 +89,12 @@ typing();
         data : form_data
       }).done(function(response){ //
         $("#server-results").html("Spot listed!");
-        document.location.href = '/spots';
-      });
+        document.location.href = '/postlist';
+      }).fail(function(response){
+        alert(response);
     });
+  });
+
 
     $(".container")
     .animate({ top: 0 })
