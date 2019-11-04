@@ -16,7 +16,7 @@
 
   <div *ngFor="let spots of spotsData">
     
-    <a style="text-decoration: none;" href="http://localhost:4200/chosen-spot/{{ spots._id}}">
+    <a style="text-decoration: none;" routerLink="/chosen-spot/{{ spots._id}}">
     <div class="elevate card" >
         <img class="card-img-top" src="{{ spots.img }}" alt="Card image cap">
         <div class="card-body">

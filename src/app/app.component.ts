@@ -49,9 +49,7 @@ export class AppComponent {
       // });
    
       // return false;
-    } else {
-      document.location.href = "/signup";
-    }
+    } 
   }
   
 }

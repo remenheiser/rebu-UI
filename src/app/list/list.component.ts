@@ -91,7 +91,8 @@ typing();
         $("#server-results").html("Spot listed!");
         document.location.href = '/postlist';
       }).fail(function(response){
-        alert(response);
+        console.log(response.responseText);
+        console.log(localStorage.getItem('token'));
     });
   });
 
