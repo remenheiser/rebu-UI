@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { link } from 'fs';
-import { HttpClient } from '@angular/common/http';
+
 
 
 @Component({
@@ -10,10 +10,31 @@ import { HttpClient } from '@angular/common/http';
 })
 
 
+
 export class ListComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
-
+  constructor() { }
+  submit(){
+    event.preventDefault(); //prevent default action     
+    var form_data = $('#my_form').serialize(); //Encode form elements for submission
+    alert(form_data);
+    $.ajax({
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      type: 'PUT',
+      url : '/api/location/spot',
+      data : form_data,
+      'dataType': 'json'
+    }).done(function(response){ 
+      $("#server-results").html("Spot listed!");
+      document.location.href = '/postlist';
+    }).fail(function(response){
+      console.log(response.responseText);
+      console.log(localStorage.getItem('token'));
+  });
+}
 
 
   ngOnInit() {
@@ -76,26 +97,14 @@ const typing = () => {
 
 typing();
 
+    
+    function alert1(){
+      alert("yus");
+    }
 
-    $("#my_form").submit(function(event){
-      event.preventDefault(); //prevent default action 
-      var post_url = $(this).attr("action"); //get form action url
-      var request_method = $(this).attr("method"); //get form GET/POST method
-      var form_data = $(this).serialize(); //Encode form elements for submission
-      
-      $.ajax({
-        url : post_url,
-        type: request_method,
-        data : form_data
-      }).done(function(response){ //
-        $("#server-results").html("Spot listed!");
-        document.location.href = '/postlist';
-      }).fail(function(response){
-        console.log(response.responseText);
-        console.log(localStorage.getItem('token'));
-    });
-  });
 
+  
+  
 
     $(".container")
     .animate({ top: 0 })

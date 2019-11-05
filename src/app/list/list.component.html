@@ -1,3 +1,4 @@
+<meta charset="utf-8">
 <body>
     <p id=title>Listing is simple</p>
 
@@ -16,7 +17,7 @@
 
             <div class="col-sm-3">
 
-                <form class="form-group" action="/api/location/spot" method="PUT" id="my_form">
+                <form id="my_form" class="form-group" >
                     <div class="row row-style">
                         <div class="blocks">
                             <!-- <label>Title</label> -->
@@ -38,15 +39,10 @@
                             <input class="inputString" type="string" name="img" placeholder="Link to an image" />
                         </div>
                     </div>
-                    <div class="row row-style">
-                        <!-- <label>Date</label> -->
-                        <div class="blocks">
-                            <label for="date">Date</label>
-                            <input class="inputString" type="string" name="date" placeholder="Enter a date" />
-                        </div>
-                    </div>
+                
+                    <button id="submitButton" (click)="submit()" type="button" class="btn login">login</button>
 
-                    <input data-toggle="modal" id="submitButton" type="submit" name="submit" value="Submit Form" />
+                    
                     <div id="server-results">For server results
 
                     </div>

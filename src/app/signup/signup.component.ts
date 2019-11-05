@@ -20,11 +20,11 @@ export class SignupComponent implements OnInit {
     console.log(form_data);
     $.ajax({
       type: 'POST',
-      url : 'http://localhost:3000/api/user/login',
+      url : '/api/user/login',
       data : form_data
     }).done(function(response){ //
       console.log("Logged in son");
-      localStorage.setItem('token', response.token);
+      localStorage.setItem("token", response.token);
       document.location.href = '/spots';
     }).fail(function(response){
   });
