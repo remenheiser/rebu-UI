@@ -69,7 +69,7 @@
 	width:100%;
     height:1000px;
     margin-top: -30px;
-    background: linear-gradient(180deg, rgb(221, 126, 97), rgba(230,74,25));
+    background: black;
 	
 }
 .contain{
@@ -362,7 +362,7 @@
 
   #spotTest {
     font-family: rebu;
-    opacity: 0;
+    opacity: 1;
     position: absolute;
     top: 360px;
     left: 470px;
@@ -488,3 +488,4 @@ $check-color: $brand-success;
     opacity: 1;
   }
 }
+

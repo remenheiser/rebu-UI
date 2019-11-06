@@ -34,23 +34,23 @@ function centerText() {
 }
 
 
-$(window).scroll(function () {
+// $(window).scroll(function () {
 
-  /* Check the location of each desired element */
-
-
-      var bottom_of_object = $("#spotTest").position().top + $("#spotTest").outerHeight();
-      var bottom_of_window = $(window).scrollTop() + $(window).height();
-
-      /* If the object is completely visible in the window, fade it it */
-      if (bottom_of_window > bottom_of_object) {
-
-          $("#spotTest").delay(1000).animate({
-              'opacity': '1'
-          }, 5000);
-
-      }
+//   /* Check the location of each desired element */
 
 
+//       // var bottom_of_object = $("#spotTest").position().top + $("#spotTest").outerHeight();
+//       var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-});
+//       /* If the object is completely visible in the window, fade it it */
+//       if (bottom_of_window > bottom_of_object) {
+
+//           $("#spotTest").delay(1000).animate({
+//               'opacity': '1'
+//           }, 5000);
+
+//       }
+
+
+
+// });
