@@ -1,0 +1,26 @@
+svg {
+    margin: 0 auto;
+    margin-top: -25px;
+    height: 100vh;
+    width: 100vw;
+    background-color: black;
+
+  }
+  
+  path {
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    stroke-dasharray: 500;
+    animation: draw 2s infinite;
+  }
+  
+  @keyframes draw {
+    from {
+      stroke-dashoffset: 0
+    }
+    to {
+      stroke-dashoffset: 1000;
+    }
+  }

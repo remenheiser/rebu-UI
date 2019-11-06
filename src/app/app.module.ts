@@ -18,6 +18,7 @@ import { AgmDirectionModule } from 'agm-direction';
 import { SignupComponent } from './signup/signup.component';
 import { PostlistComponent } from './postlist/postlist.component';
 import { CustomHttpInterceptorService } from './httpinterceptor';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CustomHttpInterceptorService } from './httpinterceptor';
     NearByComponent,
     LoginComponent,
     SignupComponent,
-    PostlistComponent
+    PostlistComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,

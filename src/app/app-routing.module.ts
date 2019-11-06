@@ -10,6 +10,7 @@ import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
 import { PostlistComponent } from './postlist/postlist.component';
+import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
 
 const routes: Routes = [
   { path: "spots", component: SpotsComponent },
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
   { path: "", component: HomeScreenComponent },
-  { path: "postlist", component: PostlistComponent }
+  { path: "postlist", component: PostlistComponent },
+  { path: "unauthorized", component: UnauthorizedComponent }
 ];
 
 @NgModule({
@@ -36,5 +38,6 @@ export const routingComponents = [
   AboutComponent,
   ListComponent,
   LoginComponent,
-  SignupComponent
+  SignupComponent,
+  UnauthorizedComponent
 ];
