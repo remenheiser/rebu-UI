@@ -23,7 +23,7 @@ export class ListComponent implements OnInit {
     $.ajax({
       type: 'PUT',
       url: "/api/location/spot",
-      data: { "title": title, "price": price, "img": img},
+      data: JSON.stringify({ "title": title, "price": price, "img": img}),
       success: function (response) {
         alert("signed in");
       },
