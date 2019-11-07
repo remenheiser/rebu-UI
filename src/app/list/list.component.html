@@ -1,4 +1,5 @@
 <meta charset="utf-8">
+
 <body>
     <p id=title>Listing is simple</p>
 
@@ -6,52 +7,22 @@
 
 
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                    
-            </div>
-
-            <div class="col-sm-3">
-
-                <form id="my_form" class="form-group" >
-                    <div class="row row-style">
-                        <div class="blocks">
-                            <!-- <label>Title</label> -->
-                            <label for="title">Title</label>
-                            <input class="inputString" type="string" name="title" placeholder="Enter a title" />
-                        </div>
-                    </div>
-                    <div class="row row-style">
-                        <!-- <label>Price</label> -->
-                        <div class="blocks">
-                            <label for="price">Price</label>
-                            <input class="inputString" type="string" name="price" placeholder="Enter a price" />
-                        </div>
-                    </div>
-                    <div class="row row-style">
-                        <!-- <label>IMG</label> -->
-                        <div class="blocks">
-                            <label for="img">Image Link</label>
-                            <input class="inputString" type="string" name="img" placeholder="Link to an image" />
-                        </div>
-                    </div>
-                
-                    <button id="submitButton" (click)="submit()" type="button" class="btn login">login</button>
-
-                    
-                    <div id="server-results">For server results
-
-                    </div>
-                </form>
-            </div>
-            <div class="col-sm-3">
-                    
-                
-            </div>
+    <form>
+        <div class="form-group row">
+            <label for="titles">Title</label>
+            <input type="text" class="form-control" id="titles" placeholder="title">
         </div>
-    </div>
+        <div class="form-group row">
+            <label for="price">Price</label>
+            <input type="text" class="form-control" id="price" placeholder="price">
+        </div>
+        <div class="form-group row">
+            <label for="img">Image</label>
+            <input type="text" class="form-control" id="img" placeholder="image link">
+        </div>
+        <button (click)="submit()" type="button" class="btn btn-primary mb-2">Confirm identity</button>
+    </form>
 
 
-    
+
 </body>

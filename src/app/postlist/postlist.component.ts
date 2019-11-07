@@ -34,14 +34,16 @@ function centerCloud() {
 
 $(document).ready(function(){
   setTimeout(function(){
-  $('#status').fadeIn(4000);
   $('.circle-loader').toggleClass('load-complete');
   $('.checkmark').toggle();
   $('#status').text("Spot Listed");
   $('svg').fadeOut(1000);
   $('path').css('stroke-dasharray', 'none');
   $('path').css('animation', 'none');
-  $('svg').fadeIn(2000);
+  $('svg').fadeIn(1000);
+  setTimeout(function () {
+    $('#status').css("color", "rgb(255, 255, 255)");
+}, 1000);
   }
   ,5000)
 });

@@ -7,17 +7,19 @@ import { Component } from '@angular/core';
 })
 
 
+
+
 export class AppComponent {
   title = 'rebu';
   
   ngOnInit() {
     
-    if (localStorage.hasOwnProperty('token')) {
-      document.getElementById('logoutButton').innerHTML = 'Logout'; // Signed in
-    } else {
-      document.getElementById('logoutButton').innerHTML = 'Sign In'; // Signed out
-    }
+    
   }
+
+  
+
+  
 
   
   loginLogout() {
@@ -52,5 +54,15 @@ export class AppComponent {
     } 
   }
   
+}
+
+
+var tid = setInterval(mycode, 2000);
+function mycode() {
+  if (localStorage.hasOwnProperty('token')) {
+    document.getElementById('logoutButton').innerHTML = 'Logout'; // Signed in
+  } else {
+    document.getElementById('logoutButton').innerHTML = 'Sign In'; // Signed out
+  }
 }
 

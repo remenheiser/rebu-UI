@@ -16,19 +16,23 @@ export class ListComponent implements OnInit {
   constructor() { }
 
   submit(){
-    event.preventDefault(); //prevent default action     
-    var form_data = $('#my_form').serialize(); //Encode form elements for submission
-    alert(form_data);
+    var title = $('#titles').val();
+    var price = $('#price').val();
+    var img = $('#img').val();
+
     $.ajax({
       type: 'PUT',
-      url : '/api/location/spot',
-      data : form_data,
-    }).done(function(response){ 
-      $("#server-results").html("Spot listed!");
-    }).fail(function(response){
-      console.log(response.responseText);
-      
-  });
+      url: "/api/location/spot",
+      data: { "title": title, "price": price, "img": img},
+      success: function (response) {
+        alert("signed in");
+      },
+      error: function (xhr) {
+        //Do Something to handle error
+        console.log(xhr.responseText)
+        alert("fail");
+      }
+    });
 }
 
 

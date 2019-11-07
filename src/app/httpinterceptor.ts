@@ -21,12 +21,14 @@ export class CustomHttpInterceptorService implements HttpInterceptor {
     if (!request.headers.has('Authorization')) {
       request = request.clone({headers: request.headers.set('Authorization', `Bearer ${token}`)});
     }
- 
+    
+    
  
     return next.handle(request)
     
     .catch(error => {
       if (error instanceof HttpErrorResponse && error.status == 401) {
+          localStorage.removeItem('token');
           this.router.navigateByUrl('/unauthorized', {replaceUrl: true});
 
           return new EmptyObservable();
