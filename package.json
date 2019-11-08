@@ -28,6 +28,7 @@
     "bootstrap": "^3.4.1",
     "google-geolocation": "^1.0.2",
     "jquery": "^3.4.1",
+    "ngx-paypal": "^5.0.0",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.3",
     "tslib": "^1.10.0",

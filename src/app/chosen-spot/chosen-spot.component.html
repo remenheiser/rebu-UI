@@ -1,77 +1,67 @@
-<head>
-
-
-</head>
+<head> </head>
 
 <body>
+  <!-- <div><ngx-paypal [config]="payPalConfig"></ngx-paypal></div> -->
+  <h3 id="topDiv">Peep the spot</h3>
 
-
-    <h3 id="topDiv">Peep the spot</h3>
-
-
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-
-                <div id="mainImg">
-                    <img class="card-img-top" src="{{ spotsData.img }}" alt="Card image cap">
-                    <!-- <div class="card-body">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <div id="mainImg">
+          <img
+            class="card-img-top"
+            src="{{ spotsData.img }}"
+            alt="Card image cap"
+          />
+          <!-- <div class="card-body">
           <h5 class="card-title">{{ spotsData.title }}</h5>
           <p class="card-text">{{ spotsData.price}}</p>
           <a href="#" class="btn">Reserve Spot</a>
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div> -->
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="col-md-6">
+      <div class="col-md-6">
+        <h2 id="mainTitle">{{ spotsData.title }}</h2>
+        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        <h2 id="date">Date posted - {{ spotsData.date }}</h2>
+        <h2 id="price">{{ spotsData.price }}</h2>
+      </div>
 
-                <h2 id="mainTitle">{{ spotsData.title }} </h2>
-                <h2 id="date">Date posted - {{ spotsData.date }} </h2>
-                <h2 id="price">{{ spotsData.price }} </h2>
+      <hr
+        width="100%"
+        size="5"
+        style="margin-top: 100px; margin-bottom: -50px"
+      />
+    </div>
 
-            </div>
-
-           
-            <hr width=100% size=5 style="margin-top: 100px; margin-bottom: -50px">
-            </div>
-
-
-
-
-
-        <div class="col-sm-6" id="map">
-            <!-- <agm-map [latitude]="lat" [longitude]="lng">
+    <div class="col-sm-6" id="map">
+      <!-- <agm-map [latitude]="lat" [longitude]="lng">
             <agm-direction [origin]="origin" [destination]="destination">
             </agm-direction>
         </agm-map> -->
 
-
-        <div id="googleMap" style="width:100%;height:400px;"></div>
-
-
-
-
-        </div>
-        <div>
-        <a id="labelDirection"> Directions to the parking spot</a>
-        <button id="phoneButton" type="button" class="btn">Open Directions</button>
+      <div id="googleMap" style="width:100%;height:400px;"></div>
     </div>
-    <hr width=100% size=5 style="margin-top: 75px; margin-bottom: 0px">
-        <div class="col-sm-6">
-
-            <img id="mock" src="../../assets/iphonemock1.png">
-        </div>
-
-        <a id="labels"> Checkout the app
-            <a id="hyplink"
-                href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_CGzkAhw2zienCd98xWkZKu4QOq7hU9ciSluuJDZ3GZpQySl&s">here.</a>
-        </a>
-
-
+    <div>
+      <a id="labelDirection"> Directions to the parking spot</a>
+      <button id="phoneButton" type="button" class="btn">
+        Open Directions
+      </button>
+    </div>
+    <hr width="100%" size="5" style="margin-top: 75px; margin-bottom: 0px" />
+    <div class="col-sm-6">
+      <img id="mock" src="../../assets/iphonemock1.png" />
     </div>
 
+    <a id="labels">
+      Checkout the app
+      <a
+        id="hyplink"
+        href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_CGzkAhw2zienCd98xWkZKu4QOq7hU9ciSluuJDZ3GZpQySl&s"
+        >here.</a
+      >
+    </a>
+  </div>
 </body>
