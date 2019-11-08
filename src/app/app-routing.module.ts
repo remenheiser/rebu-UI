@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: "list", component: ListComponent },
   { path: "near-by", component: NearByComponent },
   { path: "login", component: LoginComponent },
-  { path: "signup", component: SignupComponent },
+  { path: "signup", component: UnauthorizedComponent },
   { path: "", component: HomeScreenComponent },
   { path: "postlist", component: PostlistComponent },
   { path: "unauthorized", component: UnauthorizedComponent }

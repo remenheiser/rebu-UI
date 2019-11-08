@@ -15,21 +15,17 @@ export class UnauthorizedComponent implements OnInit {
 
 
   ngOnInit() {
-    centerCloud();
   }
 
   singIn() {
   
-
-
-    //Get
     var email = $('#email').val();
     var password = $('#password').val();
 
     $.ajax({
       type: 'POST',
       url: "/api/user/login",
-      data: { "email": email, "name": "test", "password": password},
+      data: { "email": email, "password": password},
       success: function (response) {
         alert("signed in");
         localStorage.setItem("token", response.token);
@@ -39,6 +35,29 @@ export class UnauthorizedComponent implements OnInit {
         console.log( "email: " + email +", password: " + password);
       }
     });
+
+  }
+
+  register() {
+
+     //Get
+     var name = $('#nameSignUp').val();
+     var email = $('#emailSignUp').val();
+     var password = $('#passwordSignUp').val();
+     
+ 
+     $.ajax({
+       type: 'POST',
+       url: "/api/user/register",
+       data: { "email": email, "name": name, "password": password},
+       success: function (response) {
+         alert("signed in");
+       },
+       error: function (xhr) {
+         //Do Something to handle error
+         console.log( xhr.responseText);
+       }
+     });
 
   }
 
@@ -52,13 +71,5 @@ export class UnauthorizedComponent implements OnInit {
 
 }
 
-$(window).on('resize', function () {
-  centerCloud();
-});
 
-function centerCloud() {
-  var cloudCenter = $('svg').outerWidth() / 2 - 350;
-  $('path').css('transform', 'translate(' + cloudCenter + 'px, 0px) scale(0.5)');
-
-}
 

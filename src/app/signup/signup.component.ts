@@ -14,23 +14,8 @@ export class SignupComponent implements OnInit {
     
     }
 
-  login(){
-    event.preventDefault(); //prevent default action 
-    var form_data = $('#login-form').serialize(); //Encode form elements for submission
-    console.log(form_data);
-    $.ajax({
-      type: 'POST',
-      url : '/api/user/login',
-      data : form_data
-    }).done(function(response){ //
-      console.log("Logged in son");
-      localStorage.setItem("token", response.token);
-      document.location.href = '/spots';
-    }).fail(function(response){
-  });
+    
 
- 
-  };
 
 
 
@@ -53,26 +38,67 @@ export class SignupComponent implements OnInit {
     }
     return false;
   }
-  
+
+
+
+  singIn() {
   
 
-  toggleSignup() {
-    document.getElementById("login-toggle").style.backgroundColor = "#fff";
-    document.getElementById("login-toggle").style.color = "#222";
-    document.getElementById("signup-toggle").style.backgroundColor = "#e64a19";
-    document.getElementById("signup-toggle").style.color = "#fff";
-    document.getElementById("login-form").style.display = "none";
-    document.getElementById("signup-form").style.display = "block";
+
+    //Get
+    var email = $('#email').val();
+    var password = $('#password').val();
+
+    $.ajax({
+      type: 'POST',
+      url: "/api/user/login",
+      data: { "email": email, "name": "test", "password": password},
+      success: function (response) {
+        alert("signed in");
+        localStorage.setItem("token", response.token);
+      },
+      error: function (xhr) {
+        //Do Something to handle error
+        console.log( "email: " + email +", password: " + password);
+      }
+    });
+
   }
 
-  toggleLogin() {
-    document.getElementById("login-toggle").style.backgroundColor = "#e64a19";
-    document.getElementById("login-toggle").style.color = "#fff";
-    document.getElementById("signup-toggle").style.backgroundColor = "#fff";
-    document.getElementById("signup-toggle").style.color = "#222";
-    document.getElementById("signup-form").style.display = "none";
-    document.getElementById("login-form").style.display = "block";
+  register() {
+
+     //Get
+     var name = $('#nameSignUp').val();
+     var email = $('#emailSignUp').val();
+     var password = $('#passwordSignUp').val();
+     
+ 
+     $.ajax({
+       type: 'POST',
+       url: "/api/user/register",
+       data: { "email": email, "name": name, "password": password},
+       success: function (response) {
+         alert("signed in");
+       },
+       error: function (xhr) {
+         //Do Something to handle error
+         console.log( xhr.responseText);
+       }
+     });
+
   }
+
+  switchScreens() {
+
+    $('.cont').each(function () {
+      $(this).toggleClass('s--signup');
+    });
+
+  }
+
 }
+  
+
+
 //------------this is the JS associated w the signup
 
