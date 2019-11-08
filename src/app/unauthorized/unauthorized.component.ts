@@ -12,7 +12,11 @@ export class UnauthorizedComponent implements OnInit {
 
   constructor(private element: ElementRef) { }
 
+  response = 10;
 
+ getResponse() {
+      return this.response;
+  }
 
   ngOnInit() {
   }

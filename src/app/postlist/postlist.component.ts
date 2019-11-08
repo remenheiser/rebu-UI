@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UnauthorizedComponent } from '../unauthorized/unauthorized.component';
 
 @Component({
   selector: 'app-postlist',
@@ -29,6 +30,8 @@ function centerCloud() {
   $('path').css('transform', 'translate(' + cloudCenter + 'px, 30px) scale(0.5)');
  
 }
+
+
 
 
 
