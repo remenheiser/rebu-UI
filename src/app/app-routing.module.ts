@@ -9,8 +9,9 @@ import { NearByComponent } from "./near-by/near-by.component";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
-import { PostlistComponent } from './postlist/postlist.component';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { PostlistComponent } from "./postlist/postlist.component";
+import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
 
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "postlist", component: PostlistComponent },
   { path: "unauthorized", component: UnauthorizedComponent },
   { path: 'account', component: AccountComponent },
+  { path: "forgot-password", component: ForgotPasswordComponent },
   { path: '**', component: ErrorComponent }
   
 ];
@@ -45,5 +47,6 @@ export const routingComponents = [
   LoginComponent,
   SignupComponent,
   UnauthorizedComponent,
-  AccountComponent
+  AccountComponent,
+  ForgotPasswordComponent
 ];

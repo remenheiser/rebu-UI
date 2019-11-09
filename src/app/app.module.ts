@@ -22,6 +22,7 @@ import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
 import { NgxPayPalModule } from "ngx-paypal";
 import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { AccountComponent } from './account/account.component';
     PostlistComponent,
     UnauthorizedComponent,
     ErrorComponent,
-    AccountComponent
+    AccountComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
