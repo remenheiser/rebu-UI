@@ -9,8 +9,9 @@ import { NearByComponent } from "./near-by/near-by.component";
 import { AppComponent } from "./app.component";
 import { LoginComponent } from "./login/login.component";
 import { SignupComponent } from "./signup/signup.component";
-import { PostlistComponent } from './postlist/postlist.component';
-import { UnauthorizedComponent } from './unauthorized/unauthorized.component';
+import { PostlistComponent } from "./postlist/postlist.component";
+import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
+import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 
 const routes: Routes = [
   { path: "spots", component: SpotsComponent },
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: "signup", component: UnauthorizedComponent },
   { path: "", component: HomeScreenComponent },
   { path: "postlist", component: PostlistComponent },
-  { path: "unauthorized", component: UnauthorizedComponent }
+  { path: "unauthorized", component: UnauthorizedComponent },
+  { path: "forgot-password", component: ForgotPasswordComponent }
 ];
 
 @NgModule({
@@ -39,5 +41,6 @@ export const routingComponents = [
   ListComponent,
   LoginComponent,
   SignupComponent,
-  UnauthorizedComponent
+  UnauthorizedComponent,
+  ForgotPasswordComponent
 ];
