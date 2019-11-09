@@ -353,3 +353,6 @@ h1 {
   }
 
   
+  .button {
+	display: none;
+  }

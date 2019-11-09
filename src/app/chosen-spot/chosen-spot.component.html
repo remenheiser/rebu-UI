@@ -24,9 +24,9 @@
 
       <div class="col-md-6">
         <h2 id="mainTitle">{{ spotsData.title }}</h2>
-        <ngx-paypal [config]="payPalConfig"></ngx-paypal>
         <h2 id="date">Date posted - {{ spotsData.date }}</h2>
         <h2 id="price">{{ spotsData.price }}</h2>
+        <ngx-paypal [config]="payPalConfig" style="width: 20px"></ngx-paypal>
       </div>
 
       <hr

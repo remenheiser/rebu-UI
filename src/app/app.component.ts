@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,8 @@ import { Component } from '@angular/core';
 
 export class AppComponent {
   title = 'rebu';
+
+  constructor(public router: Router){}
   
   ngOnInit() {
     
@@ -19,8 +22,11 @@ export class AppComponent {
 
   
 
-  
-
+  myAccount() {
+    if (localStorage.hasOwnProperty('token'))  {
+      this.router.navigate(['account']);
+  }
+  }
   
   loginLogout() {
  
@@ -47,7 +53,7 @@ export class AppComponent {
         // We expect to get an 401 Unauthorized error! In this case we are successfully 
               // logged out and we redirect the user.
               localStorage.removeItem('token');
-              document.location.href = '/home';
+              this.router.navigate(['home']);
       // });
    
       // return false;
@@ -60,7 +66,7 @@ export class AppComponent {
 var tid = setInterval(mycode, 2000);
 function mycode() {
   if (localStorage.hasOwnProperty('token')) {
-    document.getElementById('logoutButton').innerHTML = 'Logout'; // Signed in
+    document.getElementById('logoutButton').innerHTML = 'Sign Out'; // Signed in
   } else {
     document.getElementById('logoutButton').innerHTML = 'Sign In'; // Signed out
   }

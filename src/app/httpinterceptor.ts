@@ -33,6 +33,10 @@ export class CustomHttpInterceptorService implements HttpInterceptor {
 
           return new EmptyObservable();
       }
+
+      else if (error instanceof HttpErrorResponse && error.status == 404) {
+        alert("404");
+      }
       else
           return throwError(error);
   });

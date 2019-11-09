@@ -26,6 +26,7 @@
     "@types/jquery": "^3.3.31",
     "agm-direction": "^0.7.9",
     "bootstrap": "^3.4.1",
+    "chart.js": "^2.9.2",
     "google-geolocation": "^1.0.2",
     "jquery": "^3.4.1",
     "ngx-paypal": "^5.0.0",

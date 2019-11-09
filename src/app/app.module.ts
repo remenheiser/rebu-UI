@@ -20,6 +20,8 @@ import { PostlistComponent } from "./postlist/postlist.component";
 import { CustomHttpInterceptorService } from "./httpinterceptor";
 import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
 import { NgxPayPalModule } from "ngx-paypal";
+import { ErrorComponent } from './error/error.component';
+import { AccountComponent } from './account/account.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { NgxPayPalModule } from "ngx-paypal";
     LoginComponent,
     SignupComponent,
     PostlistComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    ErrorComponent,
+    AccountComponent
   ],
   imports: [
     BrowserModule,
