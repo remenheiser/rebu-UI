@@ -11,9 +11,9 @@ export class ListComponent implements OnInit {
   constructor() { }
   submit() {
     const url = '/api/location/spot';
-    const title = $('#titles').val();
-    const price = $('#price').val();
-    const img = $('#img').val();
+    const title = $('#Email').val(); //title
+    const price = $('#Password').val(); //price
+    const img = $('#img').val(); //img
 
     const data = {
       title: title,
