@@ -14,6 +14,7 @@ import { UnauthorizedComponent } from "./unauthorized/unauthorized.component";
 import { ForgotPasswordComponent } from "./forgot-password/forgot-password.component";
 import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
+import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
   { path: "spots", component: SpotsComponent },
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path: "unauthorized", component: UnauthorizedComponent },
   { path: 'account', component: AccountComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
+  { path: "contact", component: ContactComponent },
   { path: '**', component: ErrorComponent }
   
 ];
@@ -48,5 +50,6 @@ export const routingComponents = [
   SignupComponent,
   UnauthorizedComponent,
   AccountComponent,
-  ForgotPasswordComponent
+  ForgotPasswordComponent,
+  ContactComponent
 ];

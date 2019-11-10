@@ -23,6 +23,7 @@ import { NgxPayPalModule } from "ngx-paypal";
 import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     UnauthorizedComponent,
     ErrorComponent,
     AccountComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
