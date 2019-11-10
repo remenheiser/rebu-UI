@@ -2,14 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { SpotsService } from './spots.service';
 import { $ } from 'protractor';
 
-
 declare var jQuery: any;
 declare function test(): any;
 declare function filterCards(data): any;
-
-
-
-
 
 @Component({
   selector: 'app-spots',
@@ -22,24 +17,24 @@ export class SpotsComponent implements OnInit {
 
   public spotsOrgList: any = []
 
-  constructor(private _spotService: SpotsService) {}
+  constructor(private _spotService: SpotsService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.spotsData = [];
     this._spotService.getSpots()
-        .subscribe((data: any) => {
-          console.log(this.spotsData);
-          this.spotsData = data;
-          this.spotsOrgList = data;
-        });
-        
+      .subscribe((data: any) => {
+        console.log(this.spotsData);
+        this.spotsData = data;
+        this.spotsOrgList = data;
+      });
+
   }
 
-  
 
-  onKeyup(){
-   this.spotsData = filterCards(this.spotsOrgList);
-   
+
+  onKeyup() {
+    this.spotsData = filterCards(this.spotsOrgList);
+
   }
 
 }

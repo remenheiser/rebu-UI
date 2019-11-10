@@ -16,13 +16,9 @@ export class SpotsService {
     private extractData(res: Response) {
         const body = res;
         return body || {};
-      }
+    }
 
-    getSpots(): Observable<any>{
-
-
-
-    
+    getSpots(): Observable<any> {
         return this.http.get<any>(this._url).pipe(
             map(this.extractData)
         );

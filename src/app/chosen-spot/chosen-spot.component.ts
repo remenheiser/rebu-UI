@@ -1,15 +1,15 @@
 /// <reference types="@types/googlemaps" />
-import { Component, OnInit } from "@angular/core";
-import { ChosenSpotService } from "./chosen-spot.service";
-import { ActivatedRoute, Router, ParamMap } from "@angular/router";
-import { GoogleMapsAPIWrapper, MapsAPILoader } from "@agm/core";
-import { Observable } from "rxjs";
-import { IPayPalConfig, ICreateOrderRequest } from "ngx-paypal";
+import { Component, OnInit } from '@angular/core';
+import { ChosenSpotService } from './chosen-spot.service';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
+import { Observable } from 'rxjs';
+import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
 @Component({
-  selector: "app-chosen-spot",
-  templateUrl: "./chosen-spot.component.html",
-  styleUrls: ["./chosen-spot.component.css"]
+  selector: 'app-chosen-spot',
+  templateUrl: './chosen-spot.component.html',
+  styleUrls: ['./chosen-spot.component.css']
 })
 export class ChosenSpotComponent implements OnInit {
   public spotsData: any = [];
@@ -91,7 +91,7 @@ export class ChosenSpotComponent implements OnInit {
     //     }
     //   }
 
-    let id = this.route.snapshot.params["id"];
+    let id = this.route.snapshot.params['id'];
     this.selectId = id;
 
     this.spotsData = [];
@@ -104,31 +104,31 @@ export class ChosenSpotComponent implements OnInit {
   //
   initConfig() {
     this.payPalConfig = {
-      currency: "EUR",
-      clientId: "sb",
+      currency: 'EUR',
+      clientId: 'sb',
       createOrderOnClient: data =>
         <ICreateOrderRequest>{
-          intent: "CAPTURE",
+          intent: 'CAPTURE',
           purchase_units: [
             {
               amount: {
-                currency_code: "EUR",
-                value: "9.99",
+                currency_code: 'EUR',
+                value: '9.99',
                 breakdown: {
                   item_total: {
-                    currency_code: "EUR",
-                    value: "9.99"
+                    currency_code: 'EUR',
+                    value: '9.99'
                   }
                 }
               },
               items: [
                 {
-                  name: "Enterprise Subscription",
-                  quantity: "1",
-                  category: "DIGITAL_GOODS",
+                  name: 'Enterprise Subscription',
+                  quantity: '1',
+                  category: 'DIGITAL_GOODS',
                   unit_amount: {
-                    currency_code: "EUR",
-                    value: "9.99"
+                    currency_code: 'EUR',
+                    value: '9.99'
                   }
                 }
               ]
@@ -136,40 +136,40 @@ export class ChosenSpotComponent implements OnInit {
           ]
         },
       advanced: {
-        commit: "true"
+        commit: 'true'
       },
       style: {
-        label: "paypal",
-        layout: "vertical"
+        label: 'paypal',
+        layout: 'vertical'
       },
       onApprove: (data, actions) => {
         console.log(
-          "onApprove - transaction was approved, but not authorized",
+          'onApprove - transaction was approved, but not authorized',
           data,
           actions
         );
         actions.order.get().then(details => {
           console.log(
-            "onApprove - you can get full order details inside onApprove: ",
+            'onApprove - you can get full order details inside onApprove: ',
             details
           );
         });
       },
       onClientAuthorization: data => {
         console.log(
-          "onClientAuthorization - you should probably inform your server about completed transaction at this point",
+          'onClientAuthorization - you should probably inform your server about completed transaction at this point',
           data
         );
         //this.showSuccess = true;
       },
       onCancel: (data, actions) => {
-        console.log("OnCancel", data, actions);
+        console.log('OnCancel', data, actions);
       },
       onError: err => {
-        console.log("OnError", err);
+        console.log('OnError', err);
       },
       onClick: (data, actions) => {
-        console.log("onClick", data, actions);
+        console.log('onClick', data, actions);
       }
     };
   }
@@ -185,7 +185,7 @@ export class ChosenSpotComponent implements OnInit {
         zoom: 7,
         center: chicago
       };
-      var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+      var map = new google.maps.Map(document.getElementById('map'), mapOptions);
       directionsRenderer.setMap(map);
     }
 
@@ -198,17 +198,17 @@ export class ChosenSpotComponent implements OnInit {
           };
 
           var start = new google.maps.LatLng(pos.lat, pos.lng);
-          var end = $("#mainTitle").text();
+          var end = $('#mainTitle').text();
 
-          $("#phoneButton").click(function() {
+          $('#phoneButton').click(function() {
             window.window.open(
-              "https://www.google.com/maps/dir/" +
+              'https://www.google.com/maps/dir/' +
                 pos.lat +
-                "," +
+                ',' +
                 pos.lng +
-                "/" +
+                '/' +
                 end,
-              "_blank"
+              '_blank'
             );
           });
 
@@ -218,11 +218,11 @@ export class ChosenSpotComponent implements OnInit {
             travelMode: google.maps.TravelMode.DRIVING
           };
           directionsService.route(request, function(result, status) {
-            if (status == "OK") {
-              console.log("OK!");
+            if (status == 'OK') {
+              console.log('OK!');
               directionsRenderer.setDirections(result);
             } else {
-              console.log("Status: " + status);
+              console.log('Status: ' + status);
             }
           });
         });
