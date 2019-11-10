@@ -8,16 +8,26 @@ import { Chart } from 'chart.js';
 })
 export class AccountComponent implements OnInit {
 
+  public userData: any;
 
   constructor() { }
 
   ngOnInit() {
+    var token = localStorage.getItem('token');
 
-    
+
+    let jwtData = token.split('.')[1]
+    let decodedJwtJsonData = window.atob(jwtData)
+    let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+    this.userData = decodedJwtData.email;
+
+ 
+
 
   }
 
-  
+
 
 
 }
