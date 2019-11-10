@@ -3,25 +3,60 @@
 <body>
     <p id=title>Listing is simple</p>
 
-    <p id="msg"></p>
-
-
-
-    <form>
-        <div class="form-group row">
-            <label for="titles">Title</label>
-            <input type="text" class="form-control" id="titles" placeholder="title">
+    <div class="loginContainer row shadow">
+        <div class="col-md-4 p-0">
+            <div class="loginImg">
+            </div>
         </div>
-        <div class="form-group row">
-            <label for="price">Price</label>
-            <input type="text" class="form-control" id="price" placeholder="price">
+        <div class="col-md-8">
+            <div class="p-3 ">
+                <!-- <div class="titleDiv">
+                    <h2 class="pagetitle">List it</h2>
+                </div> -->
+                <div class="row">
+                    <div class="col-md-12">
+                        <section id="loginForm">
+                            <form autocomplete="off" class="form-horizontal" role="form">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="Email">Title</label>
+                                        <input autocomplete="false" class="form-control valid" id="Email" name="Email"
+                                            type="text">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="Password">Price</label>
+                                        <input autocomplete="false" class="form-control valid" id="Password"
+                                            name="Password" type="text">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="col-md-2 control-label" for="Password">Image</label>
+                                            <input autocomplete="false" class="form-control valid" id="Password"
+                                                name="Password" type="text">
+                                        </div>
+                                    </div>
+
+                                <div class="form-group">
+                                    <div class=" col-md-12">
+                                        <div id="#buttonHolder">
+                                            <Button (click)="submit()" type="button"class="btn"> List Spot </Button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </section>
+                    </div>
+
+                </div>
+            </div>
         </div>
-        <div class="form-group row">
-            <label for="img">Image</label>
-            <input type="text" class="form-control" id="img" placeholder="image link">
-        </div>
-        <button (click)="submit()" type="button" class="btn btn-primary mb-2">Confirm identity</button>
-    </form>
+
+    </div>
 
 
 

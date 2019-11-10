@@ -31,6 +31,9 @@ export class ListComponent implements OnInit {
     };
 
     fetch(url, req)
+    .then(function() {
+      alert("ok");
+    })
     .catch(err => console.log(err));
 
     // $.ajax({
