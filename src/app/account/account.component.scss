@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
 
 /* Color Variables */
-$red: red;        $green: green;        $orange: orange;       $blue: blue;      $purple: purple;
+$red: red;        $green: rgb(230, 74, 25);        $orange: orange;       $blue: blue;      $purple: purple;
 $white: white;    $black: black;        $bg: /* #eff3f6 */ #e3e5e6;
 $darkgray-blue: #354052;        $lightgray-blue: #7f8fa4;
 
@@ -114,7 +114,7 @@ html {
     .menu-heading {
       opacity: 0;
       padding: 10px 5px 10px 10px;
-      color: darken(yellow, 15%);
+      color: darken(white, 15%);
       font-size: smaller;
       border-bottom: 1px solid darken($darkgray-blue, 5%);
       transition: all .5s;
