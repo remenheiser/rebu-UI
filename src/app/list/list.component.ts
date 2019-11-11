@@ -57,20 +57,6 @@ export class ListComponent implements OnInit {
         that._router.navigate(['/postlist']);
       })
       .catch(err => console.log(err));
-
-    // $.ajax({
-    //   type: 'PUT',
-    //   url: '/api/location/spot',
-    //   data: JSON.stringify({ title: title, price: price, img: img }),
-    //   success(response) {
-    //     alert('spot posted');
-    //   },
-    //   error(xhr) {
-    //     // Do Something to handle error
-    //     console.log(xhr.responseText);
-    //     alert('spot failed');
-    //   }
-    // });
   }
 
   ngOnInit() {
