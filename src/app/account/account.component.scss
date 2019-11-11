@@ -1963,21 +1963,20 @@ hr {
 
 
 .card {
-  border: none; width: 20rem; margin: 30px;
+  border: black; width: 20rem; margin: 30px;
 }
 
-// .card-title {
-//   color: black;
-// }
+.card-title {
+  color: black;
+}
 
-// .card-text {
-//   color: black;
-// }
+.card-text {
+  color: black;
+}
 
-// .card-body {
-//   margin-bottom: -20px;
-//   padding-bottom: -10px;
-// }
+.card-body {
+  background-color: #dbdada
+}
 
 #spotsTitle {
   font-family: rebu;
