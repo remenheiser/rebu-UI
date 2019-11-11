@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
+
 @font-face {
   font-family: title;
   src: url(src/assets/spotTitle.ttf);
@@ -24,8 +25,8 @@
 }
 
 #buttonHolder {
-    text-align: center;
-    margin-top: 25px;
+  text-align: center;
+  margin-top: 25px;
 }
 
 .btn {
@@ -37,13 +38,13 @@
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 10px;
-  
-  
+
+
 
 }
 
 .btn:hover {
-  color:  rgb(245, 135, 66);
+  color: rgb(245, 135, 66);
   box-shadow: 1px 1px 25px 0px rgba(245, 108, 66, 0.4);
 }
 
@@ -54,12 +55,10 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(245, 108, 66, 0.4),
-    transparent
-  );
+  background: linear-gradient(120deg,
+      transparent,
+      rgba(245, 108, 66, 0.4),
+      transparent);
   transition: all 650ms;
 }
 
@@ -69,7 +68,7 @@
 
 
 // #submitButton {
-  
+
 //   display:block;
 //   margin-left: auto;
 //   margin-right: auto;
@@ -83,7 +82,7 @@ body {
 }
 
 .container {
-  
+  transform: translateY(-40px);
   width: 100%;
   top: 100px;
   margin: 0 auto;
@@ -93,63 +92,106 @@ body {
 
 
 form {
-  background-color:rgba(230,74,25);
+  background-color: rgba(230, 74, 25);
   padding: 30px;
   width: 200px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 100px;
 }
-  
-  .hidden {
-      display: none;
-  }
-  
-  .fade-in {
-      opacity: 1;
-      animation-name: fadeInOpacity;
-      animation-iteration-count: 1;
-      animation-timing-function: ease-in;
-      animation-duration: 2s;
-  }
-  
-  @keyframes fadeInOpacity {
-      0% {
-          opacity: 0;
-      }
-      100% {
-          opacity: 1;
-      }
+
+.hidden {
+  display: none;
+}
+
+.fade-in {
+  opacity: 1;
+  animation-name: fadeInOpacity;
+  animation-iteration-count: 1;
+  animation-timing-function: ease-in;
+  animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+  0% {
+    opacity: 0;
   }
 
+  100% {
+    opacity: 1;
+  }
+}
 
 
-  .loginContainer{
-    width: 700px;
+@keyframes fadein {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0px);}
+}
+
+/* Opera < 12.1 */
+@-o-keyframes fadein {
+  from { opacity: 0; transform: translateY(-40px);}
+  to   { opacity: 1; transform: translateY(0px);}
+}
+
+.loginContainer {
+  opacity: 1;
+  transition: transform 1s ease, opacity 1s eas;
+  -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
+       -moz-animation: fadein 2s; /* Firefox < 16 */
+        -ms-animation: fadein 2s; /* Internet Explorer */
+         -o-animation: fadein 2s; /* Opera < 12.1 */
+            animation: fadein 2s;
+  width: 700px;
   background-color: white;
   margin: auto;
   position: relative;
-margin-top: 100px;
+  margin-top: 100px;
+
 }
+
 label.control-label {
   margin-bottom: 5px;
   padding-left: 0;
-color:#4D535F;
-font-weight:bold;
+  color: #4D535F;
+  font-weight: bold;
 }
+
 .loginImg {
   height: 100%;
   width: 100%;
   background-image: url('../../assets/parking.jpg');
-  background-size: cover; 
+  background-size: cover;
   background-repeat: no-repeat;
-transition: all 0.3s ease;
-}.titleDiv {
+  transition: all 0.3s ease;
+}
+
+.titleDiv {
   padding: 10px;
   padding-left: 0px;
   margin-top: -10px;
   margin-bottom: -30px;
-}.pagetitle {
+}
+
+.pagetitle {
   transition: all 0.3s ease;
   font-size: 28px;
   font-weight: bold;
@@ -157,12 +199,15 @@ transition: all 0.3s ease;
   display: inline-block;
   margin-bottom: 0px !important;
   padding-left: 6px;
-}.form-horizontal {
+}
+
+.form-horizontal {
   margin: auto;
   padding: 10px;
   padding-top: 21px;
   background-color: white;
 }
+
 .form-control {
   margin-top: -30px;
   background-color: #EDF2F6;
@@ -170,26 +215,28 @@ transition: all 0.3s ease;
   border: 1px solid #E0DFDF;
 }
 
-@media (max-width: 768px){
-.loginContainer {
-  margin-top: 0% !important;
-  position: relative;
-  width: 90%;
-      top: 100px;
-  transform: inherit;
-  padding: 0px;
-  left: auto;
-}
-.loginImg {
-  width: 100%;
-height:70px;
-background-position:center -60px;
-background-size:cover;
- // display: none;
-}
-.loginContainer a{
-  display:block;
-}
+@media (max-width: 768px) {
+  .loginContainer {
+    margin-top: 0% !important;
+    position: relative;
+    width: 90%;
+    top: 100px;
+    transform: inherit;
+    padding: 0px;
+    left: auto;
+  }
+
+  .loginImg {
+    width: 100%;
+    height: 70px;
+    background-position: center -60px;
+    background-size: cover;
+    // display: none;
+  }
+
+  .loginContainer a {
+    display: block;
+  }
 
 }
 
@@ -250,11 +297,13 @@ h1 {
   0% {
     opacity: 0;
     transform: scale(1);
-  } 
+  }
+
   50% {
     opacity: 1;
     transform: scale(1.1);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -265,9 +314,11 @@ h1 {
   0% {
     transform: translateX(50%);
   }
+
   60% {
     transform: translateX(50%);
   }
+
   100% {
     transform: translateX(0%);
   }
@@ -277,9 +328,11 @@ h1 {
   0% {
     transform: translateY(-100%);
   }
+
   60% {
     transform: translateY(-100%);
   }
+
   100% {
     transform: translateY(-0%);
   }
@@ -307,20 +360,22 @@ a:after {
   height: 2px;
   background: #fff;
   transition: 0.2s;
- }
-  
+}
+
 a:hover {
-    opacity: 0.8;
-}    
+  opacity: 0.8;
+}
+
 a:hover::after {
-  width: 100%; 
+  width: 100%;
 }
 
 @keyframes slideLeft {
   from {
     opacity: 0;
     transform: translateX(200px);
-  } 
+  }
+
   to {
     opacity: 1;
     transform: translateX(0%);
