@@ -31,7 +31,7 @@ export class UnauthorizedComponent implements OnInit {
       success: function (response) {
         alert("Signed In!");
         localStorage.setItem("token", response.token);
-        this._router.navigate(['/spots']);
+        this._router.navigate(['/account']);
       },
       error: function (xhr) {
         alert(xhr.responseText);

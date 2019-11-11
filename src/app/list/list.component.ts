@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { link } from 'fs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -8,7 +9,7 @@ import { link } from 'fs';
 })
 
 export class ListComponent implements OnInit {
-  constructor() { }
+  constructor(private _router: Router) { }
   submit() {
     const url = '/api/location/spot';
     const title = $('#Email').val(); //title
@@ -48,9 +49,12 @@ export class ListComponent implements OnInit {
       body: JSON.stringify(data)
     };
 
+
+    var that = this;
+
     fetch(url, req)
       .then(function () {
-        alert("ok");
+        that._router.navigate(['/postlist']);
       })
       .catch(err => console.log(err));
 
