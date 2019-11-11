@@ -15,11 +15,29 @@ export class ListComponent implements OnInit {
     const price = $('#Password').val(); //price
     const img = $('#img').val(); //img
 
+
+    var token = localStorage.getItem('token');
+    let jwtData = token.split('.')[1]
+    let decodedJwtJsonData = window.atob(jwtData)
+    let decodedJwtData = JSON.parse(decodedJwtJsonData)
+
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    let date= mm + '/' + dd + '/' + yyyy;
+
+
     const data = {
       title: title,
       price: price,
-      img: img
+      img: img,
+      date: date,
+      userid: decodedJwtData.email
     };
+
 
     const req = {
       method: 'put',
@@ -31,10 +49,10 @@ export class ListComponent implements OnInit {
     };
 
     fetch(url, req)
-    .then(function() {
-      alert("ok");
-    })
-    .catch(err => console.log(err));
+      .then(function () {
+        alert("ok");
+      })
+      .catch(err => console.log(err));
 
     // $.ajax({
     //   type: 'PUT',

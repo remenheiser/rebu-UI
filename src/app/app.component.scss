@@ -73,7 +73,7 @@ h1 {
 
 nav {
   margin-bottom: 25px;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: #E64A19;
   position: relative;
   z-index: 1;
@@ -158,7 +158,7 @@ li>a:only-child:after {
   font-family: rebu;
   text-align: center;
   color: #FFF;
-  display: flex;
+ 
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -166,6 +166,9 @@ li>a:only-child:after {
   letter-spacing: 1px;
   margin-top: 15px;
   margin-bottom: -35px;
+  display: block;
+  margin: auto;
+  width: 100%;
 
 
   /* font-family: rebu;
@@ -174,6 +177,8 @@ li>a:only-child:after {
     margin-bottom: -50px; */
 }
 
+
+
 h1 {
   background-image: url(https://media.giphy.com/media/26BROrSHlmyzzHf3i/giphy.gif);
   /* fire:  https://media.giphy.com/media/F3LwChPI2Zj9OweyWz/giphy.gif */
@@ -181,13 +186,14 @@ h1 {
   color: transparent;
   -moz-background-clip: text;
   -webkit-background-clip: text;
-  width: auto;
-  font-size: 155px;
+
+  font-size: 13vw;
   font-family: rebu;
   line-height: .75;
   letter-spacing: 10px;
-  padding-bottom: 30px;
-  padding-top: 20px;
+  padding-bottom: 40px;
+  padding-top: 50px;
+  
 
 }
 

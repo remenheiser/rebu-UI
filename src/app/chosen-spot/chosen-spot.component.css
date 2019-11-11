@@ -131,14 +131,21 @@ a {
   
 }
 
+#userid {
+  font-family: title;
+  font-size: 15px;
+  text-align: center;
+  color: white;
+}
 
 #mainTitle {
   color: azure;
   font-family: title;
+  margin-top: -10px;
   /* position: absolute;
   left: 825px;
   top: 300px; */
-  font-size: 60px;
+  font-size: 5vw;
   text-align: center;
   
 }
@@ -147,13 +154,16 @@ a {
   height: 400px;  /* The height is 400 pixels */
   width: 400px;  /* The width is the width of the web page */
   margin-top: 100px;
+ 
+  
  }
 
 #price {
   color: azure;
   text-align: center;
   font-size: 25px;
-  margin-top: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   font-family: title;
 }
 
@@ -165,39 +175,48 @@ a {
 }
 
 #mock {
-  max-width: 570px;
-  max-height: 900px;
-  margin-left: -150px;
+  /* max-height: 900px; */
+  object-fit: contain;
+  max-width: 500px;
+  margin: auto;
 }
 
 
 
 #labels {
   color: aliceblue;
-  font-size: 75px;
-  padding: 100px;
+  font-size: 70px;
+  display: block;
+  margin: auto;
+  width: 100%;
+
 }
 
 #labelDirection {
   color: aliceblue;
   font-size: 50px;
-  padding: 100px;
+  text-align: center;
   margin-top: 100px;
-  margin-left: 200px;
+  width: 100%;
+  
+ 
 }
 
 #hyplink {
-  margin-top: 8px;
+
   font-size: 75px;
-  padding: 100px;
   color: rgb(230, 74, 25);
+  display: block;
+  margin: auto;
+  width: 100%;
   
 }
 
 #phoneButton{
-  margin-left: 240px;
-  margin-top: -50px;
-  margin-bottom: 100px;
+  text-align: center;
+  margin: auto;
+  margin-top: 10px;
+  display: block;
 }
 
 #topDiv {

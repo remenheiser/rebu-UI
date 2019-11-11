@@ -1,4 +1,7 @@
-<head> </head>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    
+   </head>
 
 <body>
   <!-- <div><ngx-paypal [config]="payPalConfig"></ngx-paypal></div> -->
@@ -13,6 +16,7 @@
             src="{{ spotsData.img }}"
             alt="Card image cap"
           />
+          <h2 id="userid">Listed by {{ spotsData.userid }}</h2>
           <!-- <div class="card-body">
           <h5 class="card-title">{{ spotsData.title }}</h5>
           <p class="card-text">{{ spotsData.price}}</p>
@@ -23,10 +27,12 @@
       </div>
 
       <div class="col-md-6">
-        <h2 id="mainTitle">{{ spotsData.title }}</h2>
-        <h2 id="date">Date posted - {{ spotsData.date }}</h2>
-        <h2 id="price">{{ spotsData.price }}</h2>
-        <ngx-paypal [config]="payPalConfig" style="width: 20px"></ngx-paypal>
+        <h2 class="animated flipInX" id="mainTitle">{{ spotsData.title }}</h2>
+        <h2 class="animated flipInX delay-1s" id="date">Date posted - {{ spotsData.date }}</h2>
+        <h2 class="animated flipInX delay-2s" id="price" >{{ spotsData.price }}</h2>
+        <div style="width: 300px; margin-left: auto; margin-right: auto">
+        <ngx-paypal [config]="payPalConfig" style="text-align: center;"></ngx-paypal>
+      </div>
       </div>
 
       <hr
@@ -35,7 +41,7 @@
         style="margin-top: 100px; margin-bottom: -50px"
       />
     </div>
-
+    <div class="row">
     <div class="col-sm-6" id="map">
       <!-- <agm-map [latitude]="lat" [longitude]="lng">
             <agm-direction [origin]="origin" [destination]="destination">
@@ -44,24 +50,28 @@
 
       <div id="googleMap" style="width:100%;height:400px;"></div>
     </div>
-    <div>
+    <div  class="col-sm-6">
       <a id="labelDirection"> Directions to the parking spot</a>
       <button id="phoneButton" type="button" class="btn">
         Open Directions
       </button>
     </div>
+    </div>
+
     <hr width="100%" size="5" style="margin-top: 75px; margin-bottom: 0px" />
+    <div class="row">
     <div class="col-sm-6">
       <img id="mock" src="../../assets/iphonemock1.png" />
     </div>
 
-    <a id="labels">
+    <a class="col-sm-6" id="labels">
       Checkout the app
       <a
         id="hyplink"
         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3_CGzkAhw2zienCd98xWkZKu4QOq7hU9ciSluuJDZ3GZpQySl&s"
-        >here.</a
+        >here</a
       >
     </a>
+  </div>
   </div>
 </body>

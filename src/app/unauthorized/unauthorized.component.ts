@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ElementRef } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-unauthorized',
@@ -8,7 +9,7 @@ import { ElementRef } from '@angular/core';
 })
 
 export class UnauthorizedComponent implements OnInit {
-  constructor(private element: ElementRef) { }
+  constructor(private _router: Router, private element: ElementRef) { }
   response = 10;
 
   getResponse() {
@@ -24,13 +25,16 @@ export class UnauthorizedComponent implements OnInit {
 
     $.ajax({
       type: 'POST',
+      context : this,
       url: "/api/user/login",
       data: { "email": email, "password": password },
       success: function (response) {
-        alert("signed in");
+        alert("Signed In!");
         localStorage.setItem("token", response.token);
+        this._router.navigate(['/spots']);
       },
       error: function (xhr) {
+        alert(xhr.responseText);
         //Do Something to handle error
         console.log("email: " + email + ", password: " + password);
       }
@@ -47,10 +51,12 @@ export class UnauthorizedComponent implements OnInit {
 
     $.ajax({
       type: 'POST',
+      context : this,
       url: "/api/user/register",
       data: { "email": email, "name": name, "password": password },
       success: function (response) {
-        alert("signed in");
+        alert("Registered!");
+        this.router.navigate(['/account']);
       },
       error: function (xhr) {
         //Do Something to handle error

@@ -1,10 +1,19 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:300&display=swap');
 
+@font-face {
+  font-family: rebu;
+  src: url(/src/assets/rebu-font.ttf);
+}
+
 /* Color Variables */
 $red: red;        $green: rgb(230, 74, 25);        $orange: orange;       $blue: blue;      $purple: purple;
 $white: white;    $black: black;        $bg: /* #eff3f6 */ #e3e5e6;
 $darkgray-blue: #354052;        $lightgray-blue: #7f8fa4;
 
+
+#temp{
+  width: 15vw;
+}
 /* Styles */
 body {
   background: $bg;
@@ -1950,4 +1959,29 @@ hr {
     margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
+}
+
+
+.card {
+  border: none; width: 20rem; margin: 30px;
+}
+
+// .card-title {
+//   color: black;
+// }
+
+// .card-text {
+//   color: black;
+// }
+
+// .card-body {
+//   margin-bottom: -20px;
+//   padding-bottom: -10px;
+// }
+
+#spotsTitle {
+  font-family: rebu;
+  color: black;
+  font-size: 50px;
+  text-align: center;
 }

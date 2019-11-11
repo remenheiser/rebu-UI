@@ -34,63 +34,6 @@ export class ChosenSpotComponent implements OnInit {
     this.initConfig();
     setTimeout(this.startMap, 2000);
 
-    // var map = new google.maps.Map(document.getElementById('map'), {
-    //       zoom: 7,
-    //       center: {lat: 41.85, lng: -87.65}
-    //     });
-    // var infoWindow;
-    // this.origin = { lat: 39.6837, lng: -75.7497 };
-    // this.destination = { lat: 39.7447, lng: -75.5484 };
-
-    //   function getLatLng() {
-    //   var user1Location = $("#mainTitle").text();
-    //   var geocoder = new google.maps.Geocoder();
-    //   //convert location into longitude and latitude
-    //   geocoder.geocode({
-    //       address: user1Location
-    //   }, function(locResult) {
-    //       console.log(locResult);
-    //       var lat1 = locResult[0].geometry.location.lat();
-    //       var lng1 = locResult[0].geometry.location.lng();
-    //       $("#testDiv").html("latitude:" + lat1 + "<p>longitude:" + lng1 + "</p>");
-    //       var pos = {
-    //                   lat: lat1,
-    //                   lng: lng1
-    //                 };
-    //                map.setCenter(new google.maps.LatLng( 39.6837, -75.7497 ) );
-    //                map.destination = new google.maps.LatLng( 39.6837, -75.7497 )
-    //   });
-    // }
-
-    // setTimeout(getLatLng, 2000);
-
-    // initMap();
-    // function initMap() {
-    //   var directionsService = new google.maps.DirectionsService;
-    //   var directionsDisplay = new google.maps.DirectionsRenderer;
-    //   var map = new google.maps.Map(document.getElementById('map'), {
-    //     zoom: 7,
-    //     center: {lat: 41.85, lng: -87.65}
-    //   });
-
-    //   infoWindow = new google.maps.InfoWindow;
-
-    //     // Try HTML5 geolocation.
-    //     if (navigator.geolocation) {
-    //       navigator.geolocation.getCurrentPosition(function(position) {
-    //         var pos = {
-    //           lat: position.coords.latitude,
-    //           lng: position.coords.longitude
-    //         };
-
-    //         infoWindow.setPosition(pos);
-    //         infoWindow.setContent('Location found.');
-    //         infoWindow.open(map);
-    //         map.setCenter(pos);
-    //       })
-    //     }
-    //   }
-
     let id = this.route.snapshot.params['id'];
     this.selectId = id;
 
@@ -139,8 +82,9 @@ export class ChosenSpotComponent implements OnInit {
         commit: 'true'
       },
       style: {
+        size: 'small',
         label: 'paypal',
-        layout: 'vertical'
+        layout: 'vertical',
       },
       onApprove: (data, actions) => {
         console.log(
