@@ -1039,6 +1039,7 @@
 						<div class="col-sm-5">
 
 							<div id="spotsTitle"> Your Listed Spots </div>
+							<hr>
 
 							<div class="card-deck d-flex justify-content-center"
 								style="margin-left: auto; margin-right: auto">
@@ -1046,7 +1047,7 @@
 								<div *ngFor="let listing of userListings">
 
 									<a style="text-decoration: none;" routerLink="/chosen-spot/{{listing._id}}">
-										<div class="card">
+										<div class="elevate card">
 											<img class="card-img-top" src="{{ listing.img }}" alt="Card image cap">
 											<div class="card-body">
 												<h5 style="text-decoration: none;" class="card-title">

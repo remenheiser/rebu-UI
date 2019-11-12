@@ -28,7 +28,7 @@ $(window).on('resize', function () {
 });
 
 function centerCloud() {
-  var cloudCenter = $('svg').outerWidth() / 2 - 175;
+  var cloudCenter = $(window).width() / 2 - 160;
   $('path').css('transform', 'translate(' + cloudCenter + 'px, 30px) scale(0.5)');
 
 }
@@ -43,12 +43,14 @@ function setUp(e){
     $('.circle-loader').toggleClass('load-complete');
     $('.checkmark').toggle();
     $('#status').text("Spot Listed");
+    $('#status1').text("");
     $('svg').fadeOut(1000);
     $('path').css('stroke-dasharray', 'none');
     $('path').css('animation', 'none');
     $('svg').fadeIn(1000);
     setTimeout(function () {
       $('#status').css("color", "rgb(255, 255, 255)");
+      $('#status1').css("color", "rgb(255, 255, 255)");
     }, 1000);
     setTimeout(function () {
       that.navigate(['/account']);

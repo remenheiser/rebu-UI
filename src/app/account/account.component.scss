@@ -5,6 +5,11 @@
   src: url(/src/assets/rebu-font.ttf);
 }
 
+
+* {
+  font-family: rebu;
+}
+
 /* Color Variables */
 $red: red;        $green: rgb(230, 74, 25);        $orange: orange;       $blue: blue;      $purple: purple;
 $white: white;    $black: black;        $bg: /* #eff3f6 */ #e3e5e6;
@@ -1963,7 +1968,10 @@ hr {
 
 
 .card {
-  border: black; width: 20rem; margin: 30px;
+  border: 1px solid rgb(0, 0, 0);
+  background-color: white;
+  width: 15rem;
+  margin: 20px;
 }
 
 .card-title {
@@ -1975,12 +1983,35 @@ hr {
 }
 
 .card-body {
-  background-color: #dbdada
+ 
 }
-
 #spotsTitle {
   font-family: rebu;
   color: black;
   font-size: 50px;
   text-align: center;
+}
+
+.elevate {
+
+  text-decoration: none;
+background: white;
+height: 250px;
+width: 200px;
+margin: 15px;
+border-radius: 20px;
+margin-bottom: 8%;
+cursor: pointer;
+box-shadow: 0 0 10px rgba(0,0,0,.5);
+transition: all .5s;
+&:hover {
+  
+  box-shadow: 0 8px 8px rgb(255, 124, 84);
+  margin-top: 5px;
+}
+}
+
+.card-img-top{
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
 }
