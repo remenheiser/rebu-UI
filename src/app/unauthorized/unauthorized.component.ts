@@ -16,10 +16,11 @@ export class UnauthorizedComponent implements OnInit {
     return this.response;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
-  singIn() {
+  
+
+  signIn() {
     var email = $('#email').val();
     var password = $('#password').val();
 

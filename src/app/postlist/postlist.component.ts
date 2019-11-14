@@ -54,7 +54,7 @@ function setUp(e){
     }, 1000);
     setTimeout(function () {
       that.navigate(['/account']);
-    }, 4000);
+    }, 3000);
   }
     , 5000)
 };

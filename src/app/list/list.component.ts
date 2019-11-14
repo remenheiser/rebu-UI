@@ -16,12 +16,15 @@ export class ListComponent implements OnInit {
     const price = $('#Password').val(); //price
     const img = $('#img').val(); //img
 
-
+    var decodedJwtData;
+    if (localStorage.getItem('token') != null){
     var token = localStorage.getItem('token');
     let jwtData = token.split('.')[1]
     let decodedJwtJsonData = window.atob(jwtData)
-    let decodedJwtData = JSON.parse(decodedJwtJsonData)
-
+    decodedJwtData = JSON.parse(decodedJwtJsonData)
+    } else{
+      this._router.navigate(['/unauthorized']);
+    }
 
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
@@ -39,12 +42,14 @@ export class ListComponent implements OnInit {
       userid: decodedJwtData.email
     };
 
+ 
+    
 
     const req = {
       method: 'put',
       headers: {
         'content-type': 'application/json',
-        authorization: `Bearer ${localStorage.getItem('token')}`
+        authorization: `Bearer ${token}`
       },
       body: JSON.stringify(data)
     };
@@ -56,7 +61,9 @@ export class ListComponent implements OnInit {
       .then(function () {
         that._router.navigate(['/postlist']);
       })
-      .catch(err => console.log(err));
+      .catch(function(){
+        that._router.navigate(['/unauthorized']);
+      });
   }
 
   ngOnInit() {
