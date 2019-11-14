@@ -17,9 +17,16 @@ export class AccountComponent implements OnInit {
   constructor(private _spotService: SpotsService) { }
 
 
-  toggleClass(){
+  toggleClassSpots(){
    $('#spots').toggleClass("hide");
+
   }
+
+  toggleClassProfile(){
+   $('#profile').toggleClass("hide");
+ 
+  }
+
 
 
   ngOnInit() {

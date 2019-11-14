@@ -198,6 +198,7 @@
 
 body {
   margin-top: -25px;
+  padding-bottom: 70px;
   background-color: #222222;
 }
 
@@ -237,5 +238,12 @@ transition: all .5s;
 
 #menu-toggle-2 {
   position: relative;
+  
+}
+
+#profile {
+  color:white;
+  font-size: 30px;
+  margin-bottom: 50px;
   
 }
