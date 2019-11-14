@@ -31,7 +31,15 @@ export class UnauthorizedComponent implements OnInit {
       data: { "email": email, "password": password },
       success: function (response) {
         alert("Signed In!");
+        console.log(response);
+
         localStorage.setItem("token", response.token);
+        localStorage.setItem("username", response.username);
+        localStorage.setItem("email", response.email);
+
+        console.log(`Local Storage Username: ${localStorage.getItem("username")}`);
+        console.log(`Local Storage Email: ${localStorage.getItem("email")}`);
+
         this._router.navigate(['/account']);
       },
       error: function (xhr) {
