@@ -12,6 +12,7 @@ export class AccountComponent implements OnInit {
 
   public userListings: any = []
   public userEmail: any
+  public username: any
   
 
   constructor(private _spotService: SpotsService) { }
@@ -38,6 +39,7 @@ export class AccountComponent implements OnInit {
     let decodedJwtData = JSON.parse(decodedJwtJsonData)
     console.log(decodedJwtData);
     this.userEmail = decodedJwtData.email;
+    this.username = decodedJwtData.username;
 
 
 
