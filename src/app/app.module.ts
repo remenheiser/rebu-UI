@@ -24,6 +24,7 @@ import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ContactComponent } from './contact/contact.component';
+import { UserSpotsComponent } from './user-spots/user-spots.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { ContactComponent } from './contact/contact.component';
     ErrorComponent,
     AccountComponent,
     ForgotPasswordComponent,
-    ContactComponent
+    ContactComponent,
+    UserSpotsComponent
   ],
   imports: [
     BrowserModule,
