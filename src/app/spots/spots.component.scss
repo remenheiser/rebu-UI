@@ -132,11 +132,21 @@ html {
   left: 100%;
 }
 
+#myInput {
+  border:none;
+}
+
+#myInput:focus {
+  border-color: inherit;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  
+}
+
 .center-block {
   margin: auto;
   display: block;
   width: 300px;
-  margin-bottom: 25px
 }
 
 .card {
@@ -221,3 +231,68 @@ html {
   margin: 50px auto;
   @include star-rating();
  }
+
+ 
+
+ button {
+	& img {
+		transition: transform .25s;
+	}
+	&:hover{
+		& > img {
+			  transform:scale(1.2);
+		}
+	}
+	&:focus {
+		outline: none;
+	}
+}
+#carPic {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+input {
+	font-family: 'Lexend Deca', sans-serif;;
+	&::placeholder{
+		font-family: 'Lexend Deca', sans-serif;
+	}
+	&:focus{
+		outline: none;
+	}
+}
+
+.searchbox{
+		height: 60px;
+		width: 450px;
+    max-width: 100%;
+    background: white;
+    border-radius: 10px;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    margin-top: -50px;
+    margin-bottom: 75px;
+    top: 50px;
+		display: flex;
+	
+	& > .btn-menu {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+	
+	& > .search{
+		border: none;
+		width: 100%;
+	}
+	
+	& > .btn-search {
+		padding: 16px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+	}
+}

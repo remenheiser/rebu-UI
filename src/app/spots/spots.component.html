@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </head>
 
@@ -11,10 +11,22 @@
 
 
   <h3 class="animated bounceInLeft delay-0.5s">Find a place to park</h3>
-  <div class="search">
+
+  <div class="searchbox">
+    <button class="btn-menu">
+      <img id="carPic" src="https://icon-library.net/images/car-icon-images/car-icon-images-28.jpg">
+    </button>
+    <!-- <input class="form-control center-block" (keyup)="onKeyup()" id="myInput" type="text" placeholder="search" /> -->
+    <input id="myInput" type="text" (keyup)="onKeyup()" placeholder="Search..." name="search" class="search form-control center-block">
+    <button class="btn-search">
+      <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
+    </button>
+  </div>
+
+  <!-- <div class="search">
     <input class="form-control center-block" (keyup)="onKeyup()" id="myInput" type="text" placeholder="search" />
 
-  </div>
+  </div> -->
 
   <div class="card-deck d-flex justify-content-center" style="margin-left: auto; margin-right: auto">
 
@@ -33,7 +45,7 @@
           </div>
         </div>
       </a>
-      
+
 
     </div>
   </div>

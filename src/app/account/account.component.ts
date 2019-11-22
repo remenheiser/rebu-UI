@@ -39,7 +39,7 @@ export class AccountComponent implements OnInit {
     let decodedJwtData = JSON.parse(decodedJwtJsonData)
     console.log(decodedJwtData);
     this.userEmail = decodedJwtData.email;
-    this.username = decodedJwtData.username;
+    this.username = localStorage.getItem("username");
 
 
 
