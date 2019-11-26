@@ -44,6 +44,10 @@ export class ChosenSpotComponent implements OnInit {
       this.spotsData = data;
     });
   }
+
+  getPrice(){
+    
+  }
   //
   initConfig() {
     this.payPalConfig = {
@@ -66,7 +70,7 @@ export class ChosenSpotComponent implements OnInit {
               },
               items: [
                 {
-                  name: 'Enterprise Subscription',
+                  name: 'Parking Spot',
                   quantity: '1',
                   category: 'DIGITAL_GOODS',
                   unit_amount: {
