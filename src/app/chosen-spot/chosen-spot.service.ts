@@ -17,7 +17,6 @@ export class ChosenSpotService {
     }
 
     getSpots(id): Observable<any> {
-        console.log("Here: " + this._url + id);
         return this.http.get<any>(this._url + id).pipe(
             map(this.extractData)
         );

@@ -2,14 +2,64 @@
 
 
 <head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
  </head>
  
  <body>
-		<button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" style="color:white;"aria-hidden="true"></span>
-		</button>
+
+	
+	
+		
 	
 	<div id="wrapper">
+			<div class="screen" (click)="toggleClassScreen()">
+					<h6 style="font-family: Helvetica; color: black; font-size: 40px; position: relative;">Spot Settings</h6>
+					<hr style="height:1px;border:none;color:#333;background-color:#333;">
+
+					<form autocomplete="off" class="form-horizontal" role="form">
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="Email">Title</label>
+									<input autocomplete="false" class="form-control valid" id="Email" name="Email"
+										type="text">
+								</div>
+							</div>
+							<div class="col-md-12">
+								<div class="form-group">
+									<label class="col-md-2 control-label" for="Password">Price</label>
+									<input autocomplete="false" class="form-control valid" id="Password"
+										name="Password" type="text">
+									   
+								</div>
+							</div>
+
+							<div class="col-md-12">
+									<div class="form-group">
+										<label class="col-md-2 control-label" for="img">Image</label>
+										<input autocomplete="false" class="form-control valid" id="img"
+											name="img" type="text">
+											<input type="file" name="profile" (change)="onFileSelect($event)" />
+									</div>
+								</div>
+
+						
+
+						</form>
+
+						<div>
+								<button type="button" class="btn btn-primary">Update Spot</button>
+						</div>
+
+					<div style="padding: 10px;">
+					<button type="button" class="btn btn-danger">Delete Spot</button>
+				</div>
+				<div>
+					<button type="button" class="btn btn-default">Close</button>
+				</div>
+					
+				</div>
+		
 			
 	   <!-- Sidebar -->
 	   <div id="sidebar-wrapper">
@@ -26,9 +76,15 @@
 			 <li>
 				<a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa fa-server fa-stack-1x "></i></span>Contact</a>
 			 </li>
-			 
+			 <li>
+					<div id="closeMenu">
+							<button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle-2"> <span class="glyphicon glyphicon-th-large" style="color:white;"aria-hidden="true"></span><span style="color:white;"id="closemenutext">&nbsp;&nbsp;&nbsp;&nbsp;Close Menu</span>
+							</button>
+					   </div>
+			 </li>
 		  </ul>
 	   </div>
+	   
 	   <!-- /#sidebar-wrapper -->
 	   <!-- Page Content -->
 	   <div id="page-content-wrapper">
@@ -46,11 +102,17 @@
 					
 						<div class="card-deck d-flex justify-content-center"
 							style="margin-left: auto; margin-right: auto">
+							
 					
-							<div *ngFor="let listing of userListings">
+							<div class="outterbox"style="cursor: pointer;" *ngFor="let listing of userListings; let i = index">
+
+									<div id="{{ 'wave' + i }}" class="animated bouncein edit"><a id="settingsIcon" (click)='toggleClassScreen()'><img style="max-width: 30px;" src="../../assets/tire.png"> </a></div>
 					
-								<a style="text-decoration: none;" routerLink="/chosen-spot/{{listing._id}}">
-									<div class="elevate card">
+								<a style="text-decoration: none; " routerLink="/chosen-spot/{{listing._id}}">
+								
+									
+									<div style="cursor: pointer;" class="elevate card">
+
 										<img class="card-img-top" src="{{ listing.img }}" alt="Card image cap">
 										<div class="card-body">
 											<h5 style="text-decoration: none;" class="card-title">
@@ -78,5 +140,24 @@
 	</div>
 	<!-- /#wrapper -->
 	<!-- jQuery -->
+	<div id="myModal" class="modal fade" role="dialog">
+			<div class="modal-dialog">
+		  
+			  <!-- Modal content-->
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal">&times;</button>
+				  <h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+				  <p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+		  
+			</div>
+		  </div>
  
  </body>

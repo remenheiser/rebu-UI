@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NearByService } from './near-by.service';
-declare var jQuery: any;
+declare let $: any;
+// declare function filterCardsNearBy(value, data): any;
+
 @Component({
   selector: 'app-near-by',
   templateUrl: './near-by.component.html',
@@ -9,82 +11,167 @@ declare var jQuery: any;
 export class NearByComponent implements OnInit {
 
   public nearByData: any = []
+  public rangeval: any;
+  public spotsData: any = []
+  public spotsOrgList: any = []
 
   constructor(private _nearbyService: NearByService) { }
 
+  changeZoom() {
 
-  set nearBy(nearByData: any) {
-    this.nearByData += nearByData;
- }
+    var storedSpots = JSON.parse(localStorage.getItem("spots") || "[]");
+    $.each(storedSpots, function (i, item) {
+    console.log("THIS - " + item.title + " " + item.distance )
+    });
+
+    this.spotsData = [];
+    this.filterCardsNearBy();
+    let g = [];
+    
+   
+    setTimeout(function () {
+     
+      var storedSpots = JSON.parse(localStorage.getItem("spots") || "[]");
+      // alert("this" + storedSpots);
+      $.each(storedSpots, function (i, item) {
+        console.log("item - " + item)
+        var rangeSlider = document.getElementById("rs-range-line") as HTMLTextAreaElement;
+        var r = parseInt(rangeSlider.value)
+        console.log(r)
+        if (item.distance < r){
+          g.push(item);
+          console.log("Selected - "+ g)
+        }else {
+          console.log("nada - " + item.title + " " + item.distance )
+        }
+      });
+    }, 700);
+    this.spotsData = g;
+
+  }
+
+  setInterval() {
+    // setInterval(function () {
+    //   var modalValue = JSON.parse(localStorage.getItem('spots'));
+
+    //   if (modalValue) {
+    //     // use the value
+    //     // remove the value when you are done so that this code doesn't run every time
+    //     this.spotsData = JSON.parse(modalValue);
+    //     console.log(JSON.parse(modalValue))
+    //   }
+    // }, 5000);
+  }
+
+  // setDistances() {
+
+  //   // alert(value);
+  //   this.spotsData = this.filterCardsNearBy();
+  // }
+
+  filterCardsNearBy() {
+    localStorage.removeItem("spots");
+    // var distance = google.maps.geometry.spherical.computeDistanceBetween("Milford,DE","Newark,DE"); 
+
+
+    $.each(this.spotsOrgList, function (i, item) {
+
+      // let gd = this.spotsData;
+
+      var distanceService = new google.maps.DistanceMatrixService();
+      distanceService.getDistanceMatrix({
+        origins: ["Newark, DE"],
+        destinations: [item.title],
+        travelMode: google.maps.TravelMode.WALKING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+      },
+        callback);
+
+
+      function callback(response, status) {
+
+        if (status !== google.maps.DistanceMatrixStatus.OK) {
+          console.log('Error:', status);
+        } else {
+          console.log(response.rows[0].elements[0].distance.text.replace(/[^0-9\.]+/g,""));
+          if (response.rows[0].elements[0].distance.text.replace(/[^0-9\.]+/g,"")){
+            item.distance = response.rows[0].elements[0].distance.text.replace(/[^0-9\.]+/g,"");
+            // alert(item.distance)
+            var storedSpots = JSON.parse(localStorage.getItem("spots") || "[]");
+            storedSpots.push(item);
+
+            localStorage.setItem("spots", JSON.stringify(storedSpots));
+
+
+          }
+        }
+
+
+      }
+
+
+    });
+
+   
+  }
+  // readLocalStorageValue(key) {
+  //   console.log("this " + localStorage.getItem(key.title));
+  //   let value = localStorage.getItem(key.title);
+  //   if (value == undefined) {
+  //     value == '';
+  //   }
+  //   return parseInt(value);
+  // }
+
 
 
   ngOnInit() {
+
+    // With JQuery
+    this.setInterval();
+    var rangeSlider = document.getElementById("rs-range-line") as HTMLTextAreaElement;
+    var rangeBullet = document.getElementById("rs-bullet") as HTMLTextAreaElement;
+
+
+    rangeSlider.addEventListener("input", showSliderValue, false);
+
+    function showSliderValue() {
+      rangeBullet.innerHTML = rangeSlider.value;
+      var bulletPosition = (parseInt(rangeSlider.value) / 30);
+      rangeBullet.style.left = (bulletPosition * 280) + "px";
+      this.rangeval = parseInt(rangeSlider.value)
+      localStorage.setItem("range", rangeSlider.value);
+
+    }
+
+
+
     this._nearbyService.getSpots()
       .subscribe((data: any) => {
         $.each(data, function (i, item) {
-          
+          item.distance = 0;
+        })
+        this.spotsData = data;
+        this.spotsOrgList = data;
+        console.log("data " + data);
+        // this.setDistances();
 
-          var distanceService = new google.maps.DistanceMatrixService();
-          distanceService.getDistanceMatrix({
-            origins: ["Newark, DE"],
-            destinations: [item.title],
-            travelMode: google.maps.TravelMode.WALKING,
-            unitSystem: google.maps.UnitSystem.IMPERIAL,
-            durationInTraffic: true,
-            avoidHighways: false,
-            avoidTolls: false
-          },
-            function (response, status) {
-             
-              if (status !== google.maps.DistanceMatrixStatus.OK) {
-                console.log('Error:', status);
-              } else {
-                if (response.rows[0].elements[0].distance.text.length > 0) {
-                  console.log(response.rows[0].elements[0].distance.text.length);
-                  var dist = response.rows[0].elements[0].distance.text;
-                  dist = dist.replace(/[^0-9.,]+/, " ");
-                  var distInt = parseInt(dist);
-                  if (distInt < 10000) {
-                   
-                    console.log("This -- " + item.title);
-                    $('.card-deck').append('<div class="container" style="max-width: 300px;"><a id="cards" style="text-decoration: none;" routerLink="/chosen-spot/' + item._id + '><div class="elevate card"><img class="card-img-top" src=' + item.img +  ' alt="Card image cap"><div class="card-body"><h5 style="text-decoration: none;" class="card-title">' + item.title + '</h5><p class="card-text">' + item.price + '</p> <!-- <a href="http://localhost:4200/chosen-spot/' + item._id + 'class="btn">Reserve Spot</a> --><p class="card-text"><small class="text-muted"> Listed:' + data.date + '</small></p><p style="text-align: center; position: absolute; bottom: -5px;"><small class="text-muted"> Click for more information </small></p></div></div></a></div>');  
-    
-                  }
-                }
-                
-
-                // alert(response.rows[0].elements[0].duration.text);
-              }
-              
-             
-            });
-          
-
-
-        });
-        
+        // this.spotsData = data;
 
       });
 
 
 
-
-    $("#search").focusin(function () {
-      $("#Modal").show();
-    });
-
-    $("#close").click(function () {
-      $('#Modal').hide();
-    });
-
-    $.getJSON('localhost:3000/spots', function (data) {
-      $.each(data, function (i, field) {
-        console.log(field);
-
-      });
-    }
-
-    )
   }
+
+
+
 }
+
+
+
+
 

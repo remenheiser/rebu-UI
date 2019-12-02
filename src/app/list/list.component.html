@@ -40,6 +40,7 @@
                                         <label class="col-md-2 control-label" for="Password">Price</label>
                                         <input autocomplete="false" class="form-control valid" id="Password"
                                             name="Password" type="text">
+                                           
                                     </div>
                                 </div>
 
@@ -48,6 +49,7 @@
                                             <label class="col-md-2 control-label" for="img">Image</label>
                                             <input autocomplete="false" class="form-control valid" id="img"
                                                 name="img" type="text">
+                                                <input type="file" name="profile" (change)="onFileSelect($event)" />
                                         </div>
                                     </div>
 

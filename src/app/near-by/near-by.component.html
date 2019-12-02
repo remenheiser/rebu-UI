@@ -1,12 +1,34 @@
 <head>
-        <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+        <script type="text/javascript"
+                src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script>
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular-animate.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 </head>
+
 <body>
+               
 
-        <p id = title>Search for a spot</p>
+
+                <h3 class="animated fadeInDown delay-0.5s">Near By Spots</h3>
 
 
-        <div class="searchbox">
+                        <div class="container">
+
+                                <div class="range-slider">
+                                        <span id="rs-bullet" class="rs-label">0</span>
+                                        <input #ref (change)="changeZoom(ref.value)" id="rs-range-line" class="rs-range"
+                                                type="range" value="0" min="0" max="30">
+
+                                </div>
+
+                                <div class="box-minmax">
+                                        <span>1</span><span>30</span>
+                                </div>
+
+                        </div>
+                        <!-- <div class="searchbox">
                 <button class="btn-menu">
                         <img id="carPic" src="https://icon-library.net/images/car-icon-images/car-icon-images-28.jpg">
                 </button>
@@ -14,73 +36,48 @@
             <button  class="btn-search">
                     <img src="https://img.icons8.com/cotton/24/000000/search--v2.png">
                 </button>
-        </div>
-        
-        
-        <div id="Modal"  class="search-modal">
-                <div class="search-modal-header">
-                        <h3 style="margin-left: 10px; color:black">Suggested Results</h3>
-                        <span id="close"><img  src="./assets/cancel.png"></span>
-                </div>
-                <div class="search-modal-body">
-                    <div class="message">
-                            <div class="message-avatar">
-                                    <img src="https://www.bennyhinn.org/wp-content/uploads/2019/03/Newark-DE.jpg" alt="">
-                            </div>
-                        <div class="message-body">
-                                <p>Newark, DE</p>
-                            <small>20s ago</small>
-                        </div>
-                    </div>
-                    <div class="message">
-                            <div class="message-avatar">
-                                    <img src="http://rivista-cdn.delawaretoday.com/Wilmington_Delaware_skyline.jpg?ver=1429817937" alt="">
-                            </div>
-                        <div class="message-body">
-                                <p>Wilmington, DE</p>
-                            <small>23s ago</small>
-                        </div>
-                    </div>
-                    <div class="message">
-                            <div class="message-avatar">
-                                    <img src="https://www.beach-fun.com/images/flic/galleries/28/original/859_img-0641.jpg" alt="">
-                            </div>
-                        <div class="message-body">
-                                <p>Rehoboth Beach, DE</p>
-                            <small>22s ago</small>
-                        </div>
-                    </div>
-                    
-                </div>
-                
-        </div>
-        
-        <div class="card-deck d-flex justify-content-center" style="margin-left: auto; margin-right: auto; margin-top: 100px">
+        </div> -->
 
-                <!-- <div *ngFor="let spots of nearByData">
-            
-                  <a style="text-decoration: none;" routerLink="/chosen-spot/{{ spots._id}}">
-                    <div class="elevate card">
-                      <img class="card-img-top" src="{{ spots.img }}" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 style="text-decoration: none;" class="card-title">{{ spots.title }}</h5>
-                        <p class="card-text">{{ spots.price}}</p> -->
-                        <!-- <a href="http://localhost:4200/chosen-spot/{{ spots._id}}" class="btn">Reserve Spot</a> -->
-                        <!-- <p class="card-text"><small class="text-muted"> Listed: {{ spots.date }} </small></p>
-                        <p style="text-align: center; position: absolute; bottom: -5px;"><small class="text-muted"> Click for more
-                            information </small></p>
-                      </div>
-                    </div>
-                  </a>
-                  
-            
-                </div> -->
-              </div>
-       
 
-    </body>
-    
-    
-  
-    
-    
+
+
+                        <div class="card-deck d-flex justify-content-center"
+                                style="margin-left: auto; margin-right: auto; margin-top: 100px">
+
+
+
+                                <!-- <ng-container *ngFor="let item of items_list">
+                                                <md-radio-button
+                                                      *ngIf="item.id=1"
+                                                      value="{{item.value}}" class="{{item.class}}" checked="{{item.checked}}"> {{item.label}}
+                                                </md-radio-button>
+                                              </ng-container> -->
+
+
+
+
+                                              <div class="card-deck d-flex justify-content-center" style="margin-left: auto; margin-right: auto">
+
+                                                        <div *ngFor="let spots of spotsData">
+                                                    
+                                                          <a style="text-decoration: none;" routerLink="/chosen-spot/{{ spots._id}}">
+                                                            <div class="elevate card">
+                                                              <img class="card-img-top" src="{{ spots.img }}" alt="Card image cap">
+                                                              <div class="card-body">
+                                                                <h5 style="text-decoration: none;" class="card-title">{{ spots.title }}</h5>
+                                                                <p class="card-text">{{ spots.price}}</p>
+                                                                <!-- <a href="http://localhost:4200/chosen-spot/{{ spots._id}}" class="btn">Reserve Spot</a> -->
+                                                                <p class="card-text"><small class="text-muted"> Listed: {{ spots.date }} </small></p>
+                                                                <p style="text-align: center; position: absolute; bottom: -5px;"><small class="text-muted"> Click for more
+                                                                    information </small></p>
+                                                              </div>
+                                                            </div>
+                                                          </a>
+                                                    
+                                                    
+                                                        </div>
+                                                      </div>
+                        </div>
+
+
+</body>

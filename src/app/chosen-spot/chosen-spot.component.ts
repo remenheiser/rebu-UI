@@ -6,6 +6,7 @@ import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
 import { Observable } from 'rxjs';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 
+
 @Component({
   selector: 'app-chosen-spot',
   templateUrl: './chosen-spot.component.html',
@@ -14,11 +15,12 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 export class ChosenSpotComponent implements OnInit {
   public spotsData: any = [];
 
+
   constructor(
     private _chosenSpotService: ChosenSpotService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   selectId: number;
 
@@ -30,7 +32,29 @@ export class ChosenSpotComponent implements OnInit {
 
   public payPalConfig?: IPayPalConfig;
 
+
+  reshowDates() {
+    $('#datebutton').hide()
+    $('#daterange').show()
+  }
+
+  updateValue(){
+    let chosenDate = $('#daterange').val().toString()
+    $('#datestatus').text(chosenDate);
+    $('#datestatus').append('<img style="margin-left: 5px; margin-top: -5px; position: relative; max-height: 15px;" src="../../assets/greenCheck.png">')
+    
+    $('#datebutton').show()
+    $('#daterange').hide()
+
+    
+  }
+
   ngOnInit() {
+   
+    $('#datebutton').hide()
+  
+
+
     this.initConfig();
     setTimeout(this.startMap, 2000);
 
@@ -44,6 +68,8 @@ export class ChosenSpotComponent implements OnInit {
       this.spotsData = data;
     });
   }
+
+
   //
   initConfig() {
     this.payPalConfig = {
@@ -135,7 +161,7 @@ export class ChosenSpotComponent implements OnInit {
 
     function calcRoute() {
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
           var pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -144,14 +170,14 @@ export class ChosenSpotComponent implements OnInit {
           var start = new google.maps.LatLng(pos.lat, pos.lng);
           var end = $('#mainTitle').text();
 
-          $('#phoneButton').click(function() {
+          $('#phoneButton').click(function () {
             window.window.open(
               'https://www.google.com/maps/dir/' +
-                pos.lat +
-                ',' +
-                pos.lng +
-                '/' +
-                end,
+              pos.lat +
+              ',' +
+              pos.lng +
+              '/' +
+              end,
               '_blank'
             );
           });
@@ -161,7 +187,7 @@ export class ChosenSpotComponent implements OnInit {
             destination: end,
             travelMode: google.maps.TravelMode.DRIVING
           };
-          directionsService.route(request, function(result, status) {
+          directionsService.route(request, function (result, status) {
             if (status == 'OK') {
               console.log('OK!');
               directionsRenderer.setDirections(result);

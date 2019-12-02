@@ -16,6 +16,8 @@ import { ErrorComponent } from './error/error.component';
 import { AccountComponent } from './account/account.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserSpotsComponent } from './user-spots/user-spots.component';
+import { DatepickerComponent } from './datepicker/datepicker.component';
+
 
 const routes: Routes = [
   { path: "spots", component: SpotsComponent },
@@ -31,8 +33,9 @@ const routes: Routes = [
   { path: "unauthorized", component: UnauthorizedComponent },
   { path: 'account', component: AccountComponent },
   { path: "forgot-password", component: ForgotPasswordComponent },
-  { path: "contact", component: ContactComponent },
+  { path: "contact", component: ErrorComponent },
   { path: "user-spots", component: UserSpotsComponent },
+  { path: "date", component: DatepickerComponent },
   { path: '**', component: ErrorComponent }
   
 ];

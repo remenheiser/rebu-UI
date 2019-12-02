@@ -25,12 +25,22 @@ export class AccountComponent implements OnInit {
 
   toggleClassProfile(){
    $('#profile').toggleClass("hide");
+  }
+
+  toggleClassScreen(){
+   $('.screen').toggleClass("hide");
  
   }
 
 
 
   ngOnInit() {
+
+   $('.screen').toggleClass("hide");
+
+   $('#settingsIcon').click(function(){
+      $('.screen').toggleClass("hide");
+   });
     var token = localStorage.getItem('token');
 
     

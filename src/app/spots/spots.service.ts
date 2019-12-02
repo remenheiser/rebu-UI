@@ -15,6 +15,7 @@ export class SpotsService {
 
     private extractData(res: Response) {
         const body = res;
+        
         return body || {};
     }
 

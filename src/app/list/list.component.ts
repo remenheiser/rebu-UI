@@ -16,6 +16,9 @@ export class ListComponent implements OnInit {
     const price = $('#Password').val(); //price
     const img = $('#img').val(); //img
 
+    var userName = localStorage.getItem('username');
+    var userID = localStorage.getItem('email');
+ 
     var decodedJwtData;
     if (localStorage.getItem('token') != null){
     var token = localStorage.getItem('token');
@@ -39,7 +42,8 @@ export class ListComponent implements OnInit {
       price: price,
       img: img,
       date: date,
-      userid: decodedJwtData.email
+      user: userName,
+      userid: userID
     };
 
  

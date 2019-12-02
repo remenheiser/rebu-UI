@@ -15,7 +15,7 @@ export class CustomHttpInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
 
     const token = localStorage.getItem('token');
-    request = request.clone({ headers: request.headers.set('Content-Type', 'application/json') });
+    request = request.clone({ headers: request.headers.set('Content-Type', 'application/x-www-form-urlencoded') });
 
     if (!request.headers.has('Authorization')) {
       request = request.clone({ headers: request.headers.set('Authorization', `Bearer ${token}`) });

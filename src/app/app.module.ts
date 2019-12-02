@@ -25,6 +25,16 @@ import { AccountComponent } from './account/account.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserSpotsComponent } from './user-spots/user-spots.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularMaterialModule } from './angular-material.module';
+import { DatepickerComponent } from './datepicker/datepicker.component'
+import { ngMaterialDatePicker } from './../../node_modules/ng-material-datetimepicker'
+import { OwlDateTimeModule, OwlNativeDateTimeModule,  } from 'ng-pick-datetime';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+// import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -44,10 +54,19 @@ import { UserSpotsComponent } from './user-spots/user-spots.component';
     AccountComponent,
     ForgotPasswordComponent,
     ContactComponent,
-    UserSpotsComponent
+    UserSpotsComponent,
+    DatepickerComponent
   ],
   imports: [
+    BrowserModule /* or CommonModule */, 
+      FormsModule, ReactiveFormsModule,
+    HttpModule,
+    FormsModule,
+    OwlDateTimeModule,
+     OwlNativeDateTimeModule,
     BrowserModule,
+    BrowserAnimationsModule,
+    AngularMaterialModule,
     NgbModule,
     AgmDirectionModule,
     AppRoutingModule,
@@ -55,7 +74,8 @@ import { UserSpotsComponent } from './user-spots/user-spots.component';
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyB5OJt9-wsH0qPuYPpTny8IlEruNUufNwI"
     }),
-    NgxPayPalModule
+    NgxPayPalModule,
+    BrowserAnimationsModule
   ],
   providers: [
     {
@@ -66,4 +86,4 @@ import { UserSpotsComponent } from './user-spots/user-spots.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

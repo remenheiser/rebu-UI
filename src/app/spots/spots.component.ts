@@ -23,7 +23,6 @@ export class SpotsComponent implements OnInit {
     this.spotsData = [];
     this._spotService.getSpots()
       .subscribe((data: any) => {
-        console.log(this.spotsData);
         this.spotsData = data;
         this.spotsOrgList = data;
       });
