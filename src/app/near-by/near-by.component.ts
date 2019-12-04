@@ -130,6 +130,13 @@ export class NearByComponent implements OnInit {
 
   ngOnInit() {
 
+    navigator.geolocation.getCurrentPosition(function (position) {
+      var pos = {
+        lat: position.coords.latitude,
+        lng: position.coords.longitude
+      };
+    });
+
     // With JQuery
     this.setInterval();
     var rangeSlider = document.getElementById("rs-range-line") as HTMLTextAreaElement;

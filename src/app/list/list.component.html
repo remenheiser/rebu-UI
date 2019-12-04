@@ -1,5 +1,8 @@
 <meta charset="utf-8">
-
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+        crossorigin="anonymous">
+</head>
 <body>
 
 
@@ -53,13 +56,44 @@
                                         </div>
                                     </div>
 
+                                    <div style="display: flex;
+                                    justify-content: center;"class="col-md-12" id="checkboxes">
+                                        <!-- <div style="width: 200px;">
+                                            <input type="checkbox" id="optiona" name="option">
+                                            <label class="checkbox" for="optiona">Electric Charging
+                                              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 10 10 L 90 90"></path>
+                                                <path d="M 90 10 L 10 90"></path>
+                                              </svg>
+                                            </label>
+                                          </div>
+                                          
+                                          <div style="width: 200px;">
+                                            <input type="checkbox" id="optionb" name="option">
+                                            <label class="checkbox" for="optionb">Covered Spot
+                                              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M 10 10 L 90 90"></path>
+                                                <path d="M 90 10 L 10 90"></path>
+                                              </svg>
+                                            </label>
+                                          </div> -->
+
+                                          <ul class="ks-cboxtags">
+                                            <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">Electric Charging</label></li>
+                                            <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy"><label for="checkboxTwo">Covered Parking</label></li>
+                                            </ul>
+                                        </div>
+                                        
+          
+
                                 <div class="form-group">
                                     <div class=" col-md-12">
-                                        <div id="#buttonHolder">
+                                        <div id="buttonHolder">
                                             <Button (click)="submit()" type="button"class="btn"> List Spot </Button>
                                         </div>
                                     </div>
                                 </div>
+
 
                             </form>
                         </section>

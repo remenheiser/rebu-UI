@@ -1,5 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:400,300,600,400italic);
-
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300);
 @font-face {
   font-family: title;
   src: url(src/assets/spotTitle.ttf);
@@ -8,6 +8,87 @@
 @font-face {
   font-family: rebu;
   src: url(src/assets/rebu-font.ttf);
+}
+
+.checkbox {
+  color: black;
+  font-size: 12px;
+}
+
+
+html,body{height:100%;}body{font-family: 'Open Sans';flex-direction:row;align-items:center; justify-content:center;width:100%;}html{background:#1C7EA4;}
+
+
+// Required Styles
+// ====================================
+$font-size: 12px; // adjust accordingly
+$ratio: 1; // adjust accordingly
+$size: $ratio + em;
+$ratio: $ratio;
+$gutter: 5px; // adjust accordingly
+$stroke-dash: 270;
+$stroke: (
+  thickness: $gutter/2,
+  style: solid,
+  color: lighten(rgb(230,74,25), 25%)
+); // define css properties
+$mark-ischecked: (
+  stroke-dashoffset: 0
+); // define css properties
+$label-ischecked: (); // define css properties
+$svg-ischecked: (background: rgb(230,74,25)); // define css properties
+
+input[type="checkbox"] {
+  height: 0;
+  width: 0;
+  position: absolute;
+  opacity: 0;
+
+  &:checked ~ label {
+    @each $key, $value in $label-ischecked {
+      #{$key}: #{$value};
+    }
+  }
+  
+  &:focus ~ label svg,
+  &:checked ~ label svg {
+    @each $key, $value in $svg-ischecked {
+      #{$key}: #{$value};
+    }
+  }
+
+  &:checked ~ label svg path {
+    @each $key, $value in $mark-ischecked {
+      #{$key}: #{$value};
+    }
+  }
+}
+
+input[type="checkbox"] ~ label {
+  font-size: $font-size;
+  line-height: $ratio;
+  align-items: center;
+  flex-direction: row-reverse;
+  position: relative;
+  cursor: pointer;
+  color: black;
+}
+
+input[type="checkbox"] ~ label svg {
+  width: $size;
+  height: $size;
+  border: zip(map-values($stroke)...);
+  margin-right: $gutter;
+  float: left;
+
+  path {
+    transition: stroke-dashoffset 440ms cubic-bezier(.69,.35,.63,.84);
+    fill: none;
+    stroke: white;
+    stroke-dasharray: $stroke-dash;
+    stroke-dashoffset: $stroke-dash;
+    stroke-width: $gutter;
+  }
 }
 
 
@@ -179,6 +260,7 @@ label.control-label {
   height: 100%;
   width: 100%;
   background-image: url('../../assets/parking.jpg');
+  // background-position: center; 
   background-size: cover;
   background-repeat: no-repeat;
   transition: all 0.3s ease;
@@ -382,3 +464,72 @@ a:hover::after {
     transform: translateX(0%);
   }
 }
+ul.ks-cboxtags {
+  
+    list-style: none;
+    padding: 20px;
+}
+ul.ks-cboxtags li{
+  display: inline;
+}
+ul.ks-cboxtags li label{
+    display: inline-block;
+    background-color: rgba(255, 255, 255, .9);
+    border: 2px solid rgba(139, 139, 139, .3);
+    color: #adadad;
+    border-radius: 25px;
+    white-space: nowrap;
+    margin: 3px 0px;
+    min-width: 150px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li label {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+ul.ks-cboxtags li label::before {
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 12px;
+    padding: 2px 6px 2px 2px;
+    content: "\f067";
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label::before {
+    content: "\f00c";
+    transform: rotate(-360deg);
+    transition: transform .3s ease-in-out;
+}
+
+ul.ks-cboxtags li input[type="checkbox"]:checked + label {
+    border: 2px solid rgb(230,74,25);
+    background-color: rgb(230,74,25);
+    color: #fff;
+    transition: all .2s;
+}
+
+ul.ks-cboxtags li input[type="checkbox"] {
+  display: absolute;
+}
+ul.ks-cboxtags li input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+}
+ul.ks-cboxtags li input[type="checkbox"]:focus + label {
+  border: 2px solid #e9a1ff;
+}
+
