@@ -1,0 +1,7 @@
+{
+  "name": "Spotly",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
