@@ -949,7 +949,7 @@ body {
   .menu-bg {
     position: absolute;
     display: block;
-    width: 200%;
+    width: 250%;
     left: -53%;
     top: -25%;
     //top: -25%;
@@ -957,9 +957,8 @@ body {
     background-color: $white-100;
 
     &.middle {
-      top: 17%;
-      left: -40%;
-      height: 500px;
+      top: 35%;
+left: -78%;
       transform: rotate(-45deg) scaleY(0);
     }
     &.top {

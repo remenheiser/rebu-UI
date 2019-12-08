@@ -98,60 +98,60 @@ export class AppComponent {
       }, "preClose");
 
     //CLOSE TIMELINE
-    // tlClose.add("close")
-    //   .to(menuTop, 0.2, {
-    //     backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut, onComplete: function () {
-    //       logo.css('z-index', '26');
-    //       closeTrigger.css('z-index', '5');
-    //       openTrigger.css('visibility', 'visible');
-    //     }
-    //   }, "close")
-    //   .to(menuMiddle, 0.2, {
-    //     backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
-    //   }, "close")
-    //   .to(menuBottom, 0.2, {
-    //     backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
-    //   }, "close")
-    //   .to(menu, 0.6, {
-    //     y: 20, opacity: 0, ease: Power4.easeOut, onComplete: function () {
-    //       menu.css('visibility', 'hidden');
-    //     }
-    //   }, "close")
-    //   .to(logo, 0.8, {
-    //     scale: 1, opacity: 1, ease: Power4.easeInOut
-    //   }, "close", "+=0.2")
-    //   .to(menuTop, 0.8, {
-    //     y: "-113%",
-    //     ease: Power4.easeInOut
-    //   }, "close", "+=0.2")
-    //   .to(menuMiddle, 0.8, {
-    //     scaleY: 0,
-    //     ease: Power4.easeInOut
-    //   }, "close", "+=0.2")
-    //   .to(menuBottom, 0.8, {
-    //     y: "23%",
-    //     ease: Power4.easeInOut,
-    //     onComplete: function () {
-    //       menuTop.css('background-color', '#ffffff');
-    //       menuMiddle.css('background-color', '#ffffff');
-    //       menuBottom.css('background-color', '#ffffff');
-    //     }
-    //   }, "close", "+=0.2")
-    //   .to(closeTriggerLeft, 0.2, {
-    //     x: "+=100px", y: "-=100px", ease: Power4.easeIn
-    //   }, "close")
-    //   .to(closeTriggerRight, 0.2, {
-    //     x: "-=100px", y: "-=100px", delay: 0.1, ease: Power4.easeIn
-    //   }, "close")
-    //   .to(openTriggerTop, 1, {
-    //     x: "-=80px", y: "+=80px", delay: 0.2, ease: Power4.easeOut
-    //   }, "close")
-    //   .to(openTriggerMiddle, 1, {
-    //     x: "-=80px", y: "+=80px", ease: Power4.easeOut
-    //   }, "close")
-    //   .to(openTriggerBottom, 1, {
-    //     x: "-=80px", y: "+=80px", delay: 0.1, ease: Power4.easeOut
-    //   }, "close");
+    tlClose.add("close")
+      .to(menuTop, 0.2, {
+        backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut, onComplete: function () {
+          logo.css('z-index', '26');
+          closeTrigger.css('z-index', '5');
+          openTrigger.css('visibility', 'visible');
+        }
+      }, "close")
+      .to(menuMiddle, 0.2, {
+        backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
+      }, "close")
+      .to(menuBottom, 0.2, {
+        backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
+      }, "close")
+      .to(menu, 0.6, {
+        y: 20, opacity: 0, ease: Power4.easeOut, onComplete: function () {
+          menu.css('visibility', 'hidden');
+        }
+      }, "close")
+      .to(logo, 0.8, {
+        scale: 1, opacity: 1, ease: Power4.easeInOut
+      }, "close", "+=0.2")
+      .to(menuTop, 0.8, {
+        y: "-113%",
+        ease: Power4.easeInOut
+      }, "close", "+=0.2")
+      .to(menuMiddle, 0.8, {
+        scaleY: 0,
+        ease: Power4.easeInOut
+      }, "close", "+=0.2")
+      .to(menuBottom, 0.8, {
+        y: "23%",
+        ease: Power4.easeInOut,
+        onComplete: function () {
+          menuTop.css('background-color', '#ffffff');
+          menuMiddle.css('background-color', '#ffffff');
+          menuBottom.css('background-color', '#ffffff');
+        }
+      }, "close", "+=0.2")
+      .to(closeTriggerLeft, 0.2, {
+        x: "+=100px", y: "-=100px", ease: Power4.easeIn
+      }, "close")
+      .to(closeTriggerRight, 0.2, {
+        x: "-=100px", y: "-=100px", delay: 0.1, ease: Power4.easeIn
+      }, "close")
+      .to(openTriggerTop, 1, {
+        x: "-=80px", y: "+=80px", delay: 0.2, ease: Power4.easeOut
+      }, "close")
+      .to(openTriggerMiddle, 1, {
+        x: "-=80px", y: "+=80px", ease: Power4.easeOut
+      }, "close")
+      .to(openTriggerBottom, 1, {
+        x: "-=80px", y: "+=80px", delay: 0.1, ease: Power4.easeOut
+      }, "close");
 
     //EVENTS
     openTrigger.on('click', function () {
