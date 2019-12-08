@@ -201,6 +201,10 @@ export class AppComponent {
     //	3. The URL returns a 401 Unauthorized
     // 	4. Forward to some "you-are-logged-out"-page
     // 	5. Done, the Basic Auth header is invalid now
+    if (localStorage.hasOwnProperty('profilePic')) {
+      localStorage.removeItem('profilePic');
+    }
+
     if (localStorage.hasOwnProperty('token')) {
       // jQuery.ajax({
       //           type: "GET",

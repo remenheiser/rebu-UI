@@ -49,7 +49,15 @@ export class AccountComponent implements OnInit {
 
 
     var token = localStorage.getItem('token');
-    this.profilePic = localStorage.getItem('profilePic');
+    var pic =localStorage.getItem('profilePic').toString();
+  
+    if(!(pic === 'undefined')){
+      this.profilePic = pic;
+   
+    }else{
+       this.profilePic = 'https://i-love-png.com/images/profile-icon_11542.png';
+ 
+    }
 
     
     let jwtData = token.split('.')[1]
