@@ -32,6 +32,7 @@ import { ngMaterialDatePicker } from './../../node_modules/ng-material-datetimep
 import { OwlDateTimeModule, OwlNativeDateTimeModule,  } from 'ng-pick-datetime';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { MapComponent } from './map/map.component';
 
 // import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
@@ -55,7 +56,8 @@ import { HttpModule } from '@angular/http';
     ForgotPasswordComponent,
     ContactComponent,
     UserSpotsComponent,
-    DatepickerComponent
+    DatepickerComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule /* or CommonModule */, 

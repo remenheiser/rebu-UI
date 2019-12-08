@@ -1,0 +1,56 @@
+
+
+
+*,
+*:before,
+*:after {
+      -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+           box-sizing: border-box; 
+}
+ul,li {
+  list-style: none;
+}
+
+body {
+  background: #548c7e;
+}
+.container {
+  width: 960px;
+  margin: 0 auto;
+}
+#map{
+    margin-top: -25px;
+  height: 100%;
+  width: 100%;
+  #content {
+    width: 300px;
+    .mapinfo {
+      display: inline-block;
+      text-decoration: none;
+      > img {
+        max-width: 100px;
+        max-height: 100px;
+        margin-top: .5em;
+        float: left;
+      }
+      .content-box {
+        margin-top: .5em;
+        margin-left: 110px;
+        h3 {
+          margin-top: 0;
+          margin-bottom: 10px;
+          word-break: break-all;
+          text-align: left;
+          margin-left: 0;
+          font-size: 16px;
+          color: #548c7e;
+        }
+        .info-content {
+          color: #4a4a4a;
+          word-break: break-all;
+        }
+      }
+    }
+  }
+}

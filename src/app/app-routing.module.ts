@@ -17,6 +17,7 @@ import { AccountComponent } from './account/account.component';
 import { ContactComponent } from './contact/contact.component';
 import { UserSpotsComponent } from './user-spots/user-spots.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
+import { MapComponent } from './map/map.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: "list", component: ListComponent },
   { path: "near-by", component: NearByComponent },
   { path: "login", component: LoginComponent },
+  { path: "map", component: MapComponent },
   { path: "signup", component: UnauthorizedComponent },
   { path: "", component: HomeScreenComponent },
   { path: "postlist", component: PostlistComponent },
