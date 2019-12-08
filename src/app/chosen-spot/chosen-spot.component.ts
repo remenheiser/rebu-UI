@@ -10,7 +10,7 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 @Component({
   selector: 'app-chosen-spot',
   templateUrl: './chosen-spot.component.html',
-  styleUrls: ['./chosen-spot.component.css']
+  styleUrls: ['./chosen-spot.component.scss']
 })
 export class ChosenSpotComponent implements OnInit {
   public spotsData: any = [];
@@ -52,6 +52,12 @@ export class ChosenSpotComponent implements OnInit {
   ngOnInit() {
    
     $('#datebutton').hide()
+
+    $('.add-to-cart').click(function() {
+      this.classList.toggle('added');
+    })
+    
+  
   
 
 
