@@ -30,90 +30,90 @@ export class SpotsComponent implements OnInit {
         this.spotsOrgList = data;
       });
 
-      
-	
-        // Filter
-        $("button[cs-filter]").click(function() {
-          var t = $(this).attr('cs-filter');
-          $("button[cs-filter]").removeClass('btn-active');
-          $(this).addClass('btn-active');
-          if (t == "*") {
-            $("li.items[cs-category]").show("fast");
+
+
+    // Filter
+    $("button[cs-filter]").click(function () {
+      var t = $(this).attr('cs-filter');
+      $("button[cs-filter]").removeClass('btn-active');
+      $(this).addClass('btn-active');
+      if (t == "*") {
+        $("li.items[cs-category]").show("fast");
+      } else {
+        $.each($("li.items[cs-category]"), function (index, value) {
+          if (!$(this).attr('cs-category').match(new RegExp(t))) {
+            $(this).hide("fast");
           } else {
-            $.each($("li.items[cs-category]"), function(index, value) {
-              if (!$(this).attr('cs-category').match(new RegExp(t))) {
-                $(this).hide("fast");
-              } else {
-                $(this).show("fast");
-              }
-            });
+            $(this).show("fast");
           }
         });
-        
-        // Sort Button
-        $("button[cs-sort]").click(()=> {
-          var t = $(this).attr('cs-sort');
-          $("button[cs-sort]").removeClass('btn-active');
-          $(this).addClass('btn-active');
-          switch (t) {
-            case 'Price':
-              this.sort('price');
-              // $("ul li.items").sort(function(a, b) {
-              //   var f = parseInt($(b).find('span.product-price').text().replace(',', ''));
-              //   var s = parseInt($(a).find('span.product-price').text().replace(',', ''));
-              //   return (f < s) ? 1 : -1;
-              // }).each(function() {
-              //   var elem = $(this);
-              //   elem.remove();
-              //   $(elem).appendTo("ul");
-              // });
-              break;
-      
-            case 'Name':
-              this.sort('title')
-              // $("ul li.items").sort(function(a, b) {
-              //   return (($(b).find('span.product-name').text()) < ($(a).find('span.product-name').text())) ? 1 : -1;
-              // }).appendTo('ul');
-              break;
-          }
-        });
-      
+      }
+    });
+
+    // Sort Button
+    $("button[cs-sort]").click(() => {
+      var t = $(this).attr('cs-sort');
+      $("button[cs-sort]").removeClass('btn-active');
+      $(this).addClass('btn-active');
+      switch (t) {
+        case 'Price':
+          this.sort('price');
+          // $("ul li.items").sort(function(a, b) {
+          //   var f = parseInt($(b).find('span.product-price').text().replace(',', ''));
+          //   var s = parseInt($(a).find('span.product-price').text().replace(',', ''));
+          //   return (f < s) ? 1 : -1;
+          // }).each(function() {
+          //   var elem = $(this);
+          //   elem.remove();
+          //   $(elem).appendTo("ul");
+          // });
+          break;
+
+        case 'Name':
+          this.sort('title')
+          // $("ul li.items").sort(function(a, b) {
+          //   return (($(b).find('span.product-name').text()) < ($(a).find('span.product-name').text())) ? 1 : -1;
+          // }).appendTo('ul');
+          break;
+      }
+    });
 
 
-      $('.dropdown-el').click((e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        $('.dropdown-el').toggleClass('expanded');
-        // alert($(e.target).attr('for'));
-        $('#'+$(e.target).attr('for')).prop('checked',true);
-        this.sort($(e.target).attr('for'));
-      });
-      $(document).click(function() {
-        $('.dropdown-el').removeClass('expanded');
-      });
 
-      
+    $('.dropdown-el').click((e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      $('.dropdown-el').toggleClass('expanded');
+      // alert($(e.target).attr('for'));
+      $('#' + $(e.target).attr('for')).prop('checked', true);
+      this.sort($(e.target).attr('for'));
+    });
+    $(document).click(function () {
+      $('.dropdown-el').removeClass('expanded');
+    });
+
+
 
   }
 
-  filterElectric(){
-    if(this.electricSpot){
-      this.electricSpot= false;
+  filterElectric() {
+    if (this.electricSpot) {
+      this.electricSpot = false;
       this.spotsData = this.spotsOrgList;
-    } 
+    }
     else {
-      this.electricSpot= true;
+      this.electricSpot = true;
       this.spotsData = $.grep(this.spotsData, function (h) {
         return h.electric;
       });
     }
   }
 
-  filterCovered(){
-    if(this.coveredSpot){
-      this.coveredSpot= false;
+  filterCovered() {
+    if (this.coveredSpot) {
+      this.coveredSpot = false;
       this.spotsData = this.spotsOrgList;
-    } 
+    }
     else {
       this.coveredSpot = true;
 
@@ -123,42 +123,60 @@ export class SpotsComponent implements OnInit {
     }
   }
 
-  sort(by){
-    if(by == "Relevance"){
-      this.spotsData.sort(function(a, b){
-        var nameA=a.title.toLowerCase(), nameB=b.title.toLowerCase();
+  sort(by) {
+    if (by == "Relevance") {
+      this.spotsData.sort(function (a, b) {
+        var nameA = a.title.toLowerCase(), nameB = b.title.toLowerCase();
         if (nameA < nameB) //sort string ascending
-         return -1;
+          return -1;
         if (nameA > nameB)
-         return 1;
+          return 1;
         return 0; //default return value (no sorting)
-       });
-  }
-  if(by == "Price"){
-    this.spotsData.sort(function(a, b){
-      var priceA=parseInt(a.price.toLowerCase().replace(/[^0-9.]/g, "")), priceB= parseInt(b.price.toLowerCase().replace(/[^0-9.]/g, ""));
-      if (priceA < priceB) //sort string ascending
-       return -1;
-      if (priceA > priceB)
-       return 1;
-      return 0; //default return value (no sorting)
-     });
-}
-// if(by == "Date"){
-//   this.spotsData.sort(function(a, b){
-//     if(a.date && b.date){
-//     var dateA=a.date.toLowerCase(), dateB=b.date.toLowerCase();
-//     if (dateA < dateB) //sort string ascending
-//      return -1;
-//     if (dateA > dateB)
-//      return 1;
-//     return 0; //default return value (no sorting)
-//     }
-//    });
-// }
+      });
+    }
+    if (by == "Price") {
+      this.spotsData.sort(function (a, b) {
+        var priceA = parseInt(a.price.toLowerCase().replace(/[^0-9.]/g, "")), priceB = parseInt(b.price.toLowerCase().replace(/[^0-9.]/g, ""));
+        if (priceA < priceB) //sort string ascending
+          return -1;
+        if (priceA > priceB)
+          return 1;
+        return 0; //default return value (no sorting)
+      });
+    }
+    if (by == "Date") {
+      this.spotsData.sort(function (a, b) {
+        var c = new Date(a.date);
+
+
+
+        var d = new Date(b.date);
+    
+
+
+    
+
+          if (c < d) { //sort string ascending
+
+            return -1;
+           
+          }
+          if (c > d) {
+        
+            return 1;
+          
+          }
+          else {
+        
+            return 0; //default return value (no sorting)
+        
+          }
+        
+      });
+    }
   }
 
-  
+
 
 
 
