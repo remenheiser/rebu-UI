@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { SpotsService } from './account.component.service';
+import { Router } from '@angular/router';
 declare let $: any;
 
 @Component({
@@ -18,7 +19,7 @@ export class AccountComponent implements OnInit {
 
   
 
-  constructor(private _spotService: SpotsService) { }
+  constructor(private _router: Router, private _spotService: SpotsService) { }
 
 //   settingsModal() {
 //    $("#modal").toggleClass('show');
@@ -36,6 +37,58 @@ export class AccountComponent implements OnInit {
    $('#settings-wrapper').toggleClass("hide");
    
   }
+
+  submit() {
+   const url = '/api/user/register';
+   const profimg = $('#profpic').val(); //title
+   const email = $('#userem').val(); //price
+
+
+   var userName = localStorage.getItem('username');
+   var userID = localStorage.getItem('email');
+
+   var decodedJwtData;
+   if (localStorage.getItem('token') != null){
+   var token = localStorage.getItem('token');
+   let jwtData = token.split('.')[1]
+   let decodedJwtJsonData = window.atob(jwtData)
+   decodedJwtData = JSON.parse(decodedJwtJsonData)
+   } else{
+     this._router.navigate(['/unauthorized']);
+   }
+
+
+
+
+   const data = {
+     profilePic: profimg,
+     email: email
+   };
+
+//  alert(JSON.stringify(data))
+   
+
+   const req = {
+     method: 'put',
+     headers: {
+       'content-type': 'application/json',
+       authorization: `Bearer ${token}`
+     },
+     body: JSON.stringify(data)
+   };
+
+
+
+   let that = this;
+
+   fetch(url, req)
+     .then(() => {
+       that._router.navigate(['/postlist']);
+     })
+     .catch(() => {
+       that._router.navigate(['/unauthorized']);
+     });
+ }
 
 
 
