@@ -271,7 +271,7 @@ export class MapComponent implements OnInit {
                 return () => {
                   infowindow.setContent(address.title + " " + address.price);
                   infowindow.open(map, marker);
-                  var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 200px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:100px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n"+address.price+ '</div>' + '</a>';
+                  var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 400px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:200px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n"+address.price+ '</div>' + '</a>';
                   infowindow.setContent(content);
 
                 }
