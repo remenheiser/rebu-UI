@@ -12,7 +12,11 @@
       <div class="col-md-6">
         <div id="mainImg">
           <img class="card-img-top" src="{{ spotsData.img }}" alt="Card image cap" />
-          <h2 id="userid">Listed by {{ spotsData.user }}</h2>
+        </div>
+        <div id="listerInfo">
+          <div class="user-avatar -medium -online-ring" [ngStyle]="{'background-image': 'url(' + profilePic + ')'}"></div>
+          <h2 id="userid">Listed by - {{ spotsData.user }}</h2>
+        </div>
           <!-- <div class="card-body">
           <h5 class="card-title">{{ spotsData.title }}</h5>
           <p class="card-text">{{ spotsData.price}}</p>
@@ -20,7 +24,7 @@
           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div> -->
         </div>
-      </div>
+    
 
       <div class="col-md-6">
         <h2 class="animated flipInX" id="mainTitle">{{ spotsData.title }}</h2>

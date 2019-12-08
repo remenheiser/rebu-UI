@@ -36,6 +36,7 @@ export class UnauthorizedComponent implements OnInit {
         localStorage.setItem("token", response.token);
         localStorage.setItem("username", response.username);
         localStorage.setItem("email", response.email);
+        localStorage.setItem("profilePic", response.profilePic);
 
         console.log(`Local Storage Username: ${localStorage.getItem("username")}`);
         console.log(`Local Storage Email: ${localStorage.getItem("email")}`);

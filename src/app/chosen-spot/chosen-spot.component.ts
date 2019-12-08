@@ -5,7 +5,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { GoogleMapsAPIWrapper, MapsAPILoader } from '@agm/core';
 import { Observable } from 'rxjs';
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
-
+   
 
 @Component({
   selector: 'app-chosen-spot',
@@ -14,6 +14,7 @@ import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 })
 export class ChosenSpotComponent implements OnInit {
   public spotsData: any = [];
+  public profilePic: string;
 
 
   constructor(
@@ -50,6 +51,7 @@ export class ChosenSpotComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.profilePic = localStorage.getItem('profilePic');
    
     $('#datebutton').hide()
 

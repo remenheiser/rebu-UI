@@ -9,6 +9,17 @@
   src: url(src/assets/rebu-font.ttf);
 }
 
+@font-face {
+  font-family: fancy;
+  src: url(src/assets/Roboto-Light.ttf);
+}
+
+// * {
+//   font-family: fancy;
+// }
+
+
+
 .social-btns .btn.instagram:before {
   background-color: #bf00ff;
 }
@@ -90,7 +101,7 @@
 body {
   /* background: #212121; */
   margin-top: -100px;
-  height: 330px;
+  max-height: 330px;
   /* font-size:22px;
 	line-height: 32px;
 	color: #ffffff;
@@ -685,13 +696,15 @@ $zoom-slow: all 2.4s cubic-bezier(0.55, 0, 0.1, 1);
 }
 //FONT IMPORT
 
+
+
 #container1 {
   visibility: hidden;
   height: 10px;
 }
 
 body {
-  background-color: white;
+  background: linear-gradient(180deg, rgb(221, 126, 97), rgb(230, 74, 25));
 
   font-family: "Noto Sans", sans-serif;
   text-align: center;

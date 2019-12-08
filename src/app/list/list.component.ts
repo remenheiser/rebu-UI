@@ -67,6 +67,8 @@ export class ListComponent implements OnInit {
 
     var that = this;
 
+    
+
     fetch(url, req)
       .then(function () {
         that._router.navigate(['/postlist']);

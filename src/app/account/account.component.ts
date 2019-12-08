@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { SpotsService } from './account.component.service';
+declare let $: any;
 
 @Component({
   selector: 'app-account',
@@ -11,37 +12,44 @@ export class AccountComponent implements OnInit {
 
 
   public userListings: any = []
-  public userEmail: any
-  public username: any
+  public userEmail: string;
+  public username: string;
+  public profilePic: string;
+
   
 
   constructor(private _spotService: SpotsService) { }
 
+//   settingsModal() {
+//    $("#modal").toggleClass('show');
+//   }
 
-  toggleClassSpots(){
-   $('#spots').toggleClass("hide");
-
-  }
+ 
 
   toggleClassProfile(){
-   $('#profile').toggleClass("hide");
+   $('#page-content-wrapper').toggleClass("hide");
+   $('#settings-wrapper').toggleClass("hide");
   }
 
-  toggleClassScreen(){
-   $('.screen').toggleClass("hide");
- 
+  toggleSettingsScreen(){
+   $('#page-content-wrapper').toggleClass("hide");
+   $('#settings-wrapper').toggleClass("hide");
+   
   }
 
 
 
   ngOnInit() {
-
+   $('#settings-wrapper').toggleClass("hide");
    $('.screen').toggleClass("hide");
 
    $('#settingsIcon').click(function(){
       $('.screen').toggleClass("hide");
    });
+
+
     var token = localStorage.getItem('token');
+    this.profilePic = localStorage.getItem('profilePic');
 
     
     let jwtData = token.split('.')[1]
