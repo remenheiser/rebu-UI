@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 
 export class ListComponent implements OnInit {
+  private electric: boolean = false;
+  private covered: boolean = false;
+  public nearByData: any = []
   constructor(private _router: Router) { }
   submit() {
     const url = '/api/location/spot';
@@ -43,10 +46,13 @@ export class ListComponent implements OnInit {
       img: img,
       date: date,
       user: userName,
-      userid: userID
+      userid: userID,
+      userrating: 5,
+      electric: this.electric,
+      covered: this.covered
     };
 
- 
+//  alert(JSON.stringify(data))
     
 
     const req = {
@@ -74,6 +80,29 @@ export class ListComponent implements OnInit {
     $('.container')
       .animate({ top: 0 })
       .delay(500);
+
+      $('#checkboxOne').click(()=> {
+        if(!this.electric){
+          // alert("electric");
+          this.electric = true;
+        } else {
+          this.electric = false;
+        }
+    });
+
+    $('#checkboxTwo').click(()=> {
+      if(!this.covered){
+        // alert("covered");
+        this.covered = true;
+      } else {
+        this.covered = false;
+      }
+  });
+
+
+ 
+
+
   }
 }
 

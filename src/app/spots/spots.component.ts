@@ -27,6 +27,55 @@ export class SpotsComponent implements OnInit {
         this.spotsOrgList = data;
       });
 
+      
+	
+        // Filter
+        $("button[cs-filter]").click(function() {
+          var t = $(this).attr('cs-filter');
+          $("button[cs-filter]").removeClass('btn-active');
+          $(this).addClass('btn-active');
+          if (t == "*") {
+            $("li.items[cs-category]").show("fast");
+          } else {
+            $.each($("li.items[cs-category]"), function(index, value) {
+              if (!$(this).attr('cs-category').match(new RegExp(t))) {
+                $(this).hide("fast");
+              } else {
+                $(this).show("fast");
+              }
+            });
+          }
+        });
+        
+        // Sort Button
+        $("button[cs-sort]").click(()=> {
+          var t = $(this).attr('cs-sort');
+          $("button[cs-sort]").removeClass('btn-active');
+          $(this).addClass('btn-active');
+          switch (t) {
+            case 'Price':
+              this.sort('price');
+              // $("ul li.items").sort(function(a, b) {
+              //   var f = parseInt($(b).find('span.product-price').text().replace(',', ''));
+              //   var s = parseInt($(a).find('span.product-price').text().replace(',', ''));
+              //   return (f < s) ? 1 : -1;
+              // }).each(function() {
+              //   var elem = $(this);
+              //   elem.remove();
+              //   $(elem).appendTo("ul");
+              // });
+              break;
+      
+            case 'Name':
+              this.sort('title')
+              // $("ul li.items").sort(function(a, b) {
+              //   return (($(b).find('span.product-name').text()) < ($(a).find('span.product-name').text())) ? 1 : -1;
+              // }).appendTo('ul');
+              break;
+          }
+        });
+      
+
 
       $('.dropdown-el').click((e) => {
         e.preventDefault();
@@ -35,11 +84,12 @@ export class SpotsComponent implements OnInit {
         // alert($(e.target).attr('for'));
         $('#'+$(e.target).attr('for')).prop('checked',true);
         this.sort($(e.target).attr('for'));
-        
       });
       $(document).click(function() {
         $('.dropdown-el').removeClass('expanded');
       });
+
+      
 
   }
 

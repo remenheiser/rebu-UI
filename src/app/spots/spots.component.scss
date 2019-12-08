@@ -3,11 +3,16 @@
 @import url(https://unpkg.com/bootstrap@4.3.1/dist/css/bootstrap.css);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 @import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800);
+
 @font-face {
   font-family: rebu;
   src: url(/src/assets/rebu-font.ttf);
 }
 
+.mobileNavFonts{
+  color: black
+}
 
 .elevate {
 
@@ -241,6 +246,7 @@ html {
  
 
  button {
+   font-family: rebu;
 	& img {
 		transition: transform .25s;
 	}
@@ -413,4 +419,33 @@ $timing:.3s;
       top:.55em;
     }
   }
+}
+
+#navMobile {
+  background-color: transparent;
+	margin-top: 20px;
+	width: 100%;
+	color: #1d2733;
+	font: 700 14px 'Open Sans', sans-serif !important;
+
+	button {
+		border: none;
+		color: #fff;
+		padding: 10px;
+		background: transparent;
+		font: 700 14px 'Open Sans', sans-serif !important;
+		text-transform: uppercase;
+		outline: none;
+		transition: all .5s;
+		display: block;
+
+		&:hover {
+			color: $color;
+		}
+	}
+		
+}
+
+.btn-active {
+	color: $color !important;
 }

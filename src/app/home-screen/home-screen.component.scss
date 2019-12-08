@@ -3,6 +3,7 @@
   }
   
   body {
+    width: 100%;
     padding: 0;
     margin: 0;
     font-family: 'Rubik', sans-serif;
@@ -13,6 +14,11 @@
     src: url(src/assets/rebu-font.ttf);
   }
   
+  
+
+  .text-uppercase, .text-muted {
+    color: white;
+  }
   strong {
     padding: 0;
     margin: 0;
@@ -80,7 +86,7 @@
 
   
   .hero {
-    margin-top: -25px;
+    margin-top: -30px;
     
     background: linear-gradient(180deg, rgb(221, 126, 97), rgba(230,74,25));
     width: 100%;

@@ -11,6 +11,27 @@
 
 
   <h3 class="animated bounceInLeft delay-0.5s">Find a place to park</h3>
+
+  <!-- <div style="position: absolute; left: 20px" class="push_two two columns">
+      <nav id="navMobile">
+          <span style="font-family: rebu; color: white;">
+            Filter :
+            <button class="btn-active" cs-filter="*">All</button>
+            <button cs-filter="jacket">Electric Charging</button>
+            <button cs-filter="shirt">Covered Parking</button>
+          </span>
+          <Br/>
+          <span style="font-family: rebu; color: white">
+            Sort :
+            <button cs-sort="Price">Price</button> 
+            <button cs-sort="Name">Name</button>
+            <button cs-sort="Date">Date</button>
+            <button cs-sort="UR">User Rating</button>
+          </span>
+      </nav>
+    </div> -->
+
+
   <div style="text-align: center; max-width: 685px; margin: 0 auto;overflow: hidden;">
     <div style="float:left;" class="searchbox">
       <button class="btn-menu">
@@ -24,22 +45,24 @@
     </button> -->
     </div>
     <div style="margin:10px;float:right;width: 200px;;">
-      <div style="position:absolute"> 
-      <span class="dropdown-el">
-        <input type="radio" name="sortType" value="Relevance" checked="checked" id="Relevance">
-        <label for="Relevance">Relevance</label>
-        <input type="radio" name="sortType" value="Popularity" id="Price">
-        <label for="Price">Price</label>
-        <input type="radio" name="sortType" value="PriceIncreasing" id="Date">
-        <label for="Date">Date</label>
-        <input type="radio" name="sortType" value="ProductBrand" id="Brand">
-        <label for="Brand">User Rating</label>
-        <input type="radio" name="sortType" value="ProductName" id="Electric">
-        <label for="Electric">Electric Charging</label>
-        <input type="radio" name="sortType" value="ProductName" id="Covered">
-        <label for="Covered">Covered Parking</label>
-      </span>
-    </div>
+      <div style="position:absolute">
+        <span class="dropdown-el">
+          <input type="radio" name="sortType" value="Sort" checked="checked" id="Sort">
+          <label for="Sort">Sort</label>
+          <input type="radio" name="sortType" value="Relevance" id="Relevance">
+          <label for="Relevance">Relevance</label>
+          <input type="radio" name="sortType" value="Popularity" id="Price">
+          <label for="Price">Price</label>
+          <input type="radio" name="sortType" value="PriceIncreasing" id="Date">
+          <label for="Date">Date</label>
+          <input type="radio" name="sortType" value="ProductBrand" id="Brand">
+          <label for="Brand">User Rating</label>
+          <input type="radio" name="sortType" value="ProductName" id="Electric">
+          <label for="Electric">Electric Charging</label>
+          <input type="radio" name="sortType" value="ProductName" id="Covered">
+          <label for="Covered">Covered Parking</label>
+        </span>
+      </div>
     </div>
   </div>
   <!-- <div class="search">

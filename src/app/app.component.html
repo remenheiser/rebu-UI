@@ -1,44 +1,87 @@
 <head>
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TimelineMax.min.js"></script>
+  <script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/gsap-latest-beta.min.js?r=22"></script>
+  <!-- <link href="./../node_modules/normalize.css/normalize.css"> -->
+
 </head>
-<body>
-    <div class="title">
-      <h1>Spotly</h1>
-      
+
+<div id="container1">
+    <span class="menu-trigger">
+      <i class="menu-trigger-bar top"></i>
+      <i class="menu-trigger-bar middle"></i>
+      <i class="menu-trigger-bar bottom"></i>
+    </span>
+    <span class="close-trigger">
+      <i class="close-trigger-bar left"></i>
+      <i class="close-trigger-bar right"></i>
+    </span>
+    <!-- <span class="logo">
+          <span>
+            ⬢
+            <i class="logo-title">UI</i>
+            <i class="logo-badge">6</i>
+          </span>
+        </span> -->
+    <div class="inner-container">
+      <i class="menu-bg top"></i>
+      <i class="menu-bg middle"></i>
+      <i class="menu-bg bottom"></i>
+      <div class="menu-container">
+        <ul class="menu">
+          <li><a  class="close-trigger1" routerLink="/home">Home</a></li>
+          <li><a class="close-trigger1" routerLink="/spots">Hot Spots</a></li>
+          <li><a class="close-trigger1" routerLink="/list">List a Spot</a></li>
+          <li><a class="close-trigger1" routerLink="/near-by">Near By</a></li>
+          <li><a class="close-trigger1" routerLink="/contact">Long Spots</a></li>
+          <li><a class="close-trigger1"  routerLink="/about">About</a></li>
+        </ul>
+      </div>
     </div>
-    <button id="logoutButton" routerLink="/signup" (click)="loginLogout()"type="button" class="btn btn-hero"> Sign In </button>
+  </div>
+
+
+<body>
+  <div class="title">
+    <h1>Spotly</h1>
+
+  </div>
+
+  
+  <button id="logoutButton" routerLink="/signup" (click)="loginLogout()"type="button" class="btn btn-hero"> Sign In </button>
     <button id="myAccount" (click)="myAccount()" type="button" class="btn btn-hero"> Account </button>
     
-
     
-   
 
 
-    <div id="container">
+
+
+  <div id="container">
       <nav>
         <ul>
           <li><a class="tab" routerLink="/home">Home</a></li>
           <li><a class="tab" routerLink="/spots">Hot Spots</a></li>
           <li><a class="tab" routerLink="/list">List a Spot</a></li>
           <li><a class="tab" routerLink="/near-by">Near By</a></li>
-            
-            <!-- First Tier Drop Down -->
-            <!-- <ul>
+
+  <!-- First Tier Drop Down -->
+  <!-- <ul>
               <li><a href="#">Resources</a></li>
               <li><a href="#">Links</a></li>
               <li>
                 <a href="#">Tutorials</a> -->
-                <!-- Second Tier Drop Down -->
-                <!-- <ul>
+  <!-- Second Tier Drop Down -->
+  <!-- <ul>
                   <li><a href="#">HTML/CSS</a></li>
                   <li><a href="#">jQuery</a></li>
                   <li>
                     <a href="#">Other</a> -->
-                    <!-- Third Tier Drop Down -->
-                    <!-- <ul>
+  <!-- Third Tier Drop Down -->
+  <!-- <ul>
                       <li><a href="#">Stuff</a></li>
                       <li><a href="#">Things</a></li>
                       <li><a href="#">Other Stuff</a></li>
@@ -48,73 +91,78 @@
               </li>
             </ul>
           </li> -->
-          <li><a routerLink="/contact">Long Spots</a></li>
+  <li><a routerLink="/contact">Long Spots</a></li>
           <li><a routerLink="/about">About</a></li>
-          <!-- <li><a href="/signup" class="btn btn-1">
+  <!-- <li><a href="/signup" class="btn btn-1">
             <svg>
               <rect x="0" y="0" fill="none" width="100%" height="100%"/>
             </svg>
            Login
           </a>
         </li> -->
-        </ul>
+  </ul>
       </nav>
-    </div>
-  </body>
-  <div class="wrapper">
-    <div class="shadow"></div>
-  </div>
+</div>
+</body>
+<div class="wrapper">
+  <div class="shadow"></div>
+</div>
 
 
-  <router-outlet></router-outlet>
+<router-outlet></router-outlet>
 
-  <div style="background-color: 222222; width: 100vw; height: 50px"></div>
-  <footer id="footer-Section">
-      <div class="footer-top-layout">
-        <div class="container">
-          <div class="row">
-            <div class="OurBlog">
-              <h4>Spotly</h4>
-              <p>Parking has never been easier.</p>
-              <div class="post-blog-date">20th Oct 2016</div>
-           
+<div style="background-color: 222222; width: 100vw; height: 50px"></div>
+<footer id="footer-Section">
+  <div class="footer-top-layout">
+    <div class="container">
+      <div class="row">
+        <div class="OurBlog">
+          <h4>Spotly</h4>
+          <p>Parking has never been easier.</p>
+          <div class="post-blog-date">20th Oct 2016</div>
+
+        </div>
+        <div class=" col-lg-8 col-lg-offset-2">
+          <div class="col-sm-4">
+            <div class="footer-col-item">
+              <h4>About Us</h4>
+              <address>
+                Just a couple college bros looking to make some quick cash. Learn more <a style="color: coral"
+                  href="/about">here.</a>
+              </address>
             </div>
-            <div class=" col-lg-8 col-lg-offset-2">
-              <div class="col-sm-4">
-                <div class="footer-col-item">
-                  <h4>About Us</h4>
-                  <address>
-                  Just a couple college bros looking to make some quick cash. Learn more <a style="color: coral" href="/about">here.</a>
-                  </address>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="footer-col-item">
-                  <h4>Reach Us</h4>
-                  <div class="item-contact"> <a href="tel:630-885-9200"><span class="link-id">P</span>:<span>630-885-9200</span></a> <a href="www.ParkSfpotly.com"><span class="link-id">F</span>:<span>www.ParkSpotly.com</span></a> <a href="mailto:info@brandcatmedia.com"><span class="link-id">E</span>:<span>parkspotly@gmail.com</span></a> </div>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="footer-col-item">
-                  <h4>Sign up for Newsletter</h4>
-                  <form class="signUpNewsletter" action="" method="get">
-                    <input name="" class="gt-email form-control" placeholder="You@youremail.com" type="text">
-                    <input name="" class="btn-go" value="Go" type="button">
-                  </form>
-                </div>
-              </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="footer-col-item">
+              <h4>Reach Us</h4>
+              <div class="item-contact"> <a href="tel:630-885-9200"><span
+                    class="link-id">P</span>:<span>630-885-9200</span></a> <a href="www.ParkSfpotly.com"><span
+                    class="link-id">F</span>:<span>www.ParkSpotly.com</span></a> <a
+                  href="mailto:info@brandcatmedia.com"><span
+                    class="link-id">E</span>:<span>parkspotly@gmail.com</span></a> </div>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="footer-col-item">
+              <h4>Sign up for Newsletter</h4>
+              <form class="signUpNewsletter" action="" method="get">
+                <input name="" class="gt-email form-control" placeholder="You@youremail.com" type="text">
+                <input name="" class="btn-go" value="Go" type="button">
+              </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="footer-bottom-layout">
-        <div class="socialMedia-footer"> 
-          <!-- <div class="social-btns">
+    </div>
+  </div>
+  <div class="footer-bottom-layout">
+    <div class="socialMedia-footer">
+      <!-- <div class="social-btns">
             <a class="btn instagram" href="#">
               <i class="fa fa-instagram"></i>
             </a> 
           </div> -->
-        </div>
-        <div class="copyright-tag">Copyright © 2019 Spotly. All Rights Reserved.</div>
-      </div>
-    </footer>
+    </div>
+    <div class="copyright-tag">Copyright © 2019 Spotly. All Rights Reserved.</div>
+  </div>
+</footer>
