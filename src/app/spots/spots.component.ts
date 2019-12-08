@@ -17,6 +17,9 @@ export class SpotsComponent implements OnInit {
 
   public spotsOrgList: any = []
 
+  public electricSpot: boolean = false;
+  public coveredSpot: boolean = false;
+
   constructor(private _spotService: SpotsService) { }
 
   ngOnInit() {
@@ -91,6 +94,33 @@ export class SpotsComponent implements OnInit {
 
       
 
+  }
+
+  filterElectric(){
+    if(this.electricSpot){
+      this.electricSpot= false;
+      this.spotsData = this.spotsOrgList;
+    } 
+    else {
+      this.electricSpot= true;
+      this.spotsData = $.grep(this.spotsData, function (h) {
+        return h.electric;
+      });
+    }
+  }
+
+  filterCovered(){
+    if(this.coveredSpot){
+      this.coveredSpot= false;
+      this.spotsData = this.spotsOrgList;
+    } 
+    else {
+      this.coveredSpot = true;
+
+      this.spotsData = $.grep(this.spotsData, function (h) {
+        return h.covered;
+      });
+    }
   }
 
   sort(by){

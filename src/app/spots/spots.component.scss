@@ -14,6 +14,66 @@
   color: black
 }
 
+fieldset {
+  border: 0;
+}
+
+legend {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+.control {
+  display: inline-flex;
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 99em;
+  
+  input {
+    position: absolute;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  svg {
+    margin-right: 6px;
+    border-radius: 50%;
+    box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.control__content {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 12px;
+  font-size: 18px;
+  line-height: 32px;
+  color: white;
+  background-color: rgb(237, 118, 82);
+  border-radius: 99em;
+  
+  .control:hover & {
+    background-color: rgb(245, 172, 150);
+  }
+}
+
+.control input:focus ~ .control__content {
+  box-shadow: 0 0 0 0.25rem rgba(12, 242, 143, .2);
+  background-color: rgb(230, 74, 25);
+
+}
+
+.control input:checked ~ .control__content {
+  background-color: rgb(230, 74, 25);
+}
+
 .elevate {
 
     text-decoration: none;
