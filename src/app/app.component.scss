@@ -100,7 +100,7 @@
 
 body {
   /* background: #212121; */
-  margin-top: -100px;
+  margin-top: -200px;
   max-height: 330px;
   /* font-size:22px;
 	line-height: 32px;
@@ -137,7 +137,7 @@ a {
 }
 
 h1 {
-  margin-top: 100px;
+  // margin-top: 100px;
   text-align: center;
   font-size: 60px;
   font-family: "Bree Serif", "serif";
@@ -711,6 +711,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  #container1{
+    height: 0px;
+  }
+  h1 {
+    margin-top: 100px;
+  }
   body {
     background-color: white;
     padding: 5px 0;
@@ -762,25 +768,23 @@ body {
     -webkit-transform: scale(1);
   }
 
-  .menu-trigger,
-  .close-trigger {
+  .menu-trigger, .close-trigger {
     position: absolute;
-    top: 120px;
+    top: 32px;
     right: 20px;
     display: block;
     width: 42px;
     height: 42px;
     cursor: pointer;
-    z-index: 3233;
-    color: black;
-
+    z-index: 333;
+    
     &:hover {
       .menu-trigger-bar {
         &:before {
           width: 100%;
         }
       }
-
+      
       .close-trigger-bar {
         &:before {
           width: 100%;
@@ -788,17 +792,21 @@ body {
       }
     }
   }
-
+  
+  .close-trigger {
+    z-index: 5;
+    top: 42px;
+  }
+  
   .menu-trigger-bar {
     display: block;
-    // z-index: 1003;
     width: 100%;
     height: 4px;
-    background-color: black;
+    background-color: $white-100;
     margin-bottom: 6px;
     transform: rotate(-45deg);
     position: relative;
-
+    
     &:before {
       content: "";
       position: absolute;
@@ -810,15 +818,14 @@ body {
       background-color: $black-20;
       transition: $slide;
     }
-
+    
     &.top {
-      width: 100%;
+      width: 50%;
     }
     &.middle {
       &:before {
         left: auto;
-        right: -20px;
-        
+        right: 0;
       }
     }
     &.bottom {
@@ -826,14 +833,14 @@ body {
       margin-left: 50%;
     }
   }
-
+  
   .close-trigger-bar {
     display: block;
     width: 100%;
     height: 4px;
     background-color: $dark-grey;
     position: relative;
-
+    
     &:before {
       content: "";
       position: absolute;
@@ -845,7 +852,7 @@ body {
       background-color: $white-20;
       transition: $slide;
     }
-
+    
     &.left {
       transform: translateX(100px) translateY(-100px) rotate(-45deg);
     }
@@ -854,7 +861,6 @@ body {
       top: -3px;
     }
   }
-
   .logo {
     display: block;
     width: 64px;
@@ -907,6 +913,7 @@ body {
     width: 100%;
     left: 0;
     top: 0;
+    z-index: 5;
   }
 
   .inner-container {
@@ -962,12 +969,13 @@ body {
   .menu-bg {
     position: absolute;
     display: block;
-    width: 250%;
+    width: 350%;
     left: -53%;
     top: -25%;
     //top: -25%;
-    height: 40%;
+    height: 70%;
     background-color: $white-100;
+    
 
     &.middle {
       top: 35%;
@@ -975,9 +983,12 @@ left: -78%;
       transform: rotate(-45deg) scaleY(0);
     }
     &.top {
-      left: -2%;
-top: -100;
-      transform: rotate(-45deg) translateY(-152%);
+      transform: translate(-313.412px, -113%) rotate(-45deg);
+
+background-color:
+rgb(255, 255, 255);
+
+width: 1200px;
       //top: -25%;
     }
     &.bottom {

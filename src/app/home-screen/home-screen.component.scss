@@ -581,6 +581,12 @@ $curve: cubic-bezier(0.7, 0, 0.3, 1);
 	}
 }
 
+@media(max-width: 750px){
+	#hero-slides{
+		display: none;
+	}
+}
+
 @media (min-width: 1700px) {
 	body {
 		--slide-per-age: 4;
