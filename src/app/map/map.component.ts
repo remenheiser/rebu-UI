@@ -13,6 +13,10 @@ export class MapComponent implements OnInit {
 
   constructor(private _menuService: MenuService) { }
 
+  selectedSpot(){
+    alert("yes")
+  }
+
   ngOnInit() {
 
     this._menuService.getSpots()
@@ -267,12 +271,39 @@ export class MapComponent implements OnInit {
 
               console.log(markers);
 
+              
+
               google.maps.event.addListener(marker, 'click', ((marker, i, ) => {
                 return () => {
-                  infowindow.setContent(address.title + " " + address.price);
+                  // infowindow.setContent(address.title + " " + address.price);
                   infowindow.open(map, marker);
                   var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 400px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:200px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n"+address.price+ '</div>' + '</a>';
-                  infowindow.setContent(content);
+                  // infowindow.setContent(content);
+                  var routeLink = "/chosen-spot/" + address._id;
+                  infowindow.setContent(
+                    "<a (click)='selectedSpot()'>" +
+                    "<div class='info-card'>" +
+                      "<div class='info-card-top'>" +
+                      "<img  style='max-width:200px' src='" +
+                      address.img +
+                      "' class='info-card-image'>" +
+                      "<div class='info-card-meta'>" +
+                      "<div class='info-card-heading'>" +
+                      address.title +
+                      "</div>" +
+                      "<div class='info-card-subheading'>" +
+                      address.price +
+                      "</div>" +
+                      "</div>" +
+                      "</div>" +
+                      "<div class='info-card-bottom'>" +
+                      "<p>" + address.date + "</p>" +
+                      "</div>" +
+                      "</div>" +
+                      "<button onclick='selectedSpot()'> View Spot" +
+                      "</button>" +
+                      "</a>"
+                  );
 
                 }
               })(marker, i));
@@ -292,4 +323,6 @@ export class MapComponent implements OnInit {
       });
 
   }
+
+
 }
