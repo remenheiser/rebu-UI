@@ -44,13 +44,17 @@ export class UnauthorizedComponent implements OnInit {
         this._router.navigate(['/account']);
       },
       error: function (xhr) {
-        alert(xhr.responseText);
+        if(xhr.responseText === '{"message":"Auth failed 1"}'){
+        alert("Incorrect username or password");
+        }
         //Do Something to handle error
         console.log("email: " + email + ", password: " + password);
       }
     });
 
   }
+
+  
 
   register() {
 
@@ -69,8 +73,9 @@ export class UnauthorizedComponent implements OnInit {
         this.router.navigate(['/account']);
       },
       error: function (xhr) {
-        //Do Something to handle error
-        console.log(xhr.responseText);
+       
+          alert("Issue with username or password (make sure all fields are filled in)");
+         
       }
     });
 

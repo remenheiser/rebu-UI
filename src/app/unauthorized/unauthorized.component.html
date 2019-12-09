@@ -31,11 +31,11 @@
       <h2>Welcome back,</h2>
       <label>
         <span>Email</span>
-        <input id="email" type="email" />
+        <input (keyup.enter)="signIn()" id="email" type="email" />
       </label>
       <label>
         <span>Password</span>
-        <input id="password" type="password" />
+        <input (keyup.enter)="signIn();" id="password" type="password" />
       </label>
       <p routerLink="/forgot-password" class="forgot-pass" style="cursor: pointer; cursor: hand;">
         Forgot password?
@@ -65,15 +65,15 @@
         <h2>Time to feel like home,</h2>
         <label>
           <span>Name</span>
-          <input id="nameSignUp" type="text" />
+          <input (keyup.enter)="register()" id="nameSignUp" type="text" />
         </label>
         <label>
           <span>Email</span>
-          <input id="emailSignUp" type="email" />
+          <input (keyup.enter)="register()" id="emailSignUp" type="email" />
         </label>
         <label>
           <span>Password</span>
-          <input id="passwordSignUp" type="password" />
+          <input (keyup.enter)="register()" id="passwordSignUp" type="password" />
         </label>
         <button (click)="register()" type="button" class="submit">
           Sign Up
