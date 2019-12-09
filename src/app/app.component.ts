@@ -119,15 +119,15 @@ export class AppComponent {
       }, "close")
       .to(logo, 0.8, {
         scale: 1, opacity: 1, ease: Power4.easeInOut
-      }, "close", "+=0.2")
+      }, "close")
       .to(menuTop, 0.8, {
         y: "-113%",
         ease: Power4.easeInOut
-      }, "close", "+=0.2")
+      }, "close")
       .to(menuMiddle, 0.8, {
         scaleY: 0,
         ease: Power4.easeInOut
-      }, "close", "+=0.2")
+      }, "close")
       .to(menuBottom, 0.8, {
         y: "23%",
         ease: Power4.easeInOut,
@@ -136,7 +136,7 @@ export class AppComponent {
           menuMiddle.css('background-color', '#ffffff');
           menuBottom.css('background-color', '#ffffff');
         }
-      }, "close", "+=0.2")
+      }, "close")
       .to(closeTriggerLeft, 0.2, {
         x: "+=100px", y: "-=100px", ease: Power4.easeIn
       }, "close")
