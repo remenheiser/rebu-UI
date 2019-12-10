@@ -293,25 +293,26 @@ export class MapComponent implements OnInit {
                   // infowindow.setContent(content);
                   var routeLink = "/chosen-spot/" + address._id;
                   infowindow.setContent(
-                    "<a id='infobutton'>" +
+                    "<a style='font-family: fancy' id='infobutton'>" +
                     "<div class='info-card'>" +
                     "<div class='info-card-top'>" +
                     "<img  style='max-width:200px' src='" +
                     address.img +
                     "' class='info-card-image'>" +
                     "<div class='info-card-meta'>" +
-                    "<div class='info-card-heading'>" +
+                    "<div style='font-size: 20px' class='info-card-heading'>" +
                     address.title +
                     "</div>" +
-                    "<div class='info-card-subheading'>" +
+                    "<div style='font-size: 12px' class='info-card-subheading'>" +
                     address.price +
                     "</div>" +
                     "</div>" +
                     "</div>" +
-                    "<div class='info-card-bottom'>" +
+                    "<div style='font-size: 12px' class='info-card-bottom'>" +
                     "<p>" + address.date + "</p>" +
                     "</div>" +
                     "</div>" +
+                    "<a style='display: flex; justify-content: center;'> Tap for more info</a>"+
                     "</a>"
                   );
 
