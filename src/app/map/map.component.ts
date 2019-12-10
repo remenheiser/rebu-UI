@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuService } from './map.service'
 import { url } from 'inspector';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -11,9 +12,9 @@ export class MapComponent implements OnInit {
 
   public spotsData: any[];
 
-  constructor(private _menuService: MenuService) { }
+  constructor(private _menuService: MenuService, private router: Router,) { }
 
-  selectedSpot(){
+  selectedSpot() {
     alert("yes")
   }
 
@@ -23,6 +24,7 @@ export class MapComponent implements OnInit {
       .subscribe((data: any) => {
         this.spotsData = data;
 
+        
 
 
 
@@ -264,6 +266,8 @@ export class MapComponent implements OnInit {
               marker = new google.maps.Marker({
                 icon: '../../assets/mapicon.png',
                 position: new google.maps.LatLng(latitude, longitude),
+                animation: google.maps.Animation.DROP,
+                title: address._id,
                 map: map
               });
 
@@ -271,42 +275,61 @@ export class MapComponent implements OnInit {
 
               console.log(markers);
 
-              
+
 
               google.maps.event.addListener(marker, 'click', ((marker, i, ) => {
                 return () => {
+                  // alert(marker.title)
+              
+
+                  var first = marker.title.toString();
+                  this.spotsData.sort(function (x, y) { return x._id === first ? -1 : y._id === first ? 1 : 0; });
+
+                  // alert(data);
+
                   // infowindow.setContent(address.title + " " + address.price);
                   infowindow.open(map, marker);
-                  var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 400px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:200px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n"+address.price+ '</div>' + '</a>';
+                  var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 400px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:200px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n" + address.price + '</div>' + '</a>';
                   // infowindow.setContent(content);
                   var routeLink = "/chosen-spot/" + address._id;
                   infowindow.setContent(
-                    "<a (click)='selectedSpot()'>" +
+                    "<a id='infobutton'>" +
                     "<div class='info-card'>" +
-                      "<div class='info-card-top'>" +
-                      "<img  style='max-width:200px' src='" +
-                      address.img +
-                      "' class='info-card-image'>" +
-                      "<div class='info-card-meta'>" +
-                      "<div class='info-card-heading'>" +
-                      address.title +
-                      "</div>" +
-                      "<div class='info-card-subheading'>" +
-                      address.price +
-                      "</div>" +
-                      "</div>" +
-                      "</div>" +
-                      "<div class='info-card-bottom'>" +
-                      "<p>" + address.date + "</p>" +
-                      "</div>" +
-                      "</div>" +
-                      "<button onclick='selectedSpot()'> View Spot" +
-                      "</button>" +
-                      "</a>"
+                    "<div class='info-card-top'>" +
+                    "<img  style='max-width:200px' src='" +
+                    address.img +
+                    "' class='info-card-image'>" +
+                    "<div class='info-card-meta'>" +
+                    "<div class='info-card-heading'>" +
+                    address.title +
+                    "</div>" +
+                    "<div class='info-card-subheading'>" +
+                    address.price +
+                    "</div>" +
+                    "</div>" +
+                    "</div>" +
+                    "<div class='info-card-bottom'>" +
+                    "<p>" + address.date + "</p>" +
+                    "</div>" +
+                    "</div>" +
+                    "</a>"
                   );
 
+                  google.maps.event.addListenerOnce(infowindow, 'domready', () => {
+                    document.getElementById('infobutton').addEventListener('click', () => {
+                 
+                     this.router.navigate([`/chosen-spot/${marker.title}`]);
+                    });
+                  });
+
                 }
+                
               })(marker, i));
+
+              
+              
+         
+              
             }
 
             console.log(markers[0]);
