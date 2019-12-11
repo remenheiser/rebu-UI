@@ -19,7 +19,9 @@
 // }
 
 
-
+html {
+  margin: 0px;
+}
 .social-btns .btn.instagram:before {
   background-color: #bf00ff;
 }
@@ -98,9 +100,15 @@
   margin-top: -50px;
 }
 
+
+// .stop-scrolling {
+//   height: 100%;
+//   overflow: hidden;
+// }
+
 body {
   /* background: #212121; */
-  margin-top: -200px;
+  margin-top: -100px;
   max-height: 330px;
   /* font-size:22px;
 	line-height: 32px;
@@ -279,6 +287,16 @@ h1 {
   position: relative;
   top: -60px;
   left: -51px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+
+  #foot{
+    margin-top: -75px;
+  }
+  
 }
 
 .footer-top-layout {
@@ -700,7 +718,7 @@ $zoom-slow: all 2.4s cubic-bezier(0.55, 0, 0.1, 1);
 
 #container1 {
   visibility: hidden;
-  height: 10px;
+  height: 0px;
 }
 
 body {
@@ -711,9 +729,7 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-  #container1{
-    height: 0px;
-  }
+
   h1 {
     margin-top: 100px;
   }
@@ -738,7 +754,7 @@ body {
   }
 
   #container {
-    visibility: hidden;
+    display: none;
   }
 
   //
@@ -765,7 +781,7 @@ body {
     //   -webkit-box-shadow: 0px 9px 13px 0px $black-30;
     // -moz-box-shadow: 0px 9px 13px 0px $black-30;
     // box-shadow: 0px 9px 13px 0px $black-30;
-    -webkit-transform: scale(1);
+    // -webkit-transform: scale(1);
   }
 
   .menu-trigger, .close-trigger {
@@ -776,7 +792,7 @@ body {
     width: 42px;
     height: 42px;
     cursor: pointer;
-    z-index: 333;
+    z-index: 5001;
     
     &:hover {
       .menu-trigger-bar {
@@ -792,10 +808,12 @@ body {
       }
     }
   }
+  .menu-trigger {
+    z-index: 5999;
+  }
   
   .close-trigger {
-    z-index: 5;
-    top: 42px;
+    z-index: 5999;
   }
   
   .menu-trigger-bar {
@@ -913,7 +931,7 @@ body {
     width: 100%;
     left: 0;
     top: 0;
-    z-index: 5;
+    z-index: 5001;
   }
 
   .inner-container {
@@ -966,6 +984,8 @@ body {
     }
   }
 
+ 
+
   .menu-bg {
     position: absolute;
     display: block;
@@ -974,15 +994,18 @@ body {
     top: -25%;
     //top: -25%;
     height: 70%;
+
     background-color: $white-100;
     
 
     &.middle {
+      z-index: 1;
       top: 35%;
 left: -78%;
       transform: rotate(-45deg) scaleY(0);
     }
     &.top {
+      z-index: 1;
       transform: translate(-313.412px, -113%) rotate(-45deg);
 
 background-color:
@@ -995,7 +1018,7 @@ width: 1200px;
       //bottom: 0;
       top: 105%;
       transform: rotate(-45deg) translateY(25%);
-      left: -30%;
+      left: 100%;
     }
   }
 }

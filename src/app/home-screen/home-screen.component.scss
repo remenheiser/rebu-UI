@@ -54,8 +54,6 @@
     height: 100vh;
     width: 100vw;
     background-color: black;
-    z-index: 1;
-
   }
   
   path {
@@ -540,7 +538,6 @@ $curve: cubic-bezier(0.7, 0, 0.3, 1);
 			}
 			&:before {
 				display: inline;
-				content: 'View original Dribbble';
 				font-size: 2vh;
 				opacity: 0;
 				transform: translate3D(-200px, 0, 0);

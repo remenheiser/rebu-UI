@@ -1,4 +1,5 @@
 <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 </head>
@@ -19,15 +20,18 @@
 						<p>Good Morning</p>
 						<h1>{{username}}</h1>
 					</div>
-					<div class="dayIcon"><i class="fa fa-sun-o"></i></div>
+					<div class="notifHeaderMobile">
+					<!-- <div class="dayIcon"><i class="fa fa-sun-o"></i></div> -->
+					<div class="userAvatarMobile"><img src="{{profilePic}}" alt="" /></div>
+				</div>
 				</div>
 			</header>
 			<div class="reminders">
 				<div class="halfWidth">
-					<div class="todo"><i class="fa fa-book"></i><span>4</span>
+					<div class="todo"><i class="fa fa-book"></i><span id="listedSpots">4</span>
 						<p>Listed Spots</p>
 						<div class="line"></div>
-						<h4>VIEW</h4>
+						<h4 routerLink="/spots" >VIEW</h4>
 					</div>
 					<div class="todo"><i class="fa fa-files-o"></i><span>2</span>
 						<p>Previous Spots</p>

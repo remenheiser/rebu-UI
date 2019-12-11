@@ -1,3 +1,4 @@
+<!-- <!DOCTYPE html> -->
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -30,23 +31,23 @@
       <div class="menu-container">
         <ul class="menu">
           <li>
-            <a routerLink="/home" >Home</a>
+            <a class = "close-trigger" routerLink="/home" >Home</a>
           </li>
           <li>
-            <a routerLink="/spots" >Hot Spots</a>
+            <a class = "close-trigger" routerLink="/spots" >Hot Spots</a>
           </li>
           <li>
-            <a routerLink="/list" >Listing</a>
+            <a class = "close-trigger" routerLink="/list" >Listing</a>
           </li>
           <li>
-            <a routerLink="/contact" >Long Spots</a>
+            <a class = "close-trigger" routerLink="/contact" >Long Spots</a>
           </li>
           <li>
-              <a routerLink="/about" >About</a>
+              <a class = "close-trigger" routerLink="/about" >About</a>
             </li>
             <hr>
             <li>
-                <a routerLink="/account" >Account</a>
+                <a class = "close-trigger1" routerLink="/account" >Account</a>
               </li>
         </ul>
       </div>
@@ -75,7 +76,7 @@
           <li><a class="tab" routerLink="/home">Home</a></li>
           <li><a class="tab" routerLink="/spots">Hot Spots</a></li>
           <li><a class="tab" routerLink="/list">List a Spot</a></li>
-          <li><a class="tab" routerLink="/near-by">Near By</a></li>
+          <li><a class="tab" routerLink="/near-by">Nearby</a></li>
 
   <!-- First Tier Drop Down -->
   <!-- <ul>
@@ -120,7 +121,7 @@
 
 <router-outlet></router-outlet>
 
-<div style="background-color: 222222; width: 100vw; height: 50px"></div>
+<div id="foot" style="background-color: 222222; width: 100vw; height: 50px"></div>
 <footer id="footer-Section">
   <div class="footer-top-layout">
     <div class="container">

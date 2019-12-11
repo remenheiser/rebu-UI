@@ -93,6 +93,8 @@ export class AccountComponent implements OnInit {
 
 
   ngOnInit() {
+
+   
    $('#settings-wrapper').toggleClass("hide");
    $('.screen').toggleClass("hide");
 
@@ -126,6 +128,7 @@ export class AccountComponent implements OnInit {
     this.userListings = [];
     this._spotService.getSpots()
       .subscribe((data: any) => {
+        $('#listedSpots').text(data.length);
         console.log(data);
         for (var spot in data) {
                 if (data[spot].userid == this.userEmail) {

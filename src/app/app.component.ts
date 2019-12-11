@@ -50,6 +50,13 @@ export class AppComponent {
     this.tlOpen = tlOpen;
     this.tlClose = tlClose;
 
+    function preventBehavior(e) {
+    e.preventDefault(); 
+    };
+
+    function preventBehavior1(e) {
+     
+      };
     //OPEN TIMELINE
     tlOpen.add("preOpen")
       .to(logo, 0.4, {
@@ -59,7 +66,7 @@ export class AppComponent {
       }, "preOpen")
       .to(openTriggerTop, 0.4, {
         x: "+80px", y: "-80px", delay: 0.1, ease: Power4.easeIn, onComplete: function () {
-          closeTrigger.css('z-index', '25');
+          // closeTrigger.css('z-index', '25');
         }
       }, "preOpen")
       .to(openTriggerMiddle, 0.4, {
@@ -73,14 +80,17 @@ export class AppComponent {
       }, "preOpen")
       .add("open", "-=0.4")
       .to(menuTop, 0.8, {
+        
         y: "13%",
         ease: Power4.easeInOut
       }, "open")
       .to(menuMiddle, 0.8, {
+        
         scaleY: 1,
         ease: Power4.easeInOut
       }, "open")
       .to(menuBottom, 0.8, {
+        
         y: "-114%",
         ease: Power4.easeInOut
       }, "open")
@@ -107,12 +117,15 @@ export class AppComponent {
         }
       }, "close")
       .to(menuMiddle, 0.2, {
+        zIndex: 1,
         backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
       }, "close")
       .to(menuBottom, 0.2, {
+        zIndex: 1,
         backgroundColor: "rgb(225,92,50)", ease: Power4.easeInOut
       }, "close")
       .to(menu, 0.6, {
+        zIndex: 1,
         y: 20, opacity: 0, ease: Power4.easeOut, onComplete: function () {
           menu.css('visibility', 'hidden');
         }
@@ -156,23 +169,32 @@ export class AppComponent {
     //EVENTS
     openTrigger.on('click', function () {
       if (tlOpen.progress() < 1) {
+        $('.btn').hide;
+        // document.addEventListener("touchmove", preventBehavior, {passive: false});
         tlOpen.play();
+        
+        // preventBehavior
       } else {
+        // document.addEventListener("touchmove", preventBehavior, {passive: false});
         tlOpen.restart();
       }
     });
 
     closeTrigger.on('click', function () {
       if (tlClose.progress() < 1) {
+        // document.removeEventListener("touchmove", preventBehavior1)
         tlClose.play();
       } else {
+        // document.removeEventListener("touchmove", preventBehavior1)
         tlClose.restart();
       }
     });
     closeTrigger1.on('click', function () {
       if (tlClose.progress() < 1) {
+        // document.removeEventListener("touchmove", preventBehavior1)
         tlClose.play();
-      } else {
+      } else { 
+        // document.removeEventListener("touchmove", preventBehavior1)
         tlClose.restart();
       }
     });

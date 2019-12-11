@@ -285,6 +285,7 @@
   position: relative;
     overflow: hidden;
   padding-left: 0;
+
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
@@ -546,6 +547,40 @@ transition: all .5s;
 
 @media only screen and (max-width: 600px) {
 
+	.userAvatar {
+		display: none;
+	}
+
+	.notifHeader{
+		display: none;
+	}
+
+	.notifHeaderMobile {
+			height:100px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.userAvatarMobile {
+				
+				@include object(100px,100px,null);
+				img{
+					border-radius:100%;
+					width:100%;
+					cursor:pointer;
+				}
+			}
+			.options {
+				text-align: right;
+				i {
+					
+					width:100px;
+					color:#fff;
+					cursor:pointer;
+				}
+			}
+		}
+	
+
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -570,6 +605,7 @@ body {
 	@include object(375px,640px,#0D1019);
 	font-family: "Open Sans", sans-serif;
 	position: relative;
+	top: 30px;
 	overflow: hidden;
 	.app {
 		@include object(375px,640px,null);

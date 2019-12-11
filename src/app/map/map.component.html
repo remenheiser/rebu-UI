@@ -36,37 +36,39 @@
           <!-- <svg class="ico-cup">
             <use xlink:href="#cup"></use>
           </svg> -->
-          Near By Spots
+          Nearby Spots
         </h1>
 
         <ol>
-            <div *ngFor="let spots of spotsData">
+          <div *ngFor="let spots of spotsData">
 
-               
-                    <li>
 
-              <a style="padding: 50px; text-decoration: none;" routerLink="/chosen-spot/{{ spots._id}}">
-             
-                  <img class="card-img-top spotpics" src="{{ spots.img }}" alt="Card image cap">
-                  <div class="card-body">
-                    <h5 style="text-decoration: none;" class="card-title cardfont">{{ spots.title }}</h5>
-                    <p class="card-text cardfont">{{ spots.price}}</p>
-                    <p class="card-text"><small style="text-align: left;" class="text-muted cardfont"> Listed: {{ spots.date }} </small></p>
-                    <p style="text-align: center; position: absolute; bottom: -5px;"><small class="text-muted cardfont"> Click
-                        for more
-                        information </small></p>
-                  </div>
-                
+            <li id="outter">
+              <!-- routerLink="/chosen-spot/{{ spots._id}}" -->
+              <a style="padding: 50px; text-decoration: none;">
+
+                <img class="card-img-top spotpics" src="{{ spots.img }}" alt="Card image cap">
+                <div class="card-body">
+                  <h5 style="text-decoration: none;" id="spotTitle" class="card-title cardfont">{{ spots.title }}</h5>
+                  <p class="card-text cardfont">{{ spots.price}}</p>
+                  <p class="card-text"><small style="text-align: left;" class="text-muted cardfont"> Listed:
+                      {{ spots.date }} </small></p>
+                  <p style="text-align: center; position: absolute; bottom: -5px;"><small class="text-muted cardfont">
+                      Click
+                      for more
+                      information </small></p>
+                </div>
+
               </a>
             </li>
-    
 
-         
-          
-        </div>
 
-      </ol>
-       
+
+
+          </div>
+
+        </ol>
+
       </div>
     </div>
     <div class="two">

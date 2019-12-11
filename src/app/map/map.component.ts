@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class MapComponent implements OnInit {
 
   public spotsData: any[];
+  public cardCount: any;
 
   constructor(private _menuService: MenuService, private router: Router,) { }
 
@@ -20,6 +21,7 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
 
+    this.cardCount = 0;
     this._menuService.getSpots()
       .subscribe((data: any) => {
         this.spotsData = data;
@@ -274,7 +276,10 @@ export class MapComponent implements OnInit {
               markers.push(marker);
 
               console.log(markers);
-
+              
+              document.getElementById('outter').addEventListener('click', () => {
+                // alert($('#outter').find('#spotTitle').text())
+               });
 
 
               google.maps.event.addListener(marker, 'click', ((marker, i, ) => {
@@ -292,6 +297,7 @@ export class MapComponent implements OnInit {
                   var content = '<div routerLink=/chosen-spot/"' + address.id + '" style="max-width: 400px;" id="content">' + '<a  class="mapinfo">' + '<img style="max-width:200px" src="' + address.img + '" alt="' + address.title + '">' + '<div class="content-box">' + address.title + "\n" + address.price + '</div>' + '</a>';
                   // infowindow.setContent(content);
                   var routeLink = "/chosen-spot/" + address._id;
+                  // alert(this.cardCount)
                   infowindow.setContent(
                     "<a style='font-family: fancy' id='infobutton'>" +
                     "<div class='info-card'>" +
@@ -315,13 +321,17 @@ export class MapComponent implements OnInit {
                     "<a style='display: flex; justify-content: center;'> Tap for more info</a>"+
                     "</a>"
                   );
-
+                  
+                    this.cardCount++;
                   google.maps.event.addListenerOnce(infowindow, 'domready', () => {
                     document.getElementById('infobutton').addEventListener('click', () => {
                  
                      this.router.navigate([`/chosen-spot/${marker.title}`]);
                     });
+                    
                   });
+
+                  
 
                 }
                 
