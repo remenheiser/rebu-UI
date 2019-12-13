@@ -208,6 +208,13 @@ html {
   box-shadow: none !important;
 }
 
+#zipInput {
+  border:none;
+  font-family: rebu;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
 #myInput:focus {
   border-color: inherit;
   -webkit-box-shadow: none;
@@ -321,8 +328,15 @@ html {
 	}
 }
 #carPic {
-  max-width: 30px;
-  max-height: 30px;
+  max-width: 40px;
+  max-height: 40px;
+}
+
+#mapPic {
+  max-width: 35px;
+  max-height: 35px;
+  margin-left: -10px;
+  
 }
 
 input {
@@ -336,6 +350,7 @@ input {
 }
 
 .searchbox{
+  overflow: carPic;
 		height: 60px;
 		width: 450px;
     max-width: 100%;
@@ -371,24 +386,24 @@ input {
 }
 
 
-#myInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-  font-family: rebu;
-}
-#myInput::-moz-placeholder { /* Firefox 19+ */
-  font-family: rebu;
-}
-#myInput:-ms-input-placeholder { /* IE 10+ */
-  font-family: rebu;
-}
-#myInput:-moz-placeholder { /* Firefox 18- */
-  font-family: rebu;
-}
+// #myInput::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+//   font-family: rebu;
+// }
+// #myInput::-moz-placeholder { /* Firefox 19+ */
+//   font-family: rebu;
+// }
+// #myInput:-ms-input-placeholder { /* IE 10+ */
+//   font-family: rebu;
+// }
+// #myInput:-moz-placeholder { /* Firefox 18- */
+//   font-family: rebu;
+// }
 
 $color: rgb(230,74,25);
 $timing:.3s;
 
 .dropdown-el {
-  font-family: rebu;
+  // font-family: rebu;
   z-index: 1;
     
   min-width: 12em;
@@ -509,4 +524,41 @@ $timing:.3s;
 
 .btn-active {
 	color: $color !important;
+}
+
+.description {
+      margin: .3em 0 1.8em;
+  }
+
+.recipe-details {
+  display: flex;
+  list-style: none;
+  // padding: 0em 0 1em;
+  margin: 0;
+  justify-content: space-between;
+  .recipe-details-item {
+      flex: 1;
+      i {
+          font-size: 30px;
+      }
+      .value {
+          color: #ff4f87;
+          margin-left: .35em;
+          vertical-align: bottom;
+          font: {
+              size: 24px;
+              weight: 600;
+          }
+      }
+      .title {
+          display: block;
+          margin-top: -4px;
+          color: black;
+          font: {
+              family: var(--headlinesFont);
+              size: 21px;
+              weight: 300;
+          }
+      }
+  }
 }
