@@ -1,0 +1,230 @@
+#modal-content-wrapper {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    background-color: transparent;
+    grid-template-rows: repeat(1fr, 3);
+}
+
+#modal-title {
+    font-size: 22px;
+}
+
+#modal-footer {
+    justify-self: right;
+    align-self: center;
+}
+
+#modal-action-button {
+    margin-right: 30px;
+    background-color:#3b3b3b;
+}
+
+#modal-cancel-button {
+    background-color: #4e4e4e;
+}
+
+#modal-content-wrapper{
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 2px;
+    // box-shadow: 0px 3px 3px silver;
+    padding: 25px;
+    h1 {
+      margin: 0 0 20px 0; 
+      font-weight: normal;
+      color: rgb(230,74,25);
+      font-size: 30px;
+    }
+    
+    .formLabel {
+      float: left;
+      padding: 10px 10px 14px 0;
+      width: 175px;
+      margin-top: 10px;
+      clear: left;
+    }
+    
+    input {
+      float: right;
+      border: 2px solid silver;
+      padding: 8px 0;
+      border-width: 0 0 2px 0;
+      width: 200px;
+      margin-top: 15px;
+      transition: border-color .3s;
+      &:focus, &:hover {
+        border-color: rgb(230,74,25);
+        outline: 0;
+      }
+      &.warning {
+        border-color: #ff9800;
+      }
+      
+      &.error {
+        border-color: #f44336;
+      }
+      
+      &.valid {
+        border-color: #4caf50;
+      }
+      
+      &[type=submit] {
+        border: 0;
+        background-color: white;
+        color: rgb(230,74,25);
+        text-transform: uppercase;
+        width: auto;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+  .mainbuttons {
+    background: none;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 5px 15px;
+    padding: 15px 40px;
+    min-width: 201px;
+    border-radius: 50px;
+    min-height: 55px;
+    color: #fff;
+    cursor: pointer;
+    backface-visibility: hidden;
+    transition: all .3s;
+
+    @media screen and (max-width: 768px) {
+      min-width: 170px;
+      margin: 15px 25px;
+    }
+
+    @media screen and (max-width: 576px) {
+      min-width: inherit;
+      margin: 0;
+      margin-bottom: 16px;
+      width: 100%;
+      max-width: 300px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &:focus {
+      outline: none!important;
+    }
+
+    @media screen and (min-width: 768px) {
+      &:hover {
+        transform: translateY(-5px);
+      }
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.button--blue {
+		background: linear-gradient(45deg, rgb(245, 132, 98), rgb(230, 75, 25));
+		box-shadow: 0px 4px 30px rgba(255, 116, 74, 0.35);
+  
+		&:hover {
+		  box-shadow: 0px 7px 30px rgba(255, 116, 74, 0.75);
+		}
+  
+
+    }
+
+    &.button--orange {
+		background: linear-gradient(45deg, rgb(245, 132, 98), rgb(230, 75, 25));
+		box-shadow: 0px 4px 30px rgba(255, 116, 74, 0.35);
+  
+		&:hover {
+		  box-shadow: 0px 7px 30px rgba(255, 116, 74, 0.75);
+		}
+  
+    }
+
+    &.button--gray {
+      box-shadow: none;
+      background: #dcdcdc;
+      color: #142029;
+    }
+
+  }
+
+
+
+
+.avatar-upload {
+    position: relative;
+    max-width: 205px;
+    margin: -50px auto;
+    .avatar-edit {
+        position: absolute;
+        right: 12px;
+        z-index: 1;
+        top: 10px;
+        input {
+            display: none;
+            + label {
+                display: inline-block;
+                width: 34px;
+                height: 34px;
+                margin-bottom: 0;
+                border-radius: 100%;
+                background: #FFFFFF;
+                border: 1px solid transparent;
+                box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.12);
+                cursor: pointer;
+                font-weight: normal;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    background: #f1f1f1;
+                    border-color: #d6d6d6;
+                }
+                &:after {
+                    content: "\f040";
+                    font-family: 'FontAwesome';
+                    color: #757575;
+                    position: absolute;
+                    top: 10px;
+                    left: 0;
+                    right: 0;
+                    text-align: center;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    .avatar-preview {
+        width: 192px;
+        height: 192px;
+        position: relative;
+        border-radius: 100%;
+        border: 6px solid #F8F8F8;
+        box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.1);
+        > div {
+            width: 100%;
+            height: 100%;
+            border-radius: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}
+
+#buttonwrapper {
+    text-align: center;
+}

@@ -33,12 +33,17 @@ import { OwlDateTimeModule, OwlNativeDateTimeModule,  } from 'ng-pick-datetime';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MapComponent } from './map/map.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ModalComponent as ModalComponent } from './modal/modal.component';
+
 
 // import { MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [
+    ModalComponent,
     AppComponent,
     routingComponents,
     SpotsComponent,
@@ -57,9 +62,12 @@ import { MapComponent } from './map/map.component';
     ContactComponent,
     UserSpotsComponent,
     DatepickerComponent,
-    MapComponent
+    MapComponent,
+    ModalComponent
   ],
   imports: [
+    MatDialogModule,
+    MatButtonModule,
     BrowserModule /* or CommonModule */, 
       FormsModule, ReactiveFormsModule,
     HttpModule,
@@ -86,6 +94,7 @@ import { MapComponent } from './map/map.component';
       multi: true
     }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ModalComponent]
 })
 export class AppModule { }

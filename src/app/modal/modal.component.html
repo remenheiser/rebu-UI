@@ -1,0 +1,35 @@
+<div id="modal-content-wrapper">
+    <h2>Settings</h2>
+
+    <div class="avatar-upload">
+        <div class="avatar-edit">
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
+            <label for="imageUpload"></label>
+        </div>
+        <div class="avatar-preview">
+            <div id="imagePreview" [ngStyle]="{'background-image': getUrl()}">
+            </div>
+        </div>
+    </div>
+
+    <form>
+        <label class="formLabel">E-mail address</label>
+        <input type="email" name="email" data-validate="required email" placeholder="user@example.com" />
+        <label class="formLabel" >Password</label>
+        <input type="password" data-validate="required" name="password" />
+        <!-- <input type="submit" name="submit" value="Login" /> -->
+    </form>
+    <!-- <footer id="modal-footer">
+            <button mat-raised-button id="modal-action-button" (click)="actionFunction()">Cancel</button>
+            <button mat-raised-button id="modal-cancel-button" (click)="closeModal()">Save Changes</button>
+        </footer> -->
+    <div id="buttonwrapper" class="profile-card-ctr">
+        <!-- <div id="firstbutton"> -->
+        <button (click)="closeModal()" class="mainbuttons button--blue js-message-btn">Cancel</button>
+        <!-- </div> -->
+
+        <!-- <div id="secondbutton"> -->
+        <button (click)="actionFunction()" class="mainbuttons button--orange">Save</button>
+        <!-- </div> -->
+    </div>
+</div>

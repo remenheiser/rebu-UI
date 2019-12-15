@@ -9,6 +9,8 @@
 
 <body>
 
+		
+
 
 
 
@@ -273,10 +275,11 @@
 
 					<div id="buttonwrapper" class="profile-card-ctr">
 						<div id="firstbutton">
-							<button class="profile-card__button button--blue js-message-btn">Message</button>
+							<button (click)="openModal()" class="profile-card__button button--blue js-message-btn" >Settings</button>
 						</div>
+					
 						<div id="secondbutton">
-							<button class="profile-card__button button--orange">Settings</button>
+							<button class="profile-card__button button--orange">Watchlist</button>
 						</div>
 					</div>
 				</div>

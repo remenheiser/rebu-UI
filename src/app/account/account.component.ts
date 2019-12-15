@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
 import { SpotsService } from './account.component.service';
 import { Router } from '@angular/router';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ModalComponent } from '../modal/modal.component';
 declare let $: any;
 
 @Component({
@@ -19,13 +21,22 @@ export class AccountComponent implements OnInit {
 
   
 
-  constructor(private _router: Router, private _spotService: SpotsService) { }
+  constructor(public matDialog: MatDialog, private _router: Router, private _spotService: SpotsService) { }
 
 //   settingsModal() {
 //    $("#modal").toggleClass('show');
 //   }
 
- 
+openModal() {
+  const dialogConfig = new MatDialogConfig();
+  // The user can't close the dialog by clicking outside its body
+  dialogConfig.disableClose = true;
+  dialogConfig.id = "modal-component";
+  dialogConfig.height = "100%";
+  dialogConfig.width = "600px";
+  // https://material.angular.io/components/dialog/overview
+  const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+}
 
   toggleClassProfile(){
    $('#page-content-wrapper').toggleClass("hide");
@@ -111,6 +122,7 @@ export class AccountComponent implements OnInit {
    
     }else{
        this.profilePic = 'https://i-love-png.com/images/profile-icon_11542.png';
+       localStorage.setItem("profilePic", "https://i-love-png.com/images/profile-icon_11542.png")
  
     }
 
@@ -134,6 +146,10 @@ export class AccountComponent implements OnInit {
                 if (data[spot].userid == this.userEmail) {
                     this.userListings.push(data[spot]);
                 }
+              }
+              if(this.userListings.length < 1){
+                var obj = JSON.parse('{ "_id":"5de9a56909ae1e1b342fd537","title":"List your first spot","price":"For Free","img":"https://cdn.shopify.com/s/files/1/0061/4780/1157/files/StartToday_Logo.png?10734","user":"Korey","userid":"korey@gmail.com","userrating":5,"electric":false,"covered":false,"__v":0,"distance":"1"}'); 
+                this.userListings.push(obj);
               }
               console.log(this.userListings);
       });

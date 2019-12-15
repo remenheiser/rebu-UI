@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Router } from '@angular/router';
+declare let $: any;
 
 @Component({
   selector: 'app-list',
@@ -12,8 +13,18 @@ export class ListComponent implements OnInit {
   private electric: boolean = false;
   private covered: boolean = false;
   public nearByData: any = []
+  public reader;
   constructor(private _router: Router) { }
+
+
+
+
+
+
+
+
   submit() {
+    alert("T")
     const url = '/api/location/spot';
     const title = $('#Email').val(); //title
     const price = $('#Password').val(); //price
@@ -38,19 +49,26 @@ export class ListComponent implements OnInit {
     var yyyy = today.getFullYear();
 
     let date= mm + '/' + dd + '/' + yyyy;
+    // var blobFile = $('#imgID')[0].files[0];
+    // alert(JSON.stringify($('#imgID')[0].files[0]))
+    // var reader = new FileReader();
+    // formData.append("fileToUpload", blobFile);
+ 
 
-
+alert(this.reader)
     const data = {
       title: title,
       price: price,
-      img: img,
-      date: date,
-      user: userName,
-      userid: userID,
-      userrating: 5,
-      electric: this.electric,
-      covered: this.covered
+      address: title,
+      imgID: this.reader,
+      // user: userName,
+      // userid: userID,
+      // userrating: 5,
+      // electric: this.electric,
+      // covered: this.covered
     };
+    
+   
 
 //  alert(JSON.stringify(data))
     
@@ -58,13 +76,13 @@ export class ListComponent implements OnInit {
     const req = {
       method: 'put',
       headers: {
-        'content-type': 'application/json',
+        'content-type': 'application/x-www-form-urlencode',
         authorization: `Bearer ${token}`
       },
       body: JSON.stringify(data)
     };
 
-
+  
     var that = this;
 
     
@@ -76,7 +94,26 @@ export class ListComponent implements OnInit {
       .catch(function(){
         that._router.navigate(['/unauthorized']);
       });
+    
   }
+
+   readURL(input) {
+     alert(input)
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function(e) {
+            $('#imagePreview').css('background-image', 'url('+e.target.result +')');
+            $('#imagePreview').hide();
+            $('#imagePreview').fadeIn(650);
+        }
+        reader.readAsDataURL(input.files[0]);
+        this.reader = reader;
+        alert(reader)
+    }
+}
+
+  
 
   ngOnInit() {
     $('.container')
@@ -101,11 +138,21 @@ export class ListComponent implements OnInit {
       }
   });
 
+  
+$("#imageUpload").change(()=> {
+    this.readURL($("#imageUpload")[0]);
+    alert("changed")
+});
 
  
 
 
-  }
 }
+
+
+  
+}
+
+
 
 
