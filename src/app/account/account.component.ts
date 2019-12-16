@@ -18,115 +18,173 @@ export class AccountComponent implements OnInit {
   public userEmail: string;
   public username: string;
   public profilePic: string;
+  public watchlist: any = []
+  public watchlistIDs: any = []
+  public allSpots: any = []
 
-  
 
   constructor(public matDialog: MatDialog, private _router: Router, private _spotService: SpotsService) { }
 
-//   settingsModal() {
-//    $("#modal").toggleClass('show');
-//   }
+  //   settingsModal() {
+  //    $("#modal").toggleClass('show');
+  //   }
 
-openModal() {
-  const dialogConfig = new MatDialogConfig();
-  // The user can't close the dialog by clicking outside its body
-  dialogConfig.disableClose = true;
-  dialogConfig.id = "modal-component";
-  dialogConfig.height = "100%";
-  dialogConfig.width = "600px";
-  // https://material.angular.io/components/dialog/overview
-  const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
-}
-
-  toggleClassProfile(){
-   $('#page-content-wrapper').toggleClass("hide");
-   $('#settings-wrapper').toggleClass("hide");
+  openModal() {
+    const dialogConfig = new MatDialogConfig();
+    // The user can't close the dialog by clicking outside its body
+    dialogConfig.disableClose = true;
+    dialogConfig.id = "modal-component";
+    dialogConfig.height = "100%";
+    dialogConfig.width = "600px";
+    // https://material.angular.io/components/dialog/overview
+    const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
   }
 
-  toggleSettingsScreen(){
-   $('#page-content-wrapper').toggleClass("hide");
-   $('#settings-wrapper').toggleClass("hide");
-   
+  toggleClassProfile() {
+    $('#page-content-wrapper').toggleClass("hide");
+    $('#settings-wrapper').toggleClass("hide");
+  }
+
+  toggleSettingsScreen() {
+    $('#page-content-wrapper').toggleClass("hide");
+    $('#settings-wrapper').toggleClass("hide");
+
   }
 
   submit() {
-   const url = '/api/user/register';
-   const profimg = $('#profpic').val(); //title
-   const email = $('#userem').val(); //price
+    const url = '/api/user/register';
+    const profimg = $('#profpic').val(); //title
+    const email = $('#userem').val(); //price
 
 
-   var userName = localStorage.getItem('username');
-   var userID = localStorage.getItem('email');
+    var userName = localStorage.getItem('username');
+    var userID = localStorage.getItem('email');
 
-   var decodedJwtData;
-   if (localStorage.getItem('token') != null){
-   var token = localStorage.getItem('token');
-   let jwtData = token.split('.')[1]
-   let decodedJwtJsonData = window.atob(jwtData)
-   decodedJwtData = JSON.parse(decodedJwtJsonData)
-   } else{
-     this._router.navigate(['/unauthorized']);
-   }
-
-
-
-
-   const data = {
-     profilePic: profimg,
-     email: email
-   };
-
-//  alert(JSON.stringify(data))
-   
-
-   const req = {
-     method: 'put',
-     headers: {
-       'content-type': 'application/json',
-       authorization: `Bearer ${token}`
-     },
-     body: JSON.stringify(data)
-   };
+    var decodedJwtData;
+    if (localStorage.getItem('token') != null) {
+      var token = localStorage.getItem('token');
+      let jwtData = token.split('.')[1]
+      let decodedJwtJsonData = window.atob(jwtData)
+      decodedJwtData = JSON.parse(decodedJwtJsonData)
+    } else {
+      this._router.navigate(['/unauthorized']);
+    }
 
 
 
-   let that = this;
 
-   fetch(url, req)
-     .then(() => {
-       that._router.navigate(['/postlist']);
-     })
-     .catch(() => {
-       that._router.navigate(['/unauthorized']);
-     });
- }
+    const data = {
+      profilePic: profimg,
+      email: email
+    };
+
+    //  alert(JSON.stringify(data))
+
+
+    const req = {
+      method: 'put',
+      headers: {
+        'content-type': 'application/json',
+        authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify(data)
+    };
+
+
+
+    let that = this;
+
+    fetch(url, req)
+      .then(() => {
+        that._router.navigate(['/postlist']);
+      })
+      .catch(() => {
+        that._router.navigate(['/unauthorized']);
+      });
+  }
 
 
 
   ngOnInit() {
 
-   
-   $('#settings-wrapper').toggleClass("hide");
-   $('.screen').toggleClass("hide");
+    $(document).ready(function(){
+	
+      // Variables
+      var clickedTab = $(".tabs > .active");
+      var tabWrapper = $(".tab__content");
+      var activeTab = tabWrapper.find(".active");
+      var activeTabHeight = activeTab.outerHeight();
+      
+      // Show tab on page load
+      activeTab.show();
+      
+      // Set height of wrapper on page load
+      tabWrapper.height(activeTabHeight);
+      
+      $(".tabs > li").on("click", function() {
+        
+        // Remove class from active tab
+        $(".tabs > li").removeClass("active");
+        
+        // Add class active to clicked tab
+        $(this).addClass("active");
+        
+        // Update clickedTab variable
+        clickedTab = $(".tabs .active");
+        
+        // fade out active tab
+        activeTab.fadeOut(250, function() {
+          
+          // Remove active class all tabs
+          $(".tab__content > li").removeClass("active");
+          
+          // Get index of clicked tab
+          var clickedTabIndex = clickedTab.index();
+    
+          // Add class active to corresponding tab
+          $(".tab__content > li").eq(clickedTabIndex).addClass("active");
+          
+          // update new active tab
+          activeTab = $(".tab__content > .active");
+          
+          // Update variable
+          activeTabHeight = activeTab.outerHeight();
+          
+          // Animate height of wrapper to new tab height
+          tabWrapper.stop().delay(50).animate({
+            height: activeTabHeight
+          }, 500, function() {
+            
+            // Fade in active tab
+            activeTab.delay(50).fadeIn(250);
+            
+          });
+        });
+      });
+    });
+    this.watchlistIDs = localStorage.getItem("watchlist");
 
-   $('#settingsIcon').click(function(){
+    $('#settings-wrapper').toggleClass("hide");
+    $('.screen').toggleClass("hide");
+
+    $('#settingsIcon').click(function () {
       $('.screen').toggleClass("hide");
-   });
+    });
 
 
     var token = localStorage.getItem('token');
-    var pic =localStorage.getItem('profilePic').toString();
-  
-    if(!(pic === 'undefined')){
+    var pic = localStorage.getItem('profilePic').toString();
+
+    if (!(pic === 'undefined')) {
       this.profilePic = pic;
-   
-    }else{
-       this.profilePic = 'https://i-love-png.com/images/profile-icon_11542.png';
-       localStorage.setItem("profilePic", "https://i-love-png.com/images/profile-icon_11542.png")
- 
+
+    } else {
+      this.profilePic = 'https://i-love-png.com/images/profile-icon_11542.png';
+      localStorage.setItem("profilePic", "https://i-love-png.com/images/profile-icon_11542.png")
+
     }
 
-    
+
     let jwtData = token.split('.')[1]
     let decodedJwtJsonData = window.atob(jwtData)
     let decodedJwtData = JSON.parse(decodedJwtJsonData)
@@ -140,52 +198,57 @@ openModal() {
     this.userListings = [];
     this._spotService.getSpots()
       .subscribe((data: any) => {
+        this.allSpots = data;
         $('#listedSpots').text(data.length);
         console.log(data);
         for (var spot in data) {
-                if (data[spot].userid == this.userEmail) {
-                    this.userListings.push(data[spot]);
-                }
-              }
-              if(this.userListings.length < 1){
-                var obj = JSON.parse('{ "_id":"5de9a56909ae1e1b342fd537","title":"List your first spot","price":"For Free","img":"https://cdn.shopify.com/s/files/1/0061/4780/1157/files/StartToday_Logo.png?10734","user":"Korey","userid":"korey@gmail.com","userrating":5,"electric":false,"covered":false,"__v":0,"distance":"1"}'); 
-                this.userListings.push(obj);
-              }
-              console.log(this.userListings);
+          if (data[spot].userid == this.userEmail) {
+            this.userListings.push(data[spot]);
+          }
+          if (this.watchlistIDs.indexOf(data[spot]._id) > -1) {
+           
+            this.watchlist.push(data[spot])
+          }
+        }
+        if (this.userListings.length < 1) {
+          var obj = JSON.parse('{ "_id":"5de9a56909ae1e1b342fd537","title":"List your first spot","price":"For Free","img":"https://cdn.shopify.com/s/files/1/0061/4780/1157/files/StartToday_Logo.png?10734","user":"Korey","userid":"korey@gmail.com","userrating":5,"electric":false,"covered":false,"__v":0,"distance":"1"}');
+          this.userListings.push(obj);
+        }
+        console.log(this.userListings);
       });
 
-      
-      $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-     });
-     $("#menu-toggle-2").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled-2");
-        $('#menu ul').hide();
-     });
-     
-     function initMenu() {
-        $('#menu ul').hide();
-        $('#menu ul').children('.current').parent().show();
-        //$('#menu ul:first').show();
-        $('#menu li a').click(
-           function() {
-              var checkElement = $(this).next();
-              if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-                 return false;
-              }
-              if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
-                 $('#menu ul:visible').slideUp('normal');
-                 checkElement.slideDown('normal');
-                 return false;
-              }
-           }
-        );
-     }
-     $(document).ready(function() {
-        initMenu();
-     });
+
+    $("#menu-toggle").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+    $("#menu-toggle-2").click(function (e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled-2");
+      $('#menu ul').hide();
+    });
+
+    function initMenu() {
+      $('#menu ul').hide();
+      $('#menu ul').children('.current').parent().show();
+      //$('#menu ul:first').show();
+      $('#menu li a').click(
+        function () {
+          var checkElement = $(this).next();
+          if ((checkElement.is('ul')) && (checkElement.is(':visible'))) {
+            return false;
+          }
+          if ((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
+            $('#menu ul:visible').slideUp('normal');
+            checkElement.slideDown('normal');
+            return false;
+          }
+        }
+      );
+    }
+    $(document).ready(function () {
+      initMenu();
+    });
 
     // $.ajax({
     //   type: 'GET',
@@ -217,7 +280,7 @@ openModal() {
 
   }
 
-  
+
 
 
 

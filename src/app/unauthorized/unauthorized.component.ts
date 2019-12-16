@@ -33,6 +33,7 @@ export class UnauthorizedComponent implements OnInit {
         alert("Signed In!");
         console.log(response);
 
+        localStorage.setItem("watchlist", response.watchlist);
         localStorage.setItem("token", response.token);
         localStorage.setItem("username", response.username);
         localStorage.setItem("email", response.email);
