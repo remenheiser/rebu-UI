@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef } from '@angular/core';
 import { Chart } from 'chart.js';
 import { SpotsService } from './account.component.service';
 import { Router } from '@angular/router';
@@ -38,6 +38,15 @@ export class AccountComponent implements OnInit {
     dialogConfig.width = "600px";
     // https://material.angular.io/components/dialog/overview
     const modalDialog = this.matDialog.open(ModalComponent, dialogConfig);
+  }
+
+  onItemClick(i) {
+    alert(i)
+    
+  }
+
+  updateList(d){
+    $("#"+d).toggle()
   }
 
   toggleClassProfile() {
@@ -108,7 +117,7 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
 
     $(document).ready(function(){
-	
+      
       // Variables
       var clickedTab = $(".tabs > .active");
       var tabWrapper = $(".tab__content");

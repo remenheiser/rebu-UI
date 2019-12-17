@@ -457,7 +457,7 @@
 							<div class="row">
 									<div class="col-lg-12">
 				
-										<div id="spotsTitle"> Your Listed Spots </div>
+										<div class="animated fadeInUp" id="spotsTitle"> Your Listed Spots </div>
 										<hr>
 				
 										<div class="card-deck d-flex justify-content-center"
@@ -465,11 +465,17 @@
 				
 				
 											<div class="outterbox" style="cursor: pointer;"
-												*ngFor="let listing of userListings; let i = index">
+												*ngFor="let listing of userListings; let i = index" [attr.id]="listing._id">
 				
-												<div id="{{ 'wave' + i }}" class="animated bouncein edit"><a id="settingsIcon"
-														(click)='toggleClassScreen()'><img style="max-width: 30px;"
+												<div id="{{listing._id}}" class="animated bouncein edit"><a id="settingsIcon"
+														(click)="onItemClick(listing._id)"><img style="max-width: 30px;"
 															src="../../assets/tire.png"> </a></div>
+
+															<div [attr.id]= "'itemMenu_'+ listing._id" class="shopping-cart">
+																
+																<a id="settingsPannel"></a>
+																<a (click)="updateList(listing)" class="button">Remove from Watchlist</a>
+															  </div> <!--end shopping-cart -->
 				
 												<a style="text-decoration: none; " routerLink="/chosen-spot/{{listing._id}}">
 				
@@ -503,7 +509,7 @@
 					<li>
 						<div class="content__wrapper">
 					
-							<div id="spotsTitle"> Your Watchlist </div>
+							<div class="animated fadeInUp" id="spotsTitle"> Your Watchlist </div>
 				<hr>
 				<div class="card-deck d-flex justify-content-center"
 					style="margin-left: auto; margin-right: auto">
