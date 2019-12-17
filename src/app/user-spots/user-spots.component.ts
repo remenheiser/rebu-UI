@@ -16,16 +16,12 @@ export class UserSpotsComponent implements OnInit {
   ngOnInit() {
 
     var token = localStorage.getItem('token');
-
     
     let jwtData = token.split('.')[1]
     let decodedJwtJsonData = window.atob(jwtData)
     let decodedJwtData = JSON.parse(decodedJwtJsonData)
     console.log(decodedJwtData);
     this.userEmail = decodedJwtData.email;
-
-
-
 
     this.userListings = [];
     this._spotService.getSpots()
