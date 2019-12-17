@@ -1,21 +1,21 @@
 <meta charset="utf-8">
+
 <head>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
-        crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+        integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 </head>
+
 <body>
 
-
-   
-            <h1 id="textAnim">
-              <div class="animation">
-                <span class="first">Listing </span> 
-                <span class="oh">
-                  <span class="second">Made Simple</span>
-                </span>
-              </div>
-            </h1>
-  
+    <h1 id="textAnim">
+        <div class="animation">
+            <span class="first">Listing </span>
+            <span class="oh">
+                <span class="second">Made Simple</span>
+            </span>
+        </div>
+    </h1>
 
     <div class="loginContainer row shadow">
         <div class="col-md-4 p-0">
@@ -30,33 +30,42 @@
                 <div class="row">
                     <div class="col-md-12">
                         <section id="loginForm">
-                            <form autocomplete="off" class="form-horizontal" role="form">
+                            <form autocomplete="off" class="form-horizontal" role="form" action="/api/location/spot" method="POST" enctype="multipart/form-data">
+                                
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Email">Title</label>
-                                        <input autocomplete="false" placeholder= "Spots address" class="form-control valid" id="Email" name="Email"
-                                            type="text">
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="col-md-2 control-label" for="Password">Price</label>
-                                        <input autocomplete="false" placeholder= "Price per hour" class="form-control valid" id="Password"
-                                            name="Password" type="text">
-                                           
+                                        <label class="col-md-2 control-label" for="Title">Title</label>
+                                        <input autocomplete="false" placeholder="Title"
+                                            class="form-control valid" id="Title" name="Title" type="text">
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
-                                        <div class="form-group">
-                                                <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" />
-                                                <label for="imageUpload"></label>
-                                        </div>
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="Address">Address</label>
+                                        <input autocomplete="false" placeholder="Spots address"
+                                            class="form-control valid" id="Address" name="Address" type="text">
                                     </div>
+                                </div>
+                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="col-md-2 control-label" for="Price">Price</label>
+                                        <input autocomplete="false" placeholder="Price per hour"
+                                            class="form-control valid" id="Price" name="Price" type="text">
+                                    </div>
+                                </div>
 
-                                    <div style="display: flex;
-                                    justify-content: center;"class="col-md-12" id="checkboxes">
-                                        <!-- <div style="width: 200px;">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type='file' id="imageUpload" accept="image/png, image/jpg, image/jpeg" name="spotImage"/>
+                                        <label for="imageUpload"></label>
+                                    </div>
+                                </div>
+
+                                <div style="display: flex;
+                                    justify-content: center;" class="col-md-12" id="checkboxes">
+                                    <!-- <div style="width: 200px;">
                                             <input type="checkbox" id="optiona" name="option">
                                             <label class="checkbox" for="optiona">Electric Charging
                                               <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
@@ -76,22 +85,21 @@
                                             </label>
                                           </div> -->
 
-                                          <ul class="ks-cboxtags">
-                                            <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label for="checkboxOne">Electric Charging</label></li>
-                                            <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy"><label for="checkboxTwo">Covered Parking</label></li>
-                                            </ul>
-                                        </div>
-                                        
-          
+                                    <ul class="ks-cboxtags">
+                                        <li><input type="checkbox" id="checkboxOne" value="Rainbow Dash"><label
+                                                for="checkboxOne">Electric Charging</label></li>
+                                        <li><input type="checkbox" id="checkboxTwo" value="Cotton Candy"><label
+                                                for="checkboxTwo">Covered Parking</label></li>
+                                    </ul>
+                                </div>
 
                                 <div class="form-group">
                                     <div class=" col-md-12">
                                         <div id="buttonHolder">
-                                            <Button (click)="submit()" type="button"class="btn"> List Spot </Button>
+                                            <Button (click)="submit()" type="submit" class="btn"> List Spot </Button>
                                         </div>
                                     </div>
                                 </div>
-
 
                             </form>
                         </section>
@@ -102,7 +110,5 @@
         </div>
 
     </div>
-
-
 
 </body>
