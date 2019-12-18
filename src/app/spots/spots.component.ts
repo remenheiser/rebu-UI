@@ -23,11 +23,13 @@ export class SpotsComponent implements OnInit {
   constructor(private _spotService: SpotsService) { }
 
   ngOnInit() {
+   
     this.spotsData = [];
     this._spotService.getSpots()
       .subscribe((data: any) => {
         this.spotsData = data;
         this.spotsOrgList = data;
+    
       });
 
 

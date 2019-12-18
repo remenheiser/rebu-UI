@@ -41,7 +41,7 @@ export class AccountComponent implements OnInit {
   }
 
   onItemClick(i) {
-    alert(i)
+    // $('#' + )
     
   }
 
@@ -211,7 +211,7 @@ export class AccountComponent implements OnInit {
         $('#listedSpots').text(data.length);
         console.log(data);
         for (var spot in data) {
-          if (data[spot].userid == this.userEmail) {
+          if (data[spot].userEmail == this.userEmail) {
             this.userListings.push(data[spot]);
           }
           if (this.watchlistIDs.indexOf(data[spot]._id) > -1) {

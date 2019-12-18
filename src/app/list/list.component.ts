@@ -16,17 +16,20 @@ export class ListComponent implements OnInit {
   public reader;
   constructor(private ListCompRouter: Router) { }
 
+  
+
+
+
   submit() {
     const url = '/api/location/spot';
     const title = $('#Title').val(); // title
     const address = $('#Address').val(); // address
     const price = $('#Price').val(); // price
-    const img = (document.getElementById('imageUpload') as HTMLInputElement).files[0]; // spot image
+    const img = (document.getElementById('file-upload') as HTMLInputElement).files[0]; // spot image
 
     let formData = new FormData();
-
     const userName = localStorage.getItem('username');
-    const userID = localStorage.getItem('email');
+    const userEmail = localStorage.getItem('email');
     let token: string;
     let decodedJwtData;
 
@@ -45,29 +48,18 @@ export class ListComponent implements OnInit {
     const yyyy = today.getFullYear();
 
     const date = mm + '/' + dd + '/' + yyyy;
-    // let blobFile = $('#imgID')[0].files[0];
-    // alert(JSON.stringify($('#imgID')[0].files[0]))
-    // let reader = new FileReader();
 
     formData.append('address', address);
     formData.append('price', price);
     formData.append('title', title);
     formData.append('spotImage', img);
+    formData.append('dateListed', date);
+    formData.append('userName', userName);
+    formData.append('userEmail', userEmail);
+    formData.append('electric', JSON.stringify(this.electric));
+    formData.append('covered', JSON.stringify(this.covered));
 
-    alert(this.reader);
-    const data = {
-      title: title,
-      price: price,
-      address: title,
-      imgID: this.reader,
-      // user: userName,
-      // userid: userID,
-      // userrating: 5,
-      // electric: this.electric,
-      // covered: this.covered
-    };
 
-    //  alert(JSON.stringify(data))
 
     const req = {
       method: 'post',
@@ -77,34 +69,57 @@ export class ListComponent implements OnInit {
       body: formData
     };
 
-    const that = this;
+   
 
     fetch(url, req)
       .then(() => {
-        that.ListCompRouter.navigate(['/postlist']);
+        this.ListCompRouter.navigate(['/postlist']);
       })
       .catch(() => {
-        that.ListCompRouter.navigate(['/unauthorized']);
+        this.ListCompRouter.navigate(['/unauthorized']);
       });
   }
 
-  readURL(input) {
-    alert(input);
-    if (input.files && input.files[0]) {
-      const reader = new FileReader();
+  // readURL(input) {
+  //   alert(input);
+  //   if (input.files && input.files[0]) {
+  //     const reader = new FileReader();
 
-      reader.onload = (e) => {
-        // $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
-        $('#imagePreview').hide();
-        $('#imagePreview').fadeIn(650);
-      };
-      reader.readAsDataURL(input.files[0]);
-      this.reader = reader;
-      alert(reader);
-    }
-  }
+  //     reader.onload = (e) => {
+  //       // $('#imagePreview').css('background-image', 'url(' + e.target.result + ')');
+  //       $('#imagePreview').hide();
+  //       $('#imagePreview').fadeIn(650);
+  //     };
+  //     reader.readAsDataURL(input.files[0]);
+  //     this.reader = reader;
+  //     alert(reader);
+  //   }
+  // }
 
   ngOnInit() {
+
+    $("#blah").click(function () {
+      $("#file-upload").trigger('click');
+  });
+
+
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+          var reader = new FileReader();
+  
+          reader.onload = function (e) {
+              $('#blah')
+                  .attr('src', e.target.result);
+          };
+  
+          reader.readAsDataURL(input.files[0]);
+      }
+  }
+
+    $("#file-upload").change(function() {
+      readURL(this);
+  });
+
     $('.container')
       .animate({ top: 0 })
       .delay(500);
@@ -128,12 +143,14 @@ export class ListComponent implements OnInit {
     });
 
 
-    $('#imageUpload').change(() => {
-      this.readURL($('#imageUpload')[0]);
-      alert('changed');
-    });
+    // $('#imageUpload').change(() => {
+    //   this.readURL($('#imageUpload')[0]);
+    //   alert('changed');
+    // });
 
   }
+  
+  
 }
 
 
