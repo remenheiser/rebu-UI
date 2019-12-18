@@ -109,7 +109,7 @@ export class ListComponent implements OnInit {
   
           reader.onload = function (e) {
               $('#blah')
-                  .attr('src', e.target.result);
+                  .attr('src', reader.result);
           };
   
           reader.readAsDataURL(input.files[0]);
