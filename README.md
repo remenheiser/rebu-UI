@@ -1,5 +1,7 @@
 # Rebu
 
+[![Build status](https://dev.azure.com/kmitchel/Spotly/_apis/build/status/Spotly-CI)](https://dev.azure.com/kmitchel/Spotly/_build/latest?definitionId=3)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.10.
 
 ## Development server
